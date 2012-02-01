@@ -11,6 +11,7 @@ int main(void)
 {
     while(1)
     {
+		//I typed this after I created the first commit
         //TODO:: Please write your application code 
     }
 }
