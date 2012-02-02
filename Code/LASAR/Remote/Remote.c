@@ -5,7 +5,14 @@
  *  Author: Dubs
  */ 
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <avr/io.h>
+#include "LCD Library\typedefs.h"
+#include "LCD Library\GrLCD.h"
+#include "LCD Library\cfaf320.h"
+
+#define F_CPU 16000000UL
 
 int main(void)
 {

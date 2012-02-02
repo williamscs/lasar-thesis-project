@@ -1,6 +1,8 @@
 #if !defined(GrLCD_H)
 #define GrLCD_H
 
+#include"typedefs.h"
+
 // display size
 
 #define NR_COLS		320

@@ -61,9 +61,74 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="LCD Library\cfaf320.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\cfaf320.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\Font16.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\Font16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\Font8.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\Font8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\GrLCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\GrLCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\helvb10.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\helvb10.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\helvn6.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\helvn6.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\timesb12.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\timesb12.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD Library\typedefs.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Remote.c">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LCD Library\Font16">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="LCD Library\Font8">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="LCD Library\helvb10">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="LCD Library\helvn6">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="LCD Library\timesb12">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LCD Library\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
 </Project>
