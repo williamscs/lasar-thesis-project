@@ -1,0 +1,17 @@
+Partlist exported from C:/lasar-thesis-project/Schematics and PCB Design/LINC/LINC.sch at 2/7/2012 10:17:59 AM
+
+Qty Value            Device           Parts  
+1                    LED10MM          LED1   
+1                    SWITCH-SPSTPTH   S1     
+1   3V3              BATTERY12PTH     BAT    
+1   16MHz            CRYSTALHC49S     Q1     
+2   22pF             C-EU025-025X050  C1, C2 
+1   100              RESISTORPTH-1/4W R2     
+1   AVR_SPI_PRG_6PTH AVR_SPI_PRG_6PTH AVR_ISP
+1   BLUETOOTH-RN41"  BLUETOOTH-RN41"  U$1    
+1   DS3234           DS3234           RTC1   
+1   LCD-16X2SILK     LCD-16X2SILK     U1     
+1   MEGA8-AI         MEGA8-AI         IC1    
+1   POWER_JACKPTH    POWER_JACKPTH    J1     
+1   PTCSMD           PTCSMD           F1     
+1   TRIMPOTPTH       TRIMPOTPTH       R1     
