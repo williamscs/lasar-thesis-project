@@ -1,0 +1,28 @@
+Partlist exported from C:/lasar-thesis-project/Schematics and PCB Design/Remote/Remote.sch at 2/7/2012 10:10:36 AM
+
+Qty Value               Device              Parts     
+1                       AT90USB-TQFP        IC1       
+1                       LEDCHIPLED_1206     LED1      
+1                       TAC_SWITCHSMD       S1        
+1   0                   RESISTOR1206        R1        
+1   0.1uF               CAP1206             C5        
+1   1uF                 CAP0603-CAP         C4        
+3   1uF                 CAP1206             C1, C2, C3
+1   4.7uF               CAP1206             C6        
+1   6.8uH               INDUCTOR0603        L1        
+1   10MHz               CRYSTAL10.5X4.8     Q1        
+1   10k                 RESISTOR1206        R4        
+2   20pF                CAP1206             C7, C8    
+1   25.5                RESISTOR1206        R6        
+2   68                  RESISTOR1206        R5, R7    
+2   165                 RESISTOR1206        R2, R3    
+1   AYZ0202             AYZ0202             U$1       
+1   Amber               LEDCHIPLED_1206     LED2      
+1   BAT54               BAT54               D1        
+1   CFAF320240F-035T    CFAF320240F-035T    U$3       
+1   FAN5333             FAN5333             U$4       
+1   MAX1555             MAX1555             U1        
+1   PSP_TOUCH_CONNECTOR PSP_TOUCH_CONNECTOR U$2       
+1   PTCSMD              PTCSMD              F1        
+1   USB_MICROB_PLUG     USB_MICROB_PLUG     JP1       
+1   V_REG_LDOSMD        V_REG_LDOSMD        U2        
