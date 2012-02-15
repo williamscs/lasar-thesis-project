@@ -31,15 +31,11 @@ volatile uint8_t zerocross = 1;
 int main(void)
 {
 	DDRB = (1<<PORTB0);
+	//DDRB = (1 << PORTD6);
 	DDRD = (1 << PORTD3);
 	DDRD &= ~(1 << PORTD2);
 	PORTB &= ~(1 << PORTB0);
-	
-	//PORTB |= (1 << PORTB0);
-	/*
-	_delay_ms(10000);
-	dim = 30;
-	*/
+	//PORTD &= (1 << PORTD6);
 	
 	initTimer(65);
 	initInterrupt0();
@@ -49,7 +45,7 @@ int main(void)
 	sei();
 	
 	while(1)
-	{/*
+	{
 		for( int j = 1; j < 115; ++j )
 		{
 			PORTD |= (1 << PORTD3);
@@ -61,15 +57,20 @@ int main(void)
 			PORTD &= ~(1 << PORTD3);
 			dim = j;
 			_delay_ms(40);
-		}*/
+		}
 	}				
     return(0);
 }
 
+/*
+ * Function Name:
+ * Author: Chris Williams
+ */
 void initTimer( int dutycycle )
 {
 	OCR0A = 130; //cap of Timer0
 	OCR0B = dutycycle;
+	
     DDRD |= (1 << PORTD6);         
 	
 	TCCR0A |= (1 << COM0A1);
@@ -81,7 +82,7 @@ void initTimer( int dutycycle )
     TCCR0B |= (1 << CS01);
     // set prescaler to 8 and starts PWM
 	
-	TIMSK0 = (1 << TOIE0);
+	TIMSK0 = (1 << OCIE0A) | (1 << TOIE0);
 	//Enable OVF
 	
 	/* OLD CODE 2/15/2012
@@ -95,6 +96,7 @@ void initTimer( int dutycycle )
 	//Enable COMPA
 	*/
 }
+
 
 void initInterrupt0()
 {
@@ -128,15 +130,17 @@ ISR(USART_RX_vect)
  
  
 //OLD: 2/15/2012
-//ISR(TIMER0_COMPB_vect)
-ISR(TIMER0_OVF_vect)
+//ISR(TIMER0_OVF_vect)
+ISR(TIMER0_COMPA_vect)
 {
 	if( zerocross == 1) 
 	{
 		if( count >= dim )
 		{
+			//PORTD |= (1 << PORTD6);
 			PORTB |= (1 << PORTB0);
 			_delay_us( 5 );
+			//PORTD &= ~(1 << PORTD6);
 			PORTB &= ~(1 << PORTB0);
 			count = 0;
 			zerocross = 0;

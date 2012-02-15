@@ -1,28 +1,46 @@
-Partlist exported from C:/lasar-thesis-project/Schematics and PCB Design/Satellite/Satellite.sch at 2/7/2012 10:01:40 AM
+Partlist exported from C:/lasar-thesis-project/Schematics and PCB Design/Satellite/Satellite.sch at 2/15/2012 5:22:31 PM
 
-Qty Value           Device           Parts         
-1                   LED3MM           POWER         
-1                   M03PTH           SERVO         
-3                   M06SIP           JP1, JP2, JP3 
-1                   SWITCH-SPSTKIT   S1            
-2                   TAC_SWITCHPTH    BT_RST, RST   
-1   0.01uF          CAPPTH2          C6            
-3   0.1uF           CAPPTH2          C2, C4, C5    
-1   1A Fast Acting  PTCPTH           F1            
-1   1k              RESISTORPTH-1/4W R7            
-1   3.3V            V_REG_78XXSIDE   VREG          
-1   4N25M           4N25M            OK1           
-3   10k             RESISTORPTH-1/4W R1, R4, R11   
-1   16MHz           CRYSTALHC49US    Y1            
-2   22pF            CAPPTH2          C1, C3        
-1   39              RESISTORPTH-1/4W R12           
-4   47k 1/2W        RESISTORPTH-1/2W R2, R3, R5, R6
-2   330             RESISTORPTH-1/4W R8, R10       
-1   470             RESISTORPTH-1/4W R9            
-1   AVR ISP         AVR_SPI_PRG_6PTH J1            
-1   BLUETOOTH-RN41" BLUETOOTH-RN41"  U$            
-1   BT136           BT136            T1            
-1   MEGA8-P         MEGA8-P          IC1           
-2   MKDS_5/3-6,35   MKDS_5/3-6,35    X1, X2        
-1   MOC3012M        MOC3012M         OK2           
-1   POWER_JACKPTH   POWER_JACKPTH    J2            
+Part    Value           Device           Package          Description                                       
+BAT     3V3             BATTERY12PTH     BATTCON_12MM_PTH Battery Holders                                   
+BT_RST                  TAC_SWITCHPTH    TACTILE-PTH      Momentary Switch                                  
+C1      22pF            CAPPTH2          CAP-PTH-SMALL2   Capacitor                                         
+C2      0.1uF           CAPPTH2          CAP-PTH-SMALL2   Capacitor                                         
+C3      22pF            CAPPTH2          CAP-PTH-SMALL2   Capacitor                                         
+C4      0.1uF           CAPPTH2          CAP-PTH-SMALL2   Capacitor                                         
+C5      0.1uF           CAPPTH2          CAP-PTH-SMALL2   Capacitor                                         
+C6      0.01uF          CAPPTH2          CAP-PTH-SMALL2   Capacitor                                         
+F1      1A Fast Acting  PTCPTH           PTC              Resettable Fuse PTC                               
+IC1     MEGA8-P         MEGA8-P          DIL28-3          MICROCONTROLLER                                   
+J1      AVR ISP         AVR_SPI_PRG_6PTH 2X3              AVR ISP 6 Pin                                     
+J2      POWER_JACKPTH   POWER_JACKPTH    POWER_JACK_PTH   Power Jack                                        
+JP1                     M06SIP           1X06             Header 6                                          
+JP2                     M06SIP           1X06             Header 6                                          
+JP3                     M06SIP           1X06             Header 6                                          
+JP4                     M04PTH           1X04             Header 4                                          
+OK1     4N25M           4N25M            DIL06            General Purpose 6-Pin Phototransistor Optocouplers
+OK2     MOC3012M        MOC3012M         DIL06            RANDOM-PHASE OPTOISOLATORS TRIAC DRIVER OUTPUT    
+POWER                   LED3MM           LED3MM           LED                                               
+R1      10k             RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R2      47k 1/2W        RESISTORPTH-1/2W AXIAL-0.5        Resistor                                          
+R3      47k 1/2W        RESISTORPTH-1/2W AXIAL-0.5        Resistor                                          
+R4      10k             RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R5      47k 1/2W        RESISTORPTH-1/2W AXIAL-0.5        Resistor                                          
+R6      47k 1/2W        RESISTORPTH-1/2W AXIAL-0.5        Resistor                                          
+R7      1k              RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R8      180             RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R9      2.4k            RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R10     330             RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R11     10k             RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R12     39              RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+R13     10k             RESISTORPTH-1/4W AXIAL-0.4        Resistor                                          
+RST                     TAC_SWITCHPTH    TACTILE-PTH      Momentary Switch                                  
+RTC1    DS3234          DS3234           DS3234           DS3234 Real Time Clock                            
+RTC_RST                 TAC_SWITCHPTH    TACTILE-PTH      Momentary Switch                                  
+S1                      SWITCH-SPSTKIT   SWITCH-SPDT_KIT  SPST Switch                                       
+SERVO                   M03PTH           1X03             Header 3                                          
+T1      BT136           BT136            TO220AB          Triac BT136 series E sensitive gate               
+U$      BLUETOOTH-RN41" BLUETOOTH-RN41"  RN41                                                               
+VREG    3.3V            V_REG_78XXSIDE   78XXL            Voltage Regulator                                 
+X1      MKDS_5/3-6,35   MKDS_5/3-6,35    MKDS_5/3-635     MKDS 5/3-6,35                                     
+X2      MKDS_5/3-6,35   MKDS_5/3-6,35    MKDS_5/3-635     MKDS 5/3-6,35                                     
+Y1      16MHz           CRYSTALHC49US    HC49US           Crystals                                          
