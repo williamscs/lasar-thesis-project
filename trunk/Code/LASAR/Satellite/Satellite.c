@@ -41,16 +41,15 @@ int main(void)
 	dim = 30;
 	*/
 	
-			PORTD |= (1 << PORTD3);
 	initTimer(65);
 	initInterrupt0();
-	dim = 1;
+	dim = 10;
 	
 	// turn on interrupts
 	sei();
 	
 	while(1)
-	{
+	{/*
 		for( int j = 1; j < 115; ++j )
 		{
 			PORTD |= (1 << PORTD3);
@@ -62,28 +61,39 @@ int main(void)
 			PORTD &= ~(1 << PORTD3);
 			dim = j;
 			_delay_ms(40);
-		}
+		}*/
 	}				
     return(0);
 }
 
 void initTimer( int dutycycle )
 {
-	OCR0A = 255;
+	OCR0A = 130; //cap of Timer0
 	OCR0B = dutycycle;
     DDRD |= (1 << PORTD6);         
 	
 	TCCR0A |= (1 << COM0A1);
-    // set none-inverting mode
+    // set non-inverting mode
 
-    TCCR0A |= (1 << WGM01) | (1 << WGM00);
+    TCCR0A |= (1 << WGM01);
+    // set CTC (Clear Timer on Compare) Mode
+
+    TCCR0B |= (1 << CS01);
+    // set prescaler to 8 and starts PWM
+	
+	TIMSK0 = (1 << TOIE0);
+	//Enable OVF
+	
+	/* OLD CODE 2/15/2012
+	TCCR0A |= (1 << WGM01) | (1 << WGM00);
     // set fast PWM Mode
 
     TCCR0B |= (1 << CS01);
     // set prescaler to 8 and starts PWM
 	
 	TIMSK0 = (1 << OCIE0B);
-	//Enable COMPA, COMPB, and OVF interrupts
+	//Enable COMPA
+	*/
 }
 
 void initInterrupt0()
@@ -116,7 +126,10 @@ ISR(USART_RX_vect)
 	rxflag = 1;
 }
  
-ISR(TIMER0_COMPB_vect)
+ 
+//OLD: 2/15/2012
+//ISR(TIMER0_COMPB_vect)
+ISR(TIMER0_OVF_vect)
 {
 	if( zerocross == 1) 
 	{
