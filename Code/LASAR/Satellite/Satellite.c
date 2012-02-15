@@ -23,35 +23,44 @@ void setCycle(int dutycycle);
 #define BAUD 9600UL
 #define MYUBRR (F_CPU/(16*BAUD))-1 
 
-volatile unsigned int dim = 72;
-volatile unsigned int i = 0;
-volatile unsigned int tick = 0;
+volatile unsigned int dim = 20;
+volatile unsigned int count = 0;
 volatile uint8_t rxflag = 0;
-volatile uint8_t zerocross = 0;
+volatile uint8_t zerocross = 1;
 
 int main(void)
 {
 	DDRB = (1<<PORTB0);
 	DDRD = (1 << PORTD3);
+	DDRD &= ~(1 << PORTD2);
 	PORTB &= ~(1 << PORTB0);
 	
 	//PORTB |= (1 << PORTB0);
+	/*
+	_delay_ms(10000);
+	dim = 30;
+	*/
+	
+			PORTD |= (1 << PORTD3);
+	initTimer(65);
+	initInterrupt0();
+	dim = 1;
+	
 	// turn on interrupts
 	sei();
-	_delay_ms(10000);
-	dim = 128;
-	initTimer(65);
+	
 	while(1)
 	{
-		for( int i = 0; i < 256; ++i )
+		for( int j = 1; j < 115; ++j )
 		{
-			setCycle(i);
+			PORTD |= (1 << PORTD3);
+			dim = j;
 			_delay_ms(40);
 		}
-		
-		for( int i = 255; i > 0; --i)
+		for( int j = 115; j > 1; --j)
 		{
-			setCycle(i);
+			PORTD &= ~(1 << PORTD3);
+			dim = j;
 			_delay_ms(40);
 		}
 	}				
@@ -60,6 +69,7 @@ int main(void)
 
 void initTimer( int dutycycle )
 {
+	OCR0A = 255;
 	OCR0B = dutycycle;
     DDRD |= (1 << PORTD6);         
 	
@@ -71,14 +81,16 @@ void initTimer( int dutycycle )
 
     TCCR0B |= (1 << CS01);
     // set prescaler to 8 and starts PWM
+	
+	TIMSK0 = (1 << OCIE0B);
+	//Enable COMPA, COMPB, and OVF interrupts
 }
 
 void initInterrupt0()
 {
-	DDRD &= ~(1 << PORTD2);
 	PORTD |= (1 << PORTD2);
-	PCMSK0 |= (1 << PORTD2);
-	MCUCR = (1 << ISC01) | (1 << ISC00); //falling edge triggers interrupt
+	EICRA = 0b00000010;
+	EIMSK |= (1 << INT0);
 }	
 
 
@@ -87,6 +99,7 @@ void setCycle(int dutycycle)
 	cli();
 	OCR0A = dutycycle;
 	sei();
+	return;
 }
 
 /*
@@ -99,29 +112,28 @@ ISR(USART_RX_vect)
 	while ( !(UCSR0A  & (1 << RXC0)) )
 	;
 	/* Get and return received data from buffer */
-	dim = UDR0;
+	//dim = UDR0;
 	rxflag = 1;
 }
  
 ISR(TIMER0_COMPB_vect)
 {
-	PORTD |= (1 << PORTD3);
 	if( zerocross == 1) 
 	{
-		if( i >= dim )
+		if( count >= dim )
 		{
 			PORTB |= (1 << PORTB0);
 			_delay_us( 5 );
 			PORTB &= ~(1 << PORTB0);
-			i = 0;
+			count = 0;
 			zerocross = 0;
 		}
 		else
 		{
-			++i;
+			
+			count = count + 1;
 		}
-	}		
-   
+	}
 }
 
 ISR(INT0_vect)
