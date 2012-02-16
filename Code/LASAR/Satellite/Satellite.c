@@ -31,6 +31,7 @@ volatile uint8_t zerocross = 1;
 int main(void)
 {
 	DDRB = (1<<PORTB0);
+	DDRC = 0xFF;
 	//DDRB = (1 << PORTD6);
 	DDRD = (1 << PORTD3);
 	DDRD &= ~(1 << PORTD2);
@@ -46,16 +47,18 @@ int main(void)
 	
 	while(1)
 	{
-		for( int j = 1; j < 115; ++j )
+		for( int j = 1; j < 90; ++j )
 		{
 			PORTD |= (1 << PORTD3);
 			dim = j;
+			PORTC = j;
 			_delay_ms(40);
 		}
-		for( int j = 115; j > 1; --j)
+		for( int j = 90; j > 1; --j)
 		{
 			PORTD &= ~(1 << PORTD3);
 			dim = j;
+			PORTC = j;
 			_delay_ms(40);
 		}
 	}				
