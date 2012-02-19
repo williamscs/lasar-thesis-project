@@ -7,10 +7,11 @@
 
 #define F_CPU 16000000UL
 
-#include <avr\io.h>
+#include<avr\io.h>
 #include<avr\sfr_defs.h>                       // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
 #include<util\delay.h>                          // This is for using the _delay_ms() function.
 #include<avr\interrupt.h>
+#include<avr\sleep.h>
 
 
 //Function headers
@@ -26,6 +27,7 @@ void setCycle(int dutycycle);
 volatile unsigned int dim = 20;
 volatile unsigned int count = 0;
 volatile uint8_t rxflag = 0;
+volatile uint8_t slpflag = 0;
 volatile uint8_t zerocross = 1;
 
 int main(void)
@@ -33,7 +35,7 @@ int main(void)
 	DDRB = (1<<PORTB0);
 	DDRC = 0xFF;
 	//DDRB = (1 << PORTD6);
-	DDRD = (1 << PORTD3);
+	//DDRD = (1 << PORTD3);
 	DDRD &= ~(1 << PORTD2);
 	PORTB &= ~(1 << PORTB0);
 	//PORTD &= (1 << PORTD6);
@@ -49,14 +51,14 @@ int main(void)
 	{
 		for( int j = 1; j < 90; ++j )
 		{
-			PORTD |= (1 << PORTD3);
+			//PORTD |= (1 << PORTD3);
 			dim = j;
 			PORTC = j;
 			_delay_ms(40);
 		}
 		for( int j = 90; j > 1; --j)
 		{
-			PORTD &= ~(1 << PORTD3);
+			//PORTD &= ~(1 << PORTD3);
 			dim = j;
 			PORTC = j;
 			_delay_ms(40);
@@ -103,9 +105,10 @@ void initTimer( int dutycycle )
 
 void initInterrupt0()
 {
-	PORTD |= (1 << PORTD2);
-	EICRA = 0b00000010;
-	EIMSK |= (1 << INT0);
+	PORTD |= (1 << PORTD2) | (1 << PORTD3);
+	EICRA = 0;
+	EICRA |= (1 << ISC11) | (1 << ISC01);
+	EIMSK |= (1 << INT1) | (1 << INT0);
 }	
 
 
@@ -159,4 +162,22 @@ ISR(TIMER0_COMPA_vect)
 ISR(INT0_vect)
 {
 	zerocross = 1;
+}
+
+ISR(INT1_vect)
+{
+	//Go to low power state
+	if(slpflag == 0)
+	{
+		PORTB &= ~(1 << PORTB0);
+		set_sleep_mode( SLEEP_MODE_PWR_SAVE );
+		sleep_enable();
+		sleep_cpu();
+		slpflag = 1;
+	}		
+	else
+	{
+		sleep_disable();
+		slpflag = 0;
+	}		
 }
