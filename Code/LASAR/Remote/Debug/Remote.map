@@ -989,24 +989,24 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .debug_frame   0x00000030      0x110 LCD Library/GrLCD.o
  .debug_frame   0x00000140       0x20 Remote.o
 
-.debug_str      0x00000000     0x14ea
+.debug_str      0x00000000     0x1504
  *(.debug_str)
- .debug_str     0x00000000       0xea LCD Library/cfaf320.o
-                                0x128 (size before relaxing)
- .debug_str     0x000000ea      0x420 LCD Library/Font16.o
-                                0x4e2 (size before relaxing)
- .debug_str     0x0000050a      0x3d1 LCD Library/Font8.o
-                                0x499 (size before relaxing)
- .debug_str     0x000008db      0x1ac LCD Library/GrLCD.o
-                                0x2c7 (size before relaxing)
- .debug_str     0x00000a87      0x370 LCD Library/helvb10.o
-                                0x44a (size before relaxing)
- .debug_str     0x00000df7      0x36f LCD Library/helvn6.o
-                                0x449 (size before relaxing)
- .debug_str     0x00001166      0x371 LCD Library/timesb12.o
-                                0x44b (size before relaxing)
- .debug_str     0x000014d7       0x13 Remote.o
-                                 0xda (size before relaxing)
+ .debug_str     0x00000000      0x104 LCD Library/cfaf320.o
+                                0x142 (size before relaxing)
+ .debug_str     0x00000104      0x420 LCD Library/Font16.o
+                                0x4fc (size before relaxing)
+ .debug_str     0x00000524      0x3d1 LCD Library/Font8.o
+                                0x4b3 (size before relaxing)
+ .debug_str     0x000008f5      0x1ac LCD Library/GrLCD.o
+                                0x2e1 (size before relaxing)
+ .debug_str     0x00000aa1      0x370 LCD Library/helvb10.o
+                                0x464 (size before relaxing)
+ .debug_str     0x00000e11      0x36f LCD Library/helvn6.o
+                                0x463 (size before relaxing)
+ .debug_str     0x00001180      0x371 LCD Library/timesb12.o
+                                0x465 (size before relaxing)
+ .debug_str     0x000014f1       0x13 Remote.o
+                                 0xf4 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
