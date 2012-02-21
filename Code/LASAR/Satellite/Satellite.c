@@ -27,7 +27,7 @@ void setCycle(int dutycycle);
 volatile unsigned int dim = 20;
 volatile unsigned int count = 0;
 volatile uint8_t rxflag = 0;
-volatile uint8_t slpflag = 0;
+volatile uint8_t slpflg = 0;
 volatile uint8_t zerocross = 1;
 
 int main(void)
@@ -37,6 +37,7 @@ int main(void)
 	//DDRB = (1 << PORTD6);
 	//DDRD = (1 << PORTD3);
 	DDRD &= ~(1 << PORTD2);
+	DDRD &= ~(1 << PORTD3);
 	PORTB &= ~(1 << PORTB0);
 	//PORTD &= (1 << PORTD6);
 	
@@ -49,20 +50,30 @@ int main(void)
 	
 	while(1)
 	{
-		for( int j = 1; j < 90; ++j )
+		for( int j = 10; j < 90; ++j )
 		{
 			//PORTD |= (1 << PORTD3);
 			dim = j;
 			PORTC = j;
-			_delay_ms(40);
+			
+			_delay_ms(100);
 		}
-		for( int j = 90; j > 1; --j)
+		for( int j = 90; j > 10; --j)
 		{
 			//PORTD &= ~(1 << PORTD3);
 			dim = j;
 			PORTC = j;
-			_delay_ms(40);
+			_delay_ms(100);
 		}
+		/* Sample Sleep Code - need to remove
+		set_sleep_mode( SLEEP_MODE_PWR_SAVE );
+		PORTB &= ~(1 << PORTB0);
+		slpflg = 1;
+		EIMSK &= ~(1 << INT0);
+		sleep_enable();
+		sleep_cpu();
+		sleep_disable();
+		*/
 	}				
     return(0);
 }
@@ -78,17 +89,13 @@ void initTimer( int dutycycle )
 	
     DDRD |= (1 << PORTD6);         
 	
-	TCCR0A |= (1 << COM0A1);
-    // set non-inverting mode
+	TCCR0A |= (1 << COM0A1);  // set non-inverting mode
 
-    TCCR0A |= (1 << WGM01);
-    // set CTC (Clear Timer on Compare) Mode
+    TCCR0A |= (1 << WGM01);   // set CTC (Clear Timer on Compare) Mode
 
-    TCCR0B |= (1 << CS01);
-    // set prescaler to 8 and starts PWM
+    TCCR0B |= (1 << CS01);    // set prescaler to 8 and starts PWM
 	
-	TIMSK0 = (1 << OCIE0A) | (1 << TOIE0);
-	//Enable OVF
+	TIMSK0 = (1 << OCIE0A) | (1 << TOIE0);	//Enable OVF
 	
 	/* OLD CODE 2/15/2012
 	TCCR0A |= (1 << WGM01) | (1 << WGM00);
@@ -151,7 +158,7 @@ ISR(TIMER0_COMPA_vect)
 			count = 0;
 			zerocross = 0;
 		}
-		else
+		else if( count )
 		{
 			
 			count = count + 1;
@@ -164,20 +171,15 @@ ISR(INT0_vect)
 	zerocross = 1;
 }
 
+/*
+ *SLEEP EXAMPLE - No longer used
+ * 
+ */
+/*
 ISR(INT1_vect)
 {
+	
 	//Go to low power state
-	if(slpflag == 0)
-	{
-		PORTB &= ~(1 << PORTB0);
-		set_sleep_mode( SLEEP_MODE_PWR_SAVE );
-		sleep_enable();
-		sleep_cpu();
-		slpflag = 1;
-	}		
-	else
-	{
-		sleep_disable();
-		slpflag = 0;
-	}		
-}
+	sleep_disable();
+	EIMSK |= (1 << INT1) | (1 << INT0);
+}*/
