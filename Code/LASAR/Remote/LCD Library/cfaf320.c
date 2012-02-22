@@ -37,7 +37,7 @@ void display_rgb(WORD data)
 	}
 }
 
-/*************************************************
+///*************************************************
 int main(void)
 {
 	DIR_MD = OUTS;		// Mode Port, Output
@@ -46,11 +46,7 @@ int main(void)
 	DIR_HI = OUTS;		// Data 8-15, Output
 	DIR_LO = OUTS;		// Data 0-7, Output
 
-#ifdef BIT16
 	MODE = M80_16;		// 8080 16 bit mode
-#else
-	MODE = M80_8;		// 8080 8 bit mode
-#endif
 
 	LCDInit();
 
