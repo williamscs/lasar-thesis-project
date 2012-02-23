@@ -18,3 +18,5 @@ LCD Library\timesb12.c
 
 Remote.c
 
+TouchScreen Library\TouchScreen.c
+

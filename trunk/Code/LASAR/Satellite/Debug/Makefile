@@ -7,7 +7,7 @@ RM := rm -rf
 
 USER_OBJS :=
 
-LIBS := 
+LIBS := -Wl,-lm 
 PROJ := 
 
 O_SRCS := 

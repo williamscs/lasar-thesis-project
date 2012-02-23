@@ -40,6 +40,7 @@ LOAD LCD Library/helvb10.o
 LOAD LCD Library/helvn6.o
 LOAD LCD Library/timesb12.o
 LOAD Remote.o
+LOAD TouchScreen Library/TouchScreen.o
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51\libc.a
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
@@ -134,7 +135,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0xb372
+.text           0x00000000     0xb4b8
  *(.vectors)
  .vectors       0x00000000       0x98 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
                 0x00000000                __vector_default
@@ -769,21 +770,26 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .text          0x0000b364        0x0 LCD Library/helvb10.o
  .text          0x0000b364        0x0 LCD Library/helvn6.o
  .text          0x0000b364        0x0 LCD Library/timesb12.o
- .text          0x0000b364        0xa Remote.o
+ .text          0x0000b364        0xe Remote.o
                 0x0000b364                main
- .text          0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text          0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text          0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x0000b36e                . = ALIGN (0x2)
+ .text          0x0000b372      0x142 TouchScreen Library/TouchScreen.o
+                0x0000b372                initTouchScreen
+                0x0000b3b4                getX
+                0x0000b406                getY
+                0x0000b458                analogRead
+ .text          0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text          0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000b4b4                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text.libgcc   0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x0000b36e                . = ALIGN (0x2)
+ .text.libgcc   0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000b4b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000b36e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
-                0x0000b36e                _exit
-                0x0000b36e                exit
+ .fini9         0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x0000b4b4                _exit
+                0x0000b4b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -802,11 +808,11 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000b36e        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x0000b4b4        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000b372                _etext = .
+                0x0000b4b8                _etext = .
 
-.data           0x00800100       0xa4 load address 0x0000b372
+.data           0x00800100       0xa4 load address 0x0000b4b8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
@@ -818,6 +824,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .data          0x008001a4        0x0 LCD Library/helvn6.o
  .data          0x008001a4        0x0 LCD Library/timesb12.o
  .data          0x008001a4        0x0 Remote.o
+ .data          0x008001a4        0x0 TouchScreen Library/TouchScreen.o
  .data          0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  .data          0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
  .data          0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
@@ -845,6 +852,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .bss           0x008001b3        0x0 LCD Library/helvn6.o
  .bss           0x008001b3        0x0 LCD Library/timesb12.o
  .bss           0x008001b3        0x0 Remote.o
+ .bss           0x008001b3        0x0 TouchScreen Library/TouchScreen.o
  .bss           0x008001b3        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  .bss           0x008001b3        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
  .bss           0x008001b3        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
@@ -859,8 +867,8 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x008001df                dscol
                 0x008001e1                fgcolor
                 0x008001e3                PROVIDE (__bss_end, .)
-                0x0000b372                __data_load_start = LOADADDR (.data)
-                0x0000b416                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000b4b8                __data_load_start = LOADADDR (.data)
+                0x0000b55c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008001e3        0x0
                 0x008001e3                PROVIDE (__noinit_start, .)
@@ -920,7 +928,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x60
+.debug_aranges  0x00000000       0x80
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x20 LCD Library/cfaf320.o
@@ -928,9 +936,11 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x00000020       0x20 LCD Library/GrLCD.o
  .debug_aranges
                 0x00000040       0x20 Remote.o
+ .debug_aranges
+                0x00000060       0x20 TouchScreen Library/TouchScreen.o
 
 .debug_pubnames
-                0x00000000     0x1bd6
+                0x00000000     0x1c1d
  *(.debug_pubnames)
  .debug_pubnames
                 0x00000000       0x40 LCD Library/cfaf320.o
@@ -948,8 +958,10 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x000016bc      0x4ff LCD Library/timesb12.o
  .debug_pubnames
                 0x00001bbb       0x1b Remote.o
+ .debug_pubnames
+                0x00001bd6       0x47 TouchScreen Library/TouchScreen.o
 
-.debug_info     0x00000000     0x6ab6
+.debug_info     0x00000000     0x6b9e
  *(.debug_info)
  .debug_info    0x00000000      0x1b1 LCD Library/cfaf320.o
  .debug_info    0x000001b1     0x1387 LCD Library/Font16.o
@@ -959,9 +971,10 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .debug_info    0x000045ce     0x11a9 LCD Library/helvn6.o
  .debug_info    0x00005777     0x12ac LCD Library/timesb12.o
  .debug_info    0x00006a23       0x93 Remote.o
+ .debug_info    0x00006ab6       0xe8 TouchScreen Library/TouchScreen.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x56c
+.debug_abbrev   0x00000000      0x5f3
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xd2 LCD Library/cfaf320.o
  .debug_abbrev  0x000000d2       0x7b LCD Library/Font16.o
@@ -971,8 +984,9 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .debug_abbrev  0x000003e8       0x9d LCD Library/helvn6.o
  .debug_abbrev  0x00000485       0xa6 LCD Library/timesb12.o
  .debug_abbrev  0x0000052b       0x41 Remote.o
+ .debug_abbrev  0x0000056c       0x87 TouchScreen Library/TouchScreen.o
 
-.debug_line     0x00000000      0xf58
+.debug_line     0x00000000     0x1115
  *(.debug_line)
  .debug_line    0x00000000      0x103 LCD Library/cfaf320.o
  .debug_line    0x00000103       0x67 LCD Library/Font16.o
@@ -981,32 +995,36 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .debug_line    0x00000dc1       0x68 LCD Library/helvb10.o
  .debug_line    0x00000e29       0x67 LCD Library/helvn6.o
  .debug_line    0x00000e90       0x69 LCD Library/timesb12.o
- .debug_line    0x00000ef9       0x5f Remote.o
+ .debug_line    0x00000ef9       0x67 Remote.o
+ .debug_line    0x00000f60      0x1b5 TouchScreen Library/TouchScreen.o
 
-.debug_frame    0x00000000      0x160
+.debug_frame    0x00000000      0x1b0
  *(.debug_frame)
  .debug_frame   0x00000000       0x30 LCD Library/cfaf320.o
  .debug_frame   0x00000030      0x110 LCD Library/GrLCD.o
  .debug_frame   0x00000140       0x20 Remote.o
+ .debug_frame   0x00000160       0x50 TouchScreen Library/TouchScreen.o
 
-.debug_str      0x00000000     0x1504
+.debug_str      0x00000000     0x1534
  *(.debug_str)
- .debug_str     0x00000000      0x104 LCD Library/cfaf320.o
-                                0x142 (size before relaxing)
- .debug_str     0x00000104      0x420 LCD Library/Font16.o
-                                0x4fc (size before relaxing)
- .debug_str     0x00000524      0x3d1 LCD Library/Font8.o
-                                0x4b3 (size before relaxing)
- .debug_str     0x000008f5      0x1ac LCD Library/GrLCD.o
-                                0x2e1 (size before relaxing)
- .debug_str     0x00000aa1      0x370 LCD Library/helvb10.o
-                                0x464 (size before relaxing)
- .debug_str     0x00000e11      0x36f LCD Library/helvn6.o
-                                0x463 (size before relaxing)
- .debug_str     0x00001180      0x371 LCD Library/timesb12.o
-                                0x465 (size before relaxing)
- .debug_str     0x000014f1       0x13 Remote.o
-                                 0xf4 (size before relaxing)
+ .debug_str     0x00000000       0xea LCD Library/cfaf320.o
+                                0x128 (size before relaxing)
+ .debug_str     0x000000ea      0x420 LCD Library/Font16.o
+                                0x4e2 (size before relaxing)
+ .debug_str     0x0000050a      0x3d1 LCD Library/Font8.o
+                                0x499 (size before relaxing)
+ .debug_str     0x000008db      0x1ac LCD Library/GrLCD.o
+                                0x2c7 (size before relaxing)
+ .debug_str     0x00000a87      0x370 LCD Library/helvb10.o
+                                0x44a (size before relaxing)
+ .debug_str     0x00000df7      0x36f LCD Library/helvn6.o
+                                0x449 (size before relaxing)
+ .debug_str     0x00001166      0x371 LCD Library/timesb12.o
+                                0x44b (size before relaxing)
+ .debug_str     0x000014d7       0x13 Remote.o
+                                 0xda (size before relaxing)
+ .debug_str     0x000014ea       0x4a TouchScreen Library/TouchScreen.o
+                                0x103 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
@@ -1017,7 +1035,7 @@ OUTPUT(Remote.elf elf32-avr)
 LOAD linker stubs
 
 .debug_pubtypes
-                0x00000000      0x123
+                0x00000000      0x14e
  .debug_pubtypes
                 0x00000000       0x31 LCD Library/cfaf320.o
  .debug_pubtypes
@@ -1034,3 +1052,5 @@ LOAD linker stubs
                 0x000000f5       0x1c LCD Library/timesb12.o
  .debug_pubtypes
                 0x00000111       0x12 Remote.o
+ .debug_pubtypes
+                0x00000123       0x2b TouchScreen Library/TouchScreen.o
