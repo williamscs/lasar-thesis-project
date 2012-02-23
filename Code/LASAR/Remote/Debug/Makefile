@@ -40,7 +40,8 @@ OUTPUT_FILE_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../LCD\ Library/
+../LCD\ Library/ \
+../TouchScreen\ Library
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -52,7 +53,8 @@ C_SRCS +=  \
 ../LCD\ Library/helvb10.c \
 ../LCD\ Library/helvn6.c \
 ../LCD\ Library/timesb12.c \
-../Remote.c
+../Remote.c \
+../TouchScreen\ Library/TouchScreen.c
 
 
 PREPROCESSING_SRCS += 
@@ -69,7 +71,8 @@ LCD\ Library/GrLCD.o \
 LCD\ Library/helvb10.o \
 LCD\ Library/helvn6.o \
 LCD\ Library/timesb12.o \
-Remote.o
+Remote.o \
+TouchScreen\ Library/TouchScreen.o
 
 
 OBJS_AS_ARGS +=  \
@@ -80,7 +83,8 @@ OBJS_AS_ARGS +=  \
 "LCD Library/helvb10.o" \
 "LCD Library/helvn6.o" \
 "LCD Library/timesb12.o" \
-Remote.o
+Remote.o \
+"TouchScreen Library/TouchScreen.o"
 
 
 C_DEPS +=  \
@@ -91,7 +95,8 @@ LCD\ Library/GrLCD.d \
 LCD\ Library/helvb10.d \
 LCD\ Library/helvn6.d \
 LCD\ Library/timesb12.d \
-Remote.d
+Remote.d \
+TouchScreen\ Library/TouchScreen.d
 
 
 C_DEPS_AS_ARGS +=  \
@@ -102,7 +107,8 @@ C_DEPS_AS_ARGS +=  \
 "LCD Library/helvb10.d" \
 "LCD Library/helvn6.d" \
 "LCD Library/timesb12.d" \
-Remote.d
+Remote.d \
+"TouchScreen Library/TouchScreen.d"
 
 
 OUTPUT_FILE_PATH +=Remote.elf
@@ -176,6 +182,12 @@ LCD\ Library/timesb12.o: ../LCD\ Library/timesb12.c
 
 
 
+TouchScreen\ Library/TouchScreen.o: ../TouchScreen\ Library/TouchScreen.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"TouchScreen.d" -MQ"$(@:TouchScreen.o=TouchScreen.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
 
 LCD\ Library/%.o: ../LCD\ Library/%.c
 	@echo Building file: $<
@@ -184,6 +196,12 @@ LCD\ Library/%.o: ../LCD\ Library/%.c
 	@echo Finished building: $<
 
 ./%.o: .././%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+TouchScreen\ Library/%.o: ../TouchScreen\ Library/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler
 	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"

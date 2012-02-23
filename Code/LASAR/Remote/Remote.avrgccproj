@@ -109,6 +109,12 @@
     <Compile Include="Remote.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="TouchScreen Library\TouchScreen.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TouchScreen Library\TouchScreen.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="LCD Library\Font16">
@@ -129,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LCD Library\" />
+    <Folder Include="TouchScreen Library" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
 </Project>

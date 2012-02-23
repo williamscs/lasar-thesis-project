@@ -1,4 +1,5 @@
-Remote.d Remote.o: .././Remote.c \
+TouchScreen\ Library/TouchScreen.d TouchScreen\ Library/TouchScreen.o: \
+ ../TouchScreen\ Library/TouchScreen.c \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/stdio.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/inttypes.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/include/stdint.h \
@@ -17,10 +18,7 @@ Remote.d Remote.o: .././Remote.c \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/lock.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h \
- .././TouchScreen\ Library\TouchScreen.h .././LCD\ Library\typedefs.h \
- c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/pgmspace.h \
- .././LCD\ Library\GrLCD.h .././LCD\ Library\/typedefs.h \
- .././LCD\ Library\cfaf320.h
+ ../TouchScreen\ Library/TouchScreen.h
 
 c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/stdio.h:
 
@@ -58,14 +56,4 @@ c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/av
 
 c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h:
 
-.././TouchScreen\ Library\TouchScreen.h:
-
-.././LCD\ Library\typedefs.h:
-
-c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/pgmspace.h:
-
-.././LCD\ Library\GrLCD.h:
-
-.././LCD\ Library\/typedefs.h:
-
-.././LCD\ Library\cfaf320.h:
+../TouchScreen\ Library/TouchScreen.h:
