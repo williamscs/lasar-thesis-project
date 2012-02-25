@@ -13,8 +13,8 @@
  * These can be assumed to be the same values as the port,
  * meaning that ADC0 is defined as the same value as PORTF0
  */
-#define TS_DIR DDRC
-#define TS_PORT PORTC
+#define TS_DIR DDRF
+#define TS_PORT PORTF
 #define X1 PORTF0
 #define Y2 PORTF1
 #define X2 PORTF2
