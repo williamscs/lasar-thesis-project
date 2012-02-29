@@ -166,6 +166,32 @@ ISR(TIMER0_COMPA_vect)
 	}
 }
 
+/* Via http://smrobots.com/node/22 
+   1ms (full reverse) is 16, 1.5ms (centered) is 23, and 2ms (full forward) is 31. */
+// Sets up Timer 1 for fast-PWM operation
+// servos are enabled on B1 and B2
+// Period is given in increments of 64us up to 65535
+// suggest value of 312 for 20ms period
+void start_servos(const int period_64us) {
+		//initialize TMR1 (PWM)
+	TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(WGM11); // clear on compare, fast PWM, TOP=ICR1 (WGM13/WGM12 in TCCR1B)
+	TCCR1B = _BV(WGM12) | _BV(WGM13) | _BV(CS10) | _BV(CS12); // prescaler 1024
+	ICR1 = period_64us;
+	OCR1A = -1;//off
+	OCR1B = -1;//off
+	DDRB |= _BV(1) | _BV(2); // output on B1 and B2
+} 
+ 
+// sets "high" time of B1 for pwm*64us
+void inline set_servo1(int pwm) {
+	OCR1A = pwm;
+}
+ 
+// sets "high" time of B2 for pwm*64us
+void inline set_servo2(int pwm) {
+	OCR1B = pwm;
+}
+
 ISR(INT0_vect)
 {
 	zerocross = 1;
