@@ -12,6 +12,7 @@
 #include<util\delay.h>                          // This is for using the _delay_ms() function.
 #include<avr\interrupt.h>
 #include<avr\sleep.h>
+#include "Servo\Servo.h"
 
 
 //Function headers
@@ -22,7 +23,9 @@ void setCycle(int dutycycle);
 //USART Stuff
 #define FOSC 16000000UL    // Clock Speed
 #define BAUD 9600UL
-#define MYUBRR (F_CPU/(16*BAUD))-1 
+#define MYUBRR (F_CPU/(16*BAUD))-1
+
+
 
 volatile unsigned int dim = 20;
 volatile unsigned int count = 0;
@@ -43,6 +46,7 @@ int main(void)
 	
 	initTimer(65);
 	initInterrupt0();
+	initServo(SERVO_PERIOD);
 	dim = 10;
 	
 	// turn on interrupts
@@ -55,6 +59,7 @@ int main(void)
 			//PORTD |= (1 << PORTD3);
 			dim = j;
 			PORTC = j;
+			set_servo1(SERVO_FWD);
 			
 			_delay_ms(100);
 		}
@@ -63,7 +68,10 @@ int main(void)
 			//PORTD &= ~(1 << PORTD3);
 			dim = j;
 			PORTC = j;
+			set_servo1(SERVO_REV);
 			_delay_ms(100);
+			set_servo1(SERVO_CEN);
+			_delay_ms(20);
 		}
 		/* Sample Sleep Code - need to remove
 		set_sleep_mode( SLEEP_MODE_PWR_SAVE );
@@ -131,17 +139,6 @@ void setCycle(int dutycycle)
  * INTERRUPT SERVICE ROUTINES
  */
 
-ISR(USART_RX_vect)
-{
-	/* Wait for data to be received */
-	while ( !(UCSR0A  & (1 << RXC0)) )
-	;
-	/* Get and return received data from buffer */
-	//dim = UDR0;
-	rxflag = 1;
-}
- 
- 
 //OLD: 2/15/2012
 //ISR(TIMER0_OVF_vect)
 ISR(TIMER0_COMPA_vect)
@@ -166,35 +163,19 @@ ISR(TIMER0_COMPA_vect)
 	}
 }
 
-/* Via http://smrobots.com/node/22 
-   1ms (full reverse) is 16, 1.5ms (centered) is 23, and 2ms (full forward) is 31. */
-// Sets up Timer 1 for fast-PWM operation
-// servos are enabled on B1 and B2
-// Period is given in increments of 64us up to 65535
-// suggest value of 312 for 20ms period
-void start_servos(const int period_64us) {
-		//initialize TMR1 (PWM)
-	TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(WGM11); // clear on compare, fast PWM, TOP=ICR1 (WGM13/WGM12 in TCCR1B)
-	TCCR1B = _BV(WGM12) | _BV(WGM13) | _BV(CS10) | _BV(CS12); // prescaler 1024
-	ICR1 = period_64us;
-	OCR1A = -1;//off
-	OCR1B = -1;//off
-	DDRB |= _BV(1) | _BV(2); // output on B1 and B2
-} 
- 
-// sets "high" time of B1 for pwm*64us
-void inline set_servo1(int pwm) {
-	OCR1A = pwm;
-}
- 
-// sets "high" time of B2 for pwm*64us
-void inline set_servo2(int pwm) {
-	OCR1B = pwm;
-}
-
 ISR(INT0_vect)
 {
 	zerocross = 1;
+}
+
+ISR(USART_RX_vect)
+{
+	/* Wait for data to be received */
+	while ( !(UCSR0A  & (1 << RXC0)) )
+	;
+	/* Get and return received data from buffer */
+	//dim = UDR0;
+	rxflag = 1;
 }
 
 /*
@@ -203,8 +184,7 @@ ISR(INT0_vect)
  */
 /*
 ISR(INT1_vect)
-{
-	
+{	
 	//Go to low power state
 	sleep_disable();
 	EIMSK |= (1 << INT1) | (1 << INT0);
