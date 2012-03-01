@@ -2,7 +2,7 @@
  * Servo.c
  *
  * Created: 2/29/2012 3:52:31 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 #include<avr\io.h>
 #include<avr\sfr_defs.h>
@@ -29,7 +29,8 @@ void initServo(const int period_64us)
 	DDRB |= (1 << PORTB1);
 } 
  
-/* sets "high" time of B1 for pwm*64us
+/* 
+ * Sets "high" time of B1 for pwm*64us
  * 1ms (full reverse) is 16
  * 1.5ms (centered) is 23
  * 2ms (full forward) is 31

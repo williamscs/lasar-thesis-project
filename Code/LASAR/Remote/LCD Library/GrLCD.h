@@ -19,8 +19,8 @@
 
 // ports for LCD control & data bus
 
-#define	RD	0x80	// control bits
-#define	WR	0x40
+#define	RD	0x80	// control bits 
+#define	WR	0x40 PORTC7
 #define	CD	0x20
 #define	CS	0x10
 #define	RES	8

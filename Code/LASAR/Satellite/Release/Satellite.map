@@ -1,5 +1,7 @@
 Archive member included because of file (symbol)
 
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+                              Satellite.o (__mulsi3)
 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
                               c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o (exit)
 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
@@ -119,7 +121,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x2ac
+.text           0x00000000      0x392
  *(.vectors)
  .vectors       0x00000000       0x68 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vector_default
@@ -182,7 +184,6 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x000000a2                __vector_6
                 0x000000a2                __vector_23
                 0x000000a2                __vector_25
-                0x000000a2                __vector_11
                 0x000000a2                __vector_13
                 0x000000a2                __vector_17
                 0x000000a2                __vector_19
@@ -196,36 +197,40 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x000000a2                __vector_10
                 0x000000a2                __vector_16
                 0x000000a2                __vector_20
- .text          0x000000a6      0x1a4 Satellite.o
+ .text          0x000000a6      0x24c Satellite.o
                 0x000000a6                initTimer
                 0x000000c0                initInterrupts
                 0x000000e4                main
-                0x00000128                setCycle
-                0x00000130                __vector_14
-                0x000001aa                __vector_1
-                0x000001c8                __vector_18
-                0x000001ee                __vector_3
-                0x00000230                __vector_5
- .text          0x0000024a       0x36 Servo/Servo.o
-                0x0000024a                initServo
-                0x00000276                set_servo1
- .text          0x00000280       0x28 USART/USART.o
-                0x00000280                USART_Init
-                0x00000296                USART_Transmit
-                0x000002a4                USART_Receive
- .text          0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
- .text          0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
- .text          0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
-                0x000002a8                . = ALIGN (0x2)
+                0x0000011e                setCycle
+                0x00000126                __vector_14
+                0x000001a0                __vector_11
+                0x00000220                __vector_1
+                0x0000023e                __vector_18
+                0x00000264                __vector_3
+                0x000002a4                __vector_5
+ .text          0x000002f2       0x36 Servo/Servo.o
+                0x000002f2                initServo
+                0x0000031e                set_servo1
+ .text          0x00000328       0x28 USART/USART.o
+                0x00000328                USART_Init
+                0x0000033e                USART_Transmit
+                0x0000034c                USART_Receive
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000350        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000350                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
-                0x000002a8                . = ALIGN (0x2)
+ .text.libgcc   0x00000350       0x3e c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+                0x00000350                __mulsi3
+ .text.libgcc   0x0000038e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000038e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000038e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                0x0000038e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000002a8        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
-                0x000002a8                _exit
-                0x000002a8                exit
+ .fini9         0x0000038e        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+                0x0000038e                _exit
+                0x0000038e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -244,11 +249,11 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000002a8        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000038e        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000002ac                _etext = .
+                0x00000392                _etext = .
 
-.data           0x00800100        0x4 load address 0x000002ac
+.data           0x00800100        0x4 load address 0x00000392
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
@@ -257,6 +262,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x00800102                zerocross
  .data          0x00800103        0x0 Servo/Servo.o
  .data          0x00800103        0x0 USART/USART.o
+ .data          0x00800103        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
  .data          0x00800103        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
  .data          0x00800103        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
  .data          0x00800103        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
@@ -269,31 +275,34 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x00800104                _edata = .
                 0x00800104                PROVIDE (__data_end, .)
 
-.bss            0x00800104        0x4
+.bss            0x00800104        0xc
                 0x00800104                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800104        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm328p.o
- .bss           0x00800104        0x4 Satellite.o
+ .bss           0x00800104        0xc Satellite.o
                 0x00800104                count
                 0x00800106                rxflag
                 0x00800107                slpflg
- .bss           0x00800108        0x0 Servo/Servo.o
- .bss           0x00800108        0x0 USART/USART.o
- .bss           0x00800108        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
- .bss           0x00800108        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800108        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                0x00800108                freqCounter
+                0x0080010c                frequency
+ .bss           0x00800110        0x0 Servo/Servo.o
+ .bss           0x00800110        0x0 USART/USART.o
+ .bss           0x00800110        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800110        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .bss           0x00800110        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800110        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
-                0x00800108                PROVIDE (__bss_end, .)
-                0x000002ac                __data_load_start = LOADADDR (.data)
-                0x000002b0                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800110                PROVIDE (__bss_end, .)
+                0x00000392                __data_load_start = LOADADDR (.data)
+                0x00000396                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800108        0x0
-                0x00800108                PROVIDE (__noinit_start, .)
+.noinit         0x00800110        0x0
+                0x00800110                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800108                PROVIDE (__noinit_end, .)
-                0x00800108                _end = .
-                0x00800108                PROVIDE (__heap_start, .)
+                0x00800110                PROVIDE (__noinit_end, .)
+                0x00800110                _end = .
+                0x00800110                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

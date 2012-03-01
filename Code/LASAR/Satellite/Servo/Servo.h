@@ -2,16 +2,17 @@
  * Servo.h
  *
  * Created: 2/29/2012 3:52:41 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 
 
 #ifndef SERVO_H_
 #define SERVO_H_
 
-//SERVO Stuff
+//Servo PWM Values
 #define SERVO_PERIOD	312
-/* sets "high" time of B1 for pwm*64us
+/* 
+ * Sets "high" time of B1 for pwm*64us
  * 1ms (full reverse) is 16
  * 1.5ms (centered) is 23
  * 2ms (full forward) is 31

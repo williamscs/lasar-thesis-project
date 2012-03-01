@@ -2,7 +2,7 @@
  * Remote.c
  *
  * Created: 2/1/2012 4:20:53 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 
 #define F_CPU 16000000UL

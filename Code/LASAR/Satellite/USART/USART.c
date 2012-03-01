@@ -2,7 +2,7 @@
  * USART.c
  *
  * Created: 2/2/2012 2:21:34 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 
 #include<avr/io.h> 
