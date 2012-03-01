@@ -2,17 +2,18 @@
  * Satellite.c
  *
  * Created: 2/1/2012 4:17:34 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 
 #define F_CPU 16000000UL
 
-#include<avr\io.h>
-#include<avr\sfr_defs.h>        // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
-#include<util\delay.h>          // This is for using the _delay_ms() function.
-#include<avr\interrupt.h>
-#include<avr\sleep.h>
+#include <avr\io.h>
+#include <avr\sfr_defs.h>        // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
+#include <util\delay.h>          // This is for using the _delay_ms() function.
+#include <avr\interrupt.h>
+#include <avr\sleep.h>
 #include "Servo\Servo.h"
+#include "USART\USART.h"
 
 
 //Function headers
@@ -21,17 +22,18 @@ void initInterrupts();
 void setCycle(int dutycycle);
 
 //USART Stuff
-#define FOSC 16000000UL    // Clock Speed
+#define FOSC F_CPU    // Clock Speed
 #define BAUD 9600UL
 #define MYUBRR (F_CPU/(16*BAUD))-1
 
-
-
+//Global Variables
 volatile unsigned int dim = 20;
 volatile unsigned int count = 0;
 volatile uint8_t rxflag = 0;
 volatile uint8_t slpflg = 0;
 volatile uint8_t zerocross = 1;
+volatile uint32_t freqCounter = 0;
+volatile uint32_t frequency = 0;
 
 int main(void)
 {
@@ -45,6 +47,7 @@ int main(void)
 	initTimer(65);
 	initInterrupts();
 	initServo(SERVO_PERIOD);
+	USART_Init(MYUBRR);
 	dim = 10;
 	
 	// turn on interrupts
@@ -97,7 +100,7 @@ int main(void)
 }
 
 /*
- * Function Name:
+ * Function Name: initTimer
  * Author: Chris Williams
  */
 void initTimer( int dutycycle )
@@ -113,7 +116,7 @@ void initTimer( int dutycycle )
     TCCR0B |= (1 << CS01);    // set prescaler to 8 and starts PWM
 	
 	TIMSK0 = (1 << OCIE0A) | (1 << TOIE0);	//Enable OVF
-	
+
 	/* OLD CODE 2/15/2012
 	TCCR0A |= (1 << WGM01) | (1 << WGM00);
     // set fast PWM Mode
@@ -175,6 +178,12 @@ ISR(TIMER0_COMPA_vect)
 	}
 }
 
+ISR(TIMER1_COMPA_vect)
+{	
+	frequency = freqCounter * 50;
+	freqCounter = 0;
+}
+
 ISR(INT0_vect)
 {
 	zerocross = 1;
@@ -213,7 +222,7 @@ ISR(PCINT2_vect)
 {
 	if(PIND & (1 << PORTD3))
 	{
-		
+		freqCounter++;
 	}
 }
 

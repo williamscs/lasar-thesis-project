@@ -2,7 +2,7 @@
  * TouchScreen.c
  *
  * Created: 2/22/2012 4:23:48 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 
 #include <stdio.h>

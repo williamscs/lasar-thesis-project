@@ -2,7 +2,7 @@
  * USART.h
  *
  * Created: 2/2/2012 2:22:00 PM
- *  Author: Dubs
+ *  Author: Chris Williams
  */ 
 
 
