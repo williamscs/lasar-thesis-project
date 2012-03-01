@@ -3,15 +3,15 @@ Remote.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         000000b0  00800100  0000aa28  0000aabc  2**0
+  0 .data         000000b0  00800100  0000aa9a  0000ab2e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000aa28  00000000  00000000  00000094  2**1
+  1 .text         0000aa9a  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000003f  008001b0  008001b0  0000ab6c  2**0
+  2 .bss          0000003f  008001b0  008001b0  0000abde  2**0
                   ALLOC
-  3 .stab         000006cc  00000000  00000000  0000ab6c  2**2
+  3 .stab         000006cc  00000000  00000000  0000abe0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00000085  00000000  00000000  0000b238  2**0
+  4 .stabstr      00000085  00000000  00000000  0000b2ac  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3830,7 +3830,7 @@ Disassembly of section .text:
     a062:	11 e0       	ldi	r17, 0x01	; 1
     a064:	a0 e0       	ldi	r26, 0x00	; 0
     a066:	b1 e0       	ldi	r27, 0x01	; 1
-    a068:	e8 e2       	ldi	r30, 0x28	; 40
+    a068:	ea e9       	ldi	r30, 0x9A	; 154
     a06a:	fa ea       	ldi	r31, 0xAA	; 170
     a06c:	00 e0       	ldi	r16, 0x00	; 0
     a06e:	0b bf       	out	0x3b, r16	; 59
@@ -3855,7 +3855,7 @@ Disassembly of section .text:
     a088:	b1 07       	cpc	r27, r17
     a08a:	e1 f7       	brne	.-8      	; 0xa084 <.do_clear_bss_loop>
     a08c:	0e 94 11 55 	call	0xaa22	; 0xaa22 <main>
-    a090:	0c 94 12 55 	jmp	0xaa24	; 0xaa24 <_exit>
+    a090:	0c 94 4b 55 	jmp	0xaa96	; 0xaa96 <_exit>
 
 0000a094 <__bad_interrupt>:
     a094:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -5016,10 +5016,64 @@ Disassembly of section .text:
     aa20:	08 95       	ret
 
 0000aa22 <main>:
-    aa22:	ff cf       	rjmp	.-2      	; 0xaa22 <main>
+    aa22:	0e 94 41 55 	call	0xaa82	; 0xaa82 <getX>
+    aa26:	ff cf       	rjmp	.-2      	; 0xaa26 <main+0x4>
 
-0000aa24 <_exit>:
-    aa24:	f8 94       	cli
+0000aa28 <initTouchScreen>:
+    aa28:	ec e7       	ldi	r30, 0x7C	; 124
+    aa2a:	f0 e0       	ldi	r31, 0x00	; 0
+    aa2c:	10 82       	st	Z, r1
+    aa2e:	80 81       	ld	r24, Z
+    aa30:	80 64       	ori	r24, 0x40	; 64
+    aa32:	80 83       	st	Z, r24
+    aa34:	ea e7       	ldi	r30, 0x7A	; 122
+    aa36:	f0 e0       	ldi	r31, 0x00	; 0
+    aa38:	80 81       	ld	r24, Z
+    aa3a:	87 68       	ori	r24, 0x87	; 135
+    aa3c:	80 83       	st	Z, r24
+    aa3e:	10 92 7b 00 	sts	0x007B, r1
+    aa42:	08 95       	ret
 
-0000aa26 <__stop_program>:
-    aa26:	ff cf       	rjmp	.-2      	; 0xaa26 <__stop_program>
+0000aa44 <analogRead>:
+    aa44:	90 91 7c 00 	lds	r25, 0x007C
+    aa48:	8f 70       	andi	r24, 0x0F	; 15
+    aa4a:	89 2b       	or	r24, r25
+    aa4c:	80 93 7c 00 	sts	0x007C, r24
+    aa50:	80 91 7a 00 	lds	r24, 0x007A
+    aa54:	80 64       	ori	r24, 0x40	; 64
+    aa56:	80 93 7a 00 	sts	0x007A, r24
+    aa5a:	80 91 7a 00 	lds	r24, 0x007A
+    aa5e:	86 fd       	sbrc	r24, 6
+    aa60:	fc cf       	rjmp	.-8      	; 0xaa5a <analogRead+0x16>
+    aa62:	20 91 78 00 	lds	r18, 0x0078
+    aa66:	30 91 79 00 	lds	r19, 0x0079
+    aa6a:	c9 01       	movw	r24, r18
+    aa6c:	08 95       	ret
+
+0000aa6e <getY>:
+    aa6e:	10 ba       	out	0x10, r1	; 16
+    aa70:	80 b3       	in	r24, 0x10	; 16
+    aa72:	85 60       	ori	r24, 0x05	; 5
+    aa74:	80 bb       	out	0x10, r24	; 16
+    aa76:	8a 98       	cbi	0x11, 2	; 17
+    aa78:	88 9a       	sbi	0x11, 0	; 17
+    aa7a:	83 e0       	ldi	r24, 0x03	; 3
+    aa7c:	0e 94 22 55 	call	0xaa44	; 0xaa44 <analogRead>
+    aa80:	08 95       	ret
+
+0000aa82 <getX>:
+    aa82:	10 ba       	out	0x10, r1	; 16
+    aa84:	80 b3       	in	r24, 0x10	; 16
+    aa86:	8a 60       	ori	r24, 0x0A	; 10
+    aa88:	80 bb       	out	0x10, r24	; 16
+    aa8a:	8b 98       	cbi	0x11, 3	; 17
+    aa8c:	89 9a       	sbi	0x11, 1	; 17
+    aa8e:	82 e0       	ldi	r24, 0x02	; 2
+    aa90:	0e 94 22 55 	call	0xaa44	; 0xaa44 <analogRead>
+    aa94:	08 95       	ret
+
+0000aa96 <_exit>:
+    aa96:	f8 94       	cli
+
+0000aa98 <__stop_program>:
+    aa98:	ff cf       	rjmp	.-2      	; 0xaa98 <__stop_program>
