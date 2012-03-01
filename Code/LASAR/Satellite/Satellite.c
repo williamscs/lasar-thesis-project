@@ -8,8 +8,8 @@
 #define F_CPU 16000000UL
 
 #include<avr\io.h>
-#include<avr\sfr_defs.h>                       // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
-#include<util\delay.h>                          // This is for using the _delay_ms() function.
+#include<avr\sfr_defs.h>        // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
+#include<util\delay.h>          // This is for using the _delay_ms() function.
 #include<avr\interrupt.h>
 #include<avr\sleep.h>
 #include "Servo\Servo.h"
@@ -17,7 +17,7 @@
 
 //Function headers
 void initTimer( int dutycycle);
-void initInterrupt0();
+void initInterrupts();
 void setCycle(int dutycycle);
 
 //USART Stuff
@@ -35,17 +35,15 @@ volatile uint8_t zerocross = 1;
 
 int main(void)
 {
-	DDRB = (1<<PORTB0);
 	DDRC = 0xFF;
-	//DDRB = (1 << PORTD6);
-	//DDRD = (1 << PORTD3);
-	DDRD &= ~(1 << PORTD2);
-	DDRD &= ~(1 << PORTD3);
-	PORTB &= ~(1 << PORTB0);
-	//PORTD &= (1 << PORTD6);
+    DDRD |= (1 << PORTD6); 
+	DDRB = 0;
+	PORTD &= ~(1 << PORTD6);
+	PORTD |= (1 << PORTD6);
+	//_delay_ms(1000);
 	
 	initTimer(65);
-	initInterrupt0();
+	initInterrupts();
 	initServo(SERVO_PERIOD);
 	dim = 10;
 	
@@ -54,12 +52,24 @@ int main(void)
 	
 	while(1)
 	{
-		for( int j = 10; j < 90; ++j )
+		PORTC &= ~(1 << PORTC0);
+		/*
+		set_servo1(SERVO_FWD);
+		PORTC = (1 << PORTC0);
+		//_delay_ms(1000);
+		set_servo1(SERVO_REV);
+		PORTC &= ~(1 << PORTC0);
+		//_delay_ms(1000);
+		PORTC = (1 << PORTC0);
+		set_servo1(SERVO_CEN);
+		//_delay_ms(1000);
+		*/
+		/*for( int j = 10; j < 90; ++j )
 		{
 			//PORTD |= (1 << PORTD3);
 			dim = j;
 			PORTC = j;
-			set_servo1(SERVO_FWD);
+			
 			
 			_delay_ms(100);
 		}
@@ -72,7 +82,7 @@ int main(void)
 			_delay_ms(100);
 			set_servo1(SERVO_CEN);
 			_delay_ms(20);
-		}
+		}*/
 		/* Sample Sleep Code - need to remove
 		set_sleep_mode( SLEEP_MODE_PWR_SAVE );
 		PORTB &= ~(1 << PORTB0);
@@ -82,7 +92,7 @@ int main(void)
 		sleep_cpu();
 		sleep_disable();
 		*/
-	}				
+	}	
     return(0);
 }
 
@@ -94,12 +104,11 @@ void initTimer( int dutycycle )
 {
 	OCR0A = 130; //cap of Timer0
 	OCR0B = dutycycle;
+	 
 	
-    DDRD |= (1 << PORTD6);         
-	
-	TCCR0A |= (1 << COM0A1);  // set non-inverting mode
-
-    TCCR0A |= (1 << WGM01);   // set CTC (Clear Timer on Compare) Mode
+	TCCR0A |= (1 << COM0A1) | (1 << WGM01);
+	// set non-inverting mode 
+	// set CTC (Clear Timer on Compare) Mode
 
     TCCR0B |= (1 << CS01);    // set prescaler to 8 and starts PWM
 	
@@ -118,12 +127,15 @@ void initTimer( int dutycycle )
 }
 
 
-void initInterrupt0()
+void initInterrupts()
 {
-	PORTD |= (1 << PORTD2) | (1 << PORTD3);
-	EICRA = 0;
+	//PORTD |= (1 << PORTD2) | (1 << PORTD3);
 	EICRA |= (1 << ISC11) | (1 << ISC01);
 	EIMSK |= (1 << INT1) | (1 << INT0);
+	
+	PCICR = (1 << PCIE2) | (1 << PCIE0);
+	PCMSK2 = (1 << PCINT20);
+	PCMSK0 = (1 << PCINT0);
 }	
 
 
@@ -147,11 +159,11 @@ ISR(TIMER0_COMPA_vect)
 	{
 		if( count >= dim )
 		{
-			//PORTD |= (1 << PORTD6);
-			PORTB |= (1 << PORTB0);
+			PORTD |= (1 << PORTD6);
+			//PORTB |= (1 << PORTB0);
 			_delay_us( 5 );
-			//PORTD &= ~(1 << PORTD6);
-			PORTB &= ~(1 << PORTB0);
+			PORTD &= ~(1 << PORTD6);
+			//PORTB &= ~(1 << PORTB0);
 			count = 0;
 			zerocross = 0;
 		}
@@ -176,6 +188,33 @@ ISR(USART_RX_vect)
 	/* Get and return received data from buffer */
 	//dim = UDR0;
 	rxflag = 1;
+}
+
+//PIR Sensor
+ISR(PCINT0_vect)
+{
+	if( !(PINB & (1 << PORTB0)) )
+	{
+		//SOMETHING WAS SENSED
+		PORTC |= (1 << PORTC0);
+		_delay_ms(1000);
+		
+	}
+	else
+	{
+		PORTC &= ~(1 << PORTC0);
+		_delay_ms(1000);
+	}
+	
+}
+
+//Frequency Counter
+ISR(PCINT2_vect)
+{
+	if(PIND & (1 << PORTD3))
+	{
+		
+	}
 }
 
 /*

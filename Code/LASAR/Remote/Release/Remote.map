@@ -40,6 +40,7 @@ LOAD LCD Library/helvb10.o
 LOAD LCD Library/helvn6.o
 LOAD LCD Library/timesb12.o
 LOAD Remote.o
+LOAD TouchScreen Library/TouchScreen.o
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51\libc.a
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
@@ -134,7 +135,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0xaa28
+.text           0x00000000     0xaa9a
  *(.vectors)
  .vectors       0x00000000       0x98 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
                 0x00000000                __vector_default
@@ -769,21 +770,26 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .text          0x0000aa22        0x0 LCD Library/helvb10.o
  .text          0x0000aa22        0x0 LCD Library/helvn6.o
  .text          0x0000aa22        0x0 LCD Library/timesb12.o
- .text          0x0000aa22        0x2 Remote.o
+ .text          0x0000aa22        0x6 Remote.o
                 0x0000aa22                main
- .text          0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text          0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text          0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x0000aa24                . = ALIGN (0x2)
+ .text          0x0000aa28       0x6e TouchScreen Library/TouchScreen.o
+                0x0000aa28                initTouchScreen
+                0x0000aa44                analogRead
+                0x0000aa6e                getY
+                0x0000aa82                getX
+ .text          0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text          0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000aa96                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text.libgcc   0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x0000aa24                . = ALIGN (0x2)
+ .text.libgcc   0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000aa96                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000aa24        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
-                0x0000aa24                _exit
-                0x0000aa24                exit
+ .fini9         0x0000aa96        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x0000aa96                _exit
+                0x0000aa96                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -802,11 +808,11 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000aa24        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x0000aa96        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000aa28                _etext = .
+                0x0000aa9a                _etext = .
 
-.data           0x00800100       0xb0 load address 0x0000aa28
+.data           0x00800100       0xb0 load address 0x0000aa9a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
@@ -818,6 +824,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .data          0x008001b0        0x0 LCD Library/helvn6.o
  .data          0x008001b0        0x0 LCD Library/timesb12.o
  .data          0x008001b0        0x0 Remote.o
+ .data          0x008001b0        0x0 TouchScreen Library/TouchScreen.o
  .data          0x008001b0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  .data          0x008001b0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
  .data          0x008001b0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
@@ -845,6 +852,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .bss           0x008001bf        0x0 LCD Library/helvn6.o
  .bss           0x008001bf        0x0 LCD Library/timesb12.o
  .bss           0x008001bf        0x0 Remote.o
+ .bss           0x008001bf        0x0 TouchScreen Library/TouchScreen.o
  .bss           0x008001bf        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  .bss           0x008001bf        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
  .bss           0x008001bf        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
@@ -859,8 +867,8 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x008001eb                dscol
                 0x008001ed                fgcolor
                 0x008001ef                PROVIDE (__bss_end, .)
-                0x0000aa28                __data_load_start = LOADADDR (.data)
-                0x0000aad8                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000aa9a                __data_load_start = LOADADDR (.data)
+                0x0000ab4a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008001ef        0x0
                 0x008001ef                PROVIDE (__noinit_start, .)
