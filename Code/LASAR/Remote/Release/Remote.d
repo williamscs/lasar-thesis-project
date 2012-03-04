@@ -20,7 +20,10 @@ Remote.d Remote.o: .././Remote.c \
  .././TouchScreen\ Library\TouchScreen.h .././LCD\ Library\typedefs.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/pgmspace.h \
  .././LCD\ Library\GrLCD.h .././LCD\ Library\/typedefs.h \
- .././LCD\ Library\cfaf320.h
+ .././LCD\ Library\cfaf320.h .././FATFS\ Library\ff.h \
+ .././FATFS\ Library\/integer.h .././FATFS\ Library\/ffconf.h \
+ .././FATFS\ Library\diskio.h \
+ .././FATFS\ Library\/../LCD\ Library/typedefs.h
 
 c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/stdio.h:
 
@@ -69,3 +72,13 @@ c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/av
 .././LCD\ Library\/typedefs.h:
 
 .././LCD\ Library\cfaf320.h:
+
+.././FATFS\ Library\ff.h:
+
+.././FATFS\ Library\/integer.h:
+
+.././FATFS\ Library\/ffconf.h:
+
+.././FATFS\ Library\diskio.h:
+
+.././FATFS\ Library\/../LCD\ Library/typedefs.h:

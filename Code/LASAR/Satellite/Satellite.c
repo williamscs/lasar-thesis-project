@@ -12,19 +12,33 @@
 #include <util\delay.h>          // This is for using the _delay_ms() function.
 #include <avr\interrupt.h>
 #include <avr\sleep.h>
-#include "Servo\Servo.h"
+//#include "Servo\Servo.h"
 #include "USART\USART.h"
 
 
 //Function headers
+void static inline delay_ms(uint16_t count);
 void initTimer( int dutycycle);
 void initInterrupts();
 void setCycle(int dutycycle);
+void initServo(const int period_64us);
+void static inline openWindow(int pwm, int time);
+void static inline closeWindow(int time);
 
 //USART Stuff
 #define FOSC F_CPU    // Clock Speed
 #define BAUD 9600UL
 #define MYUBRR (F_CPU/(16*BAUD))-1
+
+
+//Servo Constants
+#define SERVO_PERIOD	312
+#define SERVO_FWD 31  //1ms
+//#define SERVO_CEN 23	//1.5ms
+#define SERVO_REV 16	//2ms
+
+
+//#define set_servo1(m) (OCR1A = m)
 
 //Global Variables
 volatile unsigned int dim = 20;
@@ -39,34 +53,36 @@ int main(void)
 {
 	DDRC = 0xFF;
     DDRD |= (1 << PORTD6); 
-	DDRB = 0;
+	//DDRB = 0;
 	PORTD &= ~(1 << PORTD6);
 	PORTD |= (1 << PORTD6);
 	//_delay_ms(1000);
 	
 	initTimer(65);
-	initInterrupts();
+	//initInterrupts();
 	initServo(SERVO_PERIOD);
 	USART_Init(MYUBRR);
 	dim = 10;
 	
 	// turn on interrupts
-	sei();
+	//sei();
+		
 	
 	while(1)
 	{
-		PORTC &= ~(1 << PORTC0);
-		/*
-		set_servo1(SERVO_FWD);
-		PORTC = (1 << PORTC0);
-		//_delay_ms(1000);
-		set_servo1(SERVO_REV);
-		PORTC &= ~(1 << PORTC0);
-		//_delay_ms(1000);
-		PORTC = (1 << PORTC0);
-		set_servo1(SERVO_CEN);
-		//_delay_ms(1000);
-		*/
+		//PORTC &= ~(1 << PORTC0);
+		
+		openWindow(SERVO_FWD, 3000);
+		_delay_ms(1000);
+		
+		//PORTC = (1 << PORTC0);
+		_delay_ms(1000);
+		//PORTC &= ~(1 << PORTC0);
+		//_delay_ms(20);
+		//OCR1A = 16;
+		//PORTC &= ~(1 << PORTC0);
+		////_delay_ms(1000);
+		//PORTC = (1 << PORTC0);
 		/*for( int j = 10; j < 90; ++j )
 		{
 			//PORTD |= (1 << PORTD3);
@@ -81,9 +97,9 @@ int main(void)
 			//PORTD &= ~(1 << PORTD3);
 			dim = j;
 			PORTC = j;
-			set_servo1(SERVO_REV);
+			openWindow(SERVO_REV);
 			_delay_ms(100);
-			set_servo1(SERVO_CEN);
+			openWindow(SERVO_CEN);
 			_delay_ms(20);
 		}*/
 		/* Sample Sleep Code - need to remove
@@ -98,6 +114,8 @@ int main(void)
 	}	
     return(0);
 }
+
+
 
 /*
  * Function Name: initTimer
@@ -204,6 +222,8 @@ ISR(PCINT0_vect)
 {
 	if( !(PINB & (1 << PORTB0)) )
 	{
+		//openWindow(SERVO_REV, 3000);
+		_delay_ms(1000);
 		//SOMETHING WAS SENSED
 		PORTC |= (1 << PORTC0);
 		_delay_ms(1000);
@@ -237,3 +257,40 @@ ISR(INT1_vect)
 	sleep_disable();
 	EIMSK |= (1 << INT1) | (1 << INT0);
 }*/
+
+void initServo(const int period_64us) 
+{
+	
+	DDRB |= (1 << PORTB1);
+	//initialize TMR1 (PWM) 
+	// clear on compare, fast PWM, TOP=ICR1 (WGM13/WGM12 in TCCR1B)
+	TCCR1A = (1 << COM1A1) | (1 << WGM11);
+	// prescaler 1024 (and WGM12 and WGM13)
+	TCCR1B = (1 << WGM12) | (1 << WGM13) | (1 << CS10) | (1 << CS12); 
+	ICR1 = period_64us;
+} 
+ 
+
+void static inline openWindow(int pwm, int time) 
+{
+	TCCR1B |= (1 << CS10) | (1 << CS12);
+	OCR1A = SERVO_FWD;
+	delay_ms(time);
+	TCCR1B &= 0xF8;
+}
+
+void static inline closeWindow(int time) 
+{
+	TCCR1B |= (1 << CS10) | (1 << CS12);
+	OCR1A = SERVO_REV;
+	delay_ms(time);
+	TCCR1B &= 0xF8;
+}
+
+void static inline delay_ms(uint16_t count)
+{ 
+  while(count--) { 
+    _delay_ms(1); 
+
+  } 
+}

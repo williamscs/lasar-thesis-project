@@ -61,6 +61,24 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FATFS Library\diskio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FATFS Library\ff.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FATFS Library\ff.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FATFS Library\ffconf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FATFS Library\integer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FATFS Library\mmc.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LCD Library\cfaf320.c">
       <SubType>compile</SubType>
     </Compile>
@@ -135,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LCD Library\" />
+    <Folder Include="FATFS Library" />
     <Folder Include="TouchScreen Library" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />

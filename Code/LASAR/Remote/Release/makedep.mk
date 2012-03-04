@@ -2,6 +2,10 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+FATFS Library\ff.c
+
+FATFS Library\mmc.c
+
 LCD Library\cfaf320.c
 
 LCD Library\Font16.c
