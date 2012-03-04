@@ -18,15 +18,14 @@
  */
 void initServo(const int period_64us) 
 {
+	
+	DDRB |= (1 << PORTB1);
 	//initialize TMR1 (PWM) 
 	// clear on compare, fast PWM, TOP=ICR1 (WGM13/WGM12 in TCCR1B)
-	TCCR1A = (1 << COM1A1) | (1 << COM1B1) | (1 << WGM11);
+	TCCR1A = (1 << COM1A1) | (1 << WGM11);
 	// prescaler 1024 (and WGM12 and WGM13)
 	TCCR1B = (1 << WGM12) | (1 << WGM13) | (1 << CS10) | (1 << CS12); 
 	ICR1 = period_64us;
-	OCR1A = -1;//off
-	OCR1B = -1;//off
-	DDRB |= (1 << PORTB1);
 } 
  
 /* 
@@ -35,7 +34,3 @@ void initServo(const int period_64us)
  * 1.5ms (centered) is 23
  * 2ms (full forward) is 31
  */
-void set_servo1(int pwm) 
-{
-	OCR1A = pwm;
-}

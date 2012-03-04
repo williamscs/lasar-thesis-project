@@ -4,7 +4,5 @@
 
 Satellite.c
 
-Servo\Servo.c
-
 USART\USART.c
 

@@ -7095,14 +7095,14 @@ uint16_t getX()
     b3b8:	cd b7       	in	r28, 0x3d	; 61
     b3ba:	de b7       	in	r29, 0x3e	; 62
 	TS_DIR = 0;							//Cleared to all inputs
-    b3bc:	87 e2       	ldi	r24, 0x27	; 39
+    b3bc:	80 e3       	ldi	r24, 0x30	; 48
     b3be:	90 e0       	ldi	r25, 0x00	; 0
     b3c0:	fc 01       	movw	r30, r24
     b3c2:	10 82       	st	Z, r1
 	TS_DIR |= (1 << Y1) | (1 << Y2);	//Y1 and Y2 set to outputs
-    b3c4:	87 e2       	ldi	r24, 0x27	; 39
+    b3c4:	80 e3       	ldi	r24, 0x30	; 48
     b3c6:	90 e0       	ldi	r25, 0x00	; 0
-    b3c8:	27 e2       	ldi	r18, 0x27	; 39
+    b3c8:	20 e3       	ldi	r18, 0x30	; 48
     b3ca:	30 e0       	ldi	r19, 0x00	; 0
     b3cc:	f9 01       	movw	r30, r18
     b3ce:	20 81       	ld	r18, Z
@@ -7110,9 +7110,9 @@ uint16_t getX()
     b3d2:	fc 01       	movw	r30, r24
     b3d4:	20 83       	st	Z, r18
 	TS_PORT &= ~(1 << Y1);				//Y1 is set to 0V (GND)
-    b3d6:	88 e2       	ldi	r24, 0x28	; 40
+    b3d6:	81 e3       	ldi	r24, 0x31	; 49
     b3d8:	90 e0       	ldi	r25, 0x00	; 0
-    b3da:	28 e2       	ldi	r18, 0x28	; 40
+    b3da:	21 e3       	ldi	r18, 0x31	; 49
     b3dc:	30 e0       	ldi	r19, 0x00	; 0
     b3de:	f9 01       	movw	r30, r18
     b3e0:	20 81       	ld	r18, Z
@@ -7120,9 +7120,9 @@ uint16_t getX()
     b3e4:	fc 01       	movw	r30, r24
     b3e6:	20 83       	st	Z, r18
 	TS_PORT |= (1 << Y2);				//Y2 is set to 5V (VCC)
-    b3e8:	88 e2       	ldi	r24, 0x28	; 40
+    b3e8:	81 e3       	ldi	r24, 0x31	; 49
     b3ea:	90 e0       	ldi	r25, 0x00	; 0
-    b3ec:	28 e2       	ldi	r18, 0x28	; 40
+    b3ec:	21 e3       	ldi	r18, 0x31	; 49
     b3ee:	30 e0       	ldi	r19, 0x00	; 0
     b3f0:	f9 01       	movw	r30, r18
     b3f2:	20 81       	ld	r18, Z
@@ -7147,14 +7147,14 @@ uint16_t getY()
     b40a:	cd b7       	in	r28, 0x3d	; 61
     b40c:	de b7       	in	r29, 0x3e	; 62
 	TS_DIR = 0;							//Cleared to all inputs
-    b40e:	87 e2       	ldi	r24, 0x27	; 39
+    b40e:	80 e3       	ldi	r24, 0x30	; 48
     b410:	90 e0       	ldi	r25, 0x00	; 0
     b412:	fc 01       	movw	r30, r24
     b414:	10 82       	st	Z, r1
 	TS_DIR |= (1 << X1) | (1 << X2);	//X1 and X2 are outputs
-    b416:	87 e2       	ldi	r24, 0x27	; 39
+    b416:	80 e3       	ldi	r24, 0x30	; 48
     b418:	90 e0       	ldi	r25, 0x00	; 0
-    b41a:	27 e2       	ldi	r18, 0x27	; 39
+    b41a:	20 e3       	ldi	r18, 0x30	; 48
     b41c:	30 e0       	ldi	r19, 0x00	; 0
     b41e:	f9 01       	movw	r30, r18
     b420:	20 81       	ld	r18, Z
@@ -7162,9 +7162,9 @@ uint16_t getY()
     b424:	fc 01       	movw	r30, r24
     b426:	20 83       	st	Z, r18
 	TS_PORT &= ~(1 << X2);				//X2 is set to 0V (GND)
-    b428:	88 e2       	ldi	r24, 0x28	; 40
+    b428:	81 e3       	ldi	r24, 0x31	; 49
     b42a:	90 e0       	ldi	r25, 0x00	; 0
-    b42c:	28 e2       	ldi	r18, 0x28	; 40
+    b42c:	21 e3       	ldi	r18, 0x31	; 49
     b42e:	30 e0       	ldi	r19, 0x00	; 0
     b430:	f9 01       	movw	r30, r18
     b432:	20 81       	ld	r18, Z
@@ -7172,9 +7172,9 @@ uint16_t getY()
     b436:	fc 01       	movw	r30, r24
     b438:	20 83       	st	Z, r18
 	TS_PORT |= (1 << X1);				//X1 is set to 5V (VCC)
-    b43a:	88 e2       	ldi	r24, 0x28	; 40
+    b43a:	81 e3       	ldi	r24, 0x31	; 49
     b43c:	90 e0       	ldi	r25, 0x00	; 0
-    b43e:	28 e2       	ldi	r18, 0x28	; 40
+    b43e:	21 e3       	ldi	r18, 0x31	; 49
     b440:	30 e0       	ldi	r19, 0x00	; 0
     b442:	f9 01       	movw	r30, r18
     b444:	20 81       	ld	r18, Z
