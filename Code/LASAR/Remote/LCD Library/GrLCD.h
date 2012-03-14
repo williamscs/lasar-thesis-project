@@ -52,6 +52,10 @@ typedef struct
 	char *text;		// pointer to null terminated string
 } String_T;
 
+#define DLY	\
+asm ("NOP"); \
+asm ("NOP");
+
 //	text string display control/justification codes
 
 #define FONT_H		4	// huge font
@@ -97,5 +101,6 @@ WORD LCDPixLen(char *chr);
 WORD LCDRead(void);
 void point(WORD x, WORD y);
 void lineto(WORD x2, WORD y2);
+void delay(WORD t);
 
 #endif

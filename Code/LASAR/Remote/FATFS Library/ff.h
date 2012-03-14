@@ -23,6 +23,7 @@ extern "C" {
 
 #include "integer.h"	/* Basic integer types */
 #include "ffconf.h"		/* FatFs configuration options */
+#include "../LCD Library/typedefs.h"
 
 #if _FATFS != _FFCONF
 #error Wrong configuration file (ffconf.h).
@@ -74,7 +75,8 @@ typedef char TCHAR;
 
 /* File system object structure (FATFS) */
 
-typedef struct {
+typedef struct 
+{
 	BYTE	fs_type;		/* FAT sub-type (0:Not mounted) */
 	BYTE	drv;			/* Physical drive number */
 	BYTE	csize;			/* Sectors per cluster (1,2,4...128) */

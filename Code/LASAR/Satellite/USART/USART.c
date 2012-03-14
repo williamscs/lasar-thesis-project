@@ -11,6 +11,7 @@
 void USART_Init( unsigned int ubrr)
 {
 /*Set baud rate */
+	DDRD |= (1 << PORTD1) | (1 << PORTD0);
     UBRR0H = (ubrr >> 8);
     UBRR0L = ubrr;
     

@@ -61,7 +61,7 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FATFS Library\diskio.h">
+    <Compile Include="FATFS Library\mmc.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="FATFS Library\ff.c">
@@ -77,12 +77,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="FATFS Library\mmc.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="LCD Library\cfaf320.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="LCD Library\cfaf320.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LCD Library\Font16.c">
