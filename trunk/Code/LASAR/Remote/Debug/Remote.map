@@ -1,11 +1,15 @@
 Archive member included because of file (symbol)
 
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+                              FATFS Library/ff.o (__mulsi3)
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+                              FATFS Library/ff.o (__udivmodsi4)
 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
                               c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o (exit)
 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
-                              LCD Library/GrLCD.o (__do_copy_data)
+                              FATFS Library/ff.o (__do_copy_data)
 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                              LCD Library/cfaf320.o (__do_clear_bss)
+                              FATFS Library/ff.o (__do_clear_bss)
 
 Allocating common symbols
 Common symbol       size              file
@@ -13,9 +17,10 @@ Common symbol       size              file
 font                0x1               LCD Library/GrLCD.o
 dsrow               0x1               LCD Library/GrLCD.o
 bgcolor             0x2               LCD Library/GrLCD.o
+f_err_code          0x1               Remote.o
 dscol               0x2               LCD Library/GrLCD.o
 fgcolor             0x2               LCD Library/GrLCD.o
-txtbuf              0x28              LCD Library/cfaf320.o
+txtbuf              0x28              Remote.o
 
 Memory Configuration
 
@@ -32,7 +37,8 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
-LOAD LCD Library/cfaf320.o
+LOAD FATFS Library/ff.o
+LOAD FATFS Library/mmc.o
 LOAD LCD Library/Font16.o
 LOAD LCD Library/Font8.o
 LOAD LCD Library/GrLCD.o
@@ -135,7 +141,7 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0xb4b8
+.text           0x00000000    0x122b8
  *(.vectors)
  .vectors       0x00000000       0x98 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
                 0x00000000                __vector_default
@@ -709,7 +715,6 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  .text          0x0000a094        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
                 0x0000a094                __vector_22
                 0x0000a094                __vector_28
-                0x0000a094                __vector_1
                 0x0000a094                __vector_32
                 0x0000a094                __vector_34
                 0x0000a094                __vector_24
@@ -719,7 +724,6 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x0000a094                __vector_31
                 0x0000a094                __vector_35
                 0x0000a094                __vector_3
-                0x0000a094                __vector_23
                 0x0000a094                __vector_30
                 0x0000a094                __vector_25
                 0x0000a094                __vector_11
@@ -745,51 +749,91 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
                 0x0000a094                __vector_16
                 0x0000a094                __vector_18
                 0x0000a094                __vector_20
- .text          0x0000a098       0xba LCD Library/cfaf320.o
-                0x0000a098                delay
-                0x0000a0e4                display_rgb
- .text          0x0000a152        0x0 LCD Library/Font16.o
- .text          0x0000a152        0x0 LCD Library/Font8.o
- .text          0x0000a152     0x1212 LCD Library/GrLCD.o
-                0x0000a152                LCDInit
-                0x0000a200                LCDCmd
-                0x0000a28c                LCDData
-                0x0000a318                LCDRead
-                0x0000a3da                LCDClear
-                0x0000a4b8                LCDText
-                0x0000a6b0                LCDChar
-                0x0000ab34                LCDErase
-                0x0000ac48                LCDRdBlock
-                0x0000acfe                LCDWrBlock
-                0x0000adb0                LCDSetGCur
-                0x0000ae18                LCDSetTCur
-                0x0000af1c                LCDPixLen
-                0x0000b072                plot
-                0x0000b0ae                point
-                0x0000b0f6                lineto
- .text          0x0000b364        0x0 LCD Library/helvb10.o
- .text          0x0000b364        0x0 LCD Library/helvn6.o
- .text          0x0000b364        0x0 LCD Library/timesb12.o
- .text          0x0000b364        0xe Remote.o
-                0x0000b364                main
- .text          0x0000b372      0x142 TouchScreen Library/TouchScreen.o
-                0x0000b372                initTouchScreen
-                0x0000b3b4                getX
-                0x0000b406                getY
-                0x0000b458                analogRead
- .text          0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text          0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text          0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x0000b4b4                . = ALIGN (0x2)
+ .text          0x0000a098     0x5cfc FATFS Library/ff.o
+                0x0000a682                clust2sect
+                0x0000a736                get_fat
+                0x0000aa44                put_fat
+                0x0000d0c8                f_mount
+                0x0000d148                f_open
+                0x0000d5d6                f_read
+                0x0000dafa                f_write
+                0x0000e18e                f_sync
+                0x0000e3e6                f_close
+                0x0000e41e                f_lseek
+                0x0000ea16                f_opendir
+                0x0000eb7c                f_readdir
+                0x0000ec50                f_stat
+                0x0000ecd4                f_getfree
+                0x0000f080                f_truncate
+                0x0000f29a                f_unlink
+                0x0000f488                f_mkdir
+                0x0000f8d8                f_chmod
+                0x0000f996                f_utime
+                0x0000fa84                f_rename
+ .text          0x0000fd94      0xe74 FATFS Library/mmc.o
+                0x00010280                disk_initialize
+                0x00010458                disk_status
+                0x0001047a                disk_read
+                0x00010596                disk_write
+                0x000106ee                disk_ioctl
+                0x00010b9a                disk_timerproc
+                0x00010bf0                get_fattime
+ .text          0x00010c08        0x0 LCD Library/Font16.o
+ .text          0x00010c08        0x0 LCD Library/Font8.o
+ .text          0x00010c08     0x1318 LCD Library/GrLCD.o
+                0x00010c08                LCDInit
+                0x00010cb6                LCDCmd
+                0x00010d66                LCDData
+                0x00010e16                LCDRead
+                0x00010efa                LCDClear
+                0x00011002                LCDText
+                0x000111fa                LCDChar
+                0x0001167e                LCDErase
+                0x000117b8                LCDRdBlock
+                0x0001186e                LCDWrBlock
+                0x00011920                LCDSetGCur
+                0x00011988                LCDSetTCur
+                0x00011a8c                LCDPixLen
+                0x00011be2                plot
+                0x00011c1e                point
+                0x00011c66                lineto
+                0x00011ed4                delay
+ .text          0x00011f20        0x0 LCD Library/helvb10.o
+ .text          0x00011f20        0x0 LCD Library/helvn6.o
+ .text          0x00011f20        0x0 LCD Library/timesb12.o
+ .text          0x00011f20      0x1d0 Remote.o
+                0x00011f20                main
+                0x00011f4c                init10msTimer
+                0x00011f78                display_rgb
+                0x00011fe6                USART_Init
+                0x0001202c                USART_Transmit
+                0x00012060                USART_Receive
+                0x00012070                __vector_1
+                0x00012090                __vector_23
+ .text          0x000120f0      0x142 TouchScreen Library/TouchScreen.o
+                0x000120f0                initTouchScreen
+                0x00012132                getX
+                0x00012184                getY
+                0x000121d6                analogRead
+ .text          0x00012232        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+ .text          0x00012232        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text          0x00012232        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text          0x00012232        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x00012232        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x00012232                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text.libgcc   0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x0000b4b4                . = ALIGN (0x2)
+ .text.libgcc   0x00012232       0x3e c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+                0x00012232                __mulsi3
+ .text.libgcc   0x00012270       0x44 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+                0x00012270                __udivmodsi4
+ .text.libgcc   0x000122b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x000122b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000122b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x000122b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000b4b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
-                0x0000b4b4                _exit
-                0x0000b4b4                exit
+ .fini9         0x000122b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x000122b4                _exit
+                0x000122b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -808,74 +852,80 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000b4b4        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x000122b4        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000b4b8                _etext = .
+                0x000122b8                _etext = .
 
-.data           0x00800100       0xa4 load address 0x0000b4b8
+.data           0x00800100       0xb4 load address 0x000122b8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
- .data          0x00800100        0x0 LCD Library/cfaf320.o
- .data          0x00800100        0x0 LCD Library/Font16.o
- .data          0x00800100        0x0 LCD Library/Font8.o
- .data          0x00800100       0xa4 LCD Library/GrLCD.o
- .data          0x008001a4        0x0 LCD Library/helvb10.o
- .data          0x008001a4        0x0 LCD Library/helvn6.o
- .data          0x008001a4        0x0 LCD Library/timesb12.o
- .data          0x008001a4        0x0 Remote.o
- .data          0x008001a4        0x0 TouchScreen Library/TouchScreen.o
- .data          0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .data          0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .data          0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ .data          0x00800100        0xf FATFS Library/ff.o
+ .data          0x0080010f        0x1 FATFS Library/mmc.o
+ .data          0x00800110        0x0 LCD Library/Font16.o
+ .data          0x00800110        0x0 LCD Library/Font8.o
+ .data          0x00800110       0xa4 LCD Library/GrLCD.o
+ .data          0x008001b4        0x0 LCD Library/helvb10.o
+ .data          0x008001b4        0x0 LCD Library/helvn6.o
+ .data          0x008001b4        0x0 LCD Library/timesb12.o
+ .data          0x008001b4        0x0 Remote.o
+ .data          0x008001b4        0x0 TouchScreen Library/TouchScreen.o
+ .data          0x008001b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+ .data          0x008001b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+ .data          0x008001b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .data          0x008001b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .data          0x008001b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x008001a4                . = ALIGN (0x2)
-                0x008001a4                _edata = .
-                0x008001a4                PROVIDE (__data_end, .)
+                0x008001b4                . = ALIGN (0x2)
+                0x008001b4                _edata = .
+                0x008001b4                PROVIDE (__data_end, .)
 
-.bss            0x008001a4       0x3f
-                0x008001a4                PROVIDE (__bss_start, .)
+.bss            0x008001b4      0x26c
+                0x008001b4                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x008001a4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
- .bss           0x008001a4        0xa LCD Library/cfaf320.o
-                0x008001a4                strg
- .bss           0x008001ae        0x0 LCD Library/Font16.o
- .bss           0x008001ae        0x0 LCD Library/Font8.o
- .bss           0x008001ae        0x5 LCD Library/GrLCD.o
-                0x008001ae                CJ_code
-                0x008001af                gr_x
-                0x008001b1                gr_y
- .bss           0x008001b3        0x0 LCD Library/helvb10.o
- .bss           0x008001b3        0x0 LCD Library/helvn6.o
- .bss           0x008001b3        0x0 LCD Library/timesb12.o
- .bss           0x008001b3        0x0 Remote.o
- .bss           0x008001b3        0x0 TouchScreen Library/TouchScreen.o
- .bss           0x008001b3        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .bss           0x008001b3        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .bss           0x008001b3        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ .bss           0x008001b4        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+ .bss           0x008001b4        0x4 FATFS Library/ff.o
+ .bss           0x008001b8        0x4 FATFS Library/mmc.o
+ .bss           0x008001bc        0x0 LCD Library/Font16.o
+ .bss           0x008001bc        0x0 LCD Library/Font8.o
+ .bss           0x008001bc        0x5 LCD Library/GrLCD.o
+                0x008001bc                CJ_code
+                0x008001bd                gr_x
+                0x008001bf                gr_y
+ .bss           0x008001c1        0x0 LCD Library/helvb10.o
+ .bss           0x008001c1        0x0 LCD Library/helvn6.o
+ .bss           0x008001c1        0x0 LCD Library/timesb12.o
+ .bss           0x008001c1      0x22e Remote.o
+ .bss           0x008003ef        0x0 TouchScreen Library/TouchScreen.o
+ .bss           0x008003ef        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+ .bss           0x008003ef        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+ .bss           0x008003ef        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .bss           0x008003ef        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .bss           0x008003ef        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x008001b3       0x28 LCD Library/cfaf320.o
-                0x008001b3                txtbuf
- COMMON         0x008001db        0x8 LCD Library/GrLCD.o
-                0x008001db                font
-                0x008001dc                dsrow
-                0x008001dd                bgcolor
-                0x008001df                dscol
-                0x008001e1                fgcolor
-                0x008001e3                PROVIDE (__bss_end, .)
-                0x0000b4b8                __data_load_start = LOADADDR (.data)
-                0x0000b55c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008003ef        0x8 LCD Library/GrLCD.o
+                0x008003ef                font
+                0x008003f0                dsrow
+                0x008003f1                bgcolor
+                0x008003f3                dscol
+                0x008003f5                fgcolor
+ COMMON         0x008003f7       0x29 Remote.o
+                0x008003f7                f_err_code
+                0x008003f8                txtbuf
+                0x00800420                PROVIDE (__bss_end, .)
+                0x000122b8                __data_load_start = LOADADDR (.data)
+                0x0001236c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001e3        0x0
-                0x008001e3                PROVIDE (__noinit_start, .)
+.noinit         0x00800420        0x0
+                0x00800420                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008001e3                PROVIDE (__noinit_end, .)
-                0x008001e3                _end = .
-                0x008001e3                PROVIDE (__heap_start, .)
+                0x00800420                PROVIDE (__noinit_end, .)
+                0x00800420                _end = .
+                0x00800420                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -928,102 +978,112 @@ LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/av
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x80
+.debug_aranges  0x00000000       0xa0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x20 LCD Library/cfaf320.o
+                0x00000000       0x20 FATFS Library/ff.o
  .debug_aranges
-                0x00000020       0x20 LCD Library/GrLCD.o
+                0x00000020       0x20 FATFS Library/mmc.o
  .debug_aranges
-                0x00000040       0x20 Remote.o
+                0x00000040       0x20 LCD Library/GrLCD.o
  .debug_aranges
-                0x00000060       0x20 TouchScreen Library/TouchScreen.o
+                0x00000060       0x20 Remote.o
+ .debug_aranges
+                0x00000080       0x20 TouchScreen Library/TouchScreen.o
 
 .debug_pubnames
-                0x00000000     0x1c1d
+                0x00000000     0x1e07
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x40 LCD Library/cfaf320.o
+                0x00000000      0x10c FATFS Library/ff.o
  .debug_pubnames
-                0x00000040      0x5dc LCD Library/Font16.o
+                0x0000010c       0x85 FATFS Library/mmc.o
  .debug_pubnames
-                0x0000061c      0x574 LCD Library/Font8.o
+                0x00000191      0x5dc LCD Library/Font16.o
  .debug_pubnames
-                0x00000b90      0x12e LCD Library/GrLCD.o
+                0x0000076d      0x574 LCD Library/Font8.o
  .debug_pubnames
-                0x00000cbe      0x4ff LCD Library/helvb10.o
+                0x00000ce1      0x138 LCD Library/GrLCD.o
  .debug_pubnames
-                0x000011bd      0x4ff LCD Library/helvn6.o
+                0x00000e19      0x4ff LCD Library/helvb10.o
  .debug_pubnames
-                0x000016bc      0x4ff LCD Library/timesb12.o
+                0x00001318      0x4ff LCD Library/helvn6.o
  .debug_pubnames
-                0x00001bbb       0x1b Remote.o
+                0x00001817      0x4ff LCD Library/timesb12.o
  .debug_pubnames
-                0x00001bd6       0x47 TouchScreen Library/TouchScreen.o
+                0x00001d16       0xaa Remote.o
+ .debug_pubnames
+                0x00001dc0       0x47 TouchScreen Library/TouchScreen.o
 
-.debug_info     0x00000000     0x6b9e
+.debug_info     0x00000000     0x8965
  *(.debug_info)
- .debug_info    0x00000000      0x1b1 LCD Library/cfaf320.o
- .debug_info    0x000001b1     0x1387 LCD Library/Font16.o
- .debug_info    0x00001538     0x11ef LCD Library/Font8.o
- .debug_info    0x00002727      0xc7c LCD Library/GrLCD.o
- .debug_info    0x000033a3     0x122b LCD Library/helvb10.o
- .debug_info    0x000045ce     0x11a9 LCD Library/helvn6.o
- .debug_info    0x00005777     0x12ac LCD Library/timesb12.o
- .debug_info    0x00006a23       0x93 Remote.o
- .debug_info    0x00006ab6       0xe8 TouchScreen Library/TouchScreen.o
+ .debug_info    0x00000000     0x16b8 FATFS Library/ff.o
+ .debug_info    0x000016b8      0x55d FATFS Library/mmc.o
+ .debug_info    0x00001c15     0x1387 LCD Library/Font16.o
+ .debug_info    0x00002f9c     0x11ef LCD Library/Font8.o
+ .debug_info    0x0000418b      0xcb2 LCD Library/GrLCD.o
+ .debug_info    0x00004e3d     0x122b LCD Library/helvb10.o
+ .debug_info    0x00006068     0x11a9 LCD Library/helvn6.o
+ .debug_info    0x00007211     0x12ac LCD Library/timesb12.o
+ .debug_info    0x000084bd      0x3c0 Remote.o
+ .debug_info    0x0000887d       0xe8 TouchScreen Library/TouchScreen.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x5f3
+.debug_abbrev   0x00000000      0x8fa
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0xd2 LCD Library/cfaf320.o
- .debug_abbrev  0x000000d2       0x7b LCD Library/Font16.o
- .debug_abbrev  0x0000014d       0x7b LCD Library/Font8.o
- .debug_abbrev  0x000001c8      0x183 LCD Library/GrLCD.o
- .debug_abbrev  0x0000034b       0x9d LCD Library/helvb10.o
- .debug_abbrev  0x000003e8       0x9d LCD Library/helvn6.o
- .debug_abbrev  0x00000485       0xa6 LCD Library/timesb12.o
- .debug_abbrev  0x0000052b       0x41 Remote.o
- .debug_abbrev  0x0000056c       0x87 TouchScreen Library/TouchScreen.o
+ .debug_abbrev  0x00000000      0x153 FATFS Library/ff.o
+ .debug_abbrev  0x00000153      0x179 FATFS Library/mmc.o
+ .debug_abbrev  0x000002cc       0x7b LCD Library/Font16.o
+ .debug_abbrev  0x00000347       0x7b LCD Library/Font8.o
+ .debug_abbrev  0x000003c2      0x183 LCD Library/GrLCD.o
+ .debug_abbrev  0x00000545       0x9d LCD Library/helvb10.o
+ .debug_abbrev  0x000005e2       0x9d LCD Library/helvn6.o
+ .debug_abbrev  0x0000067f       0xa6 LCD Library/timesb12.o
+ .debug_abbrev  0x00000725      0x14e Remote.o
+ .debug_abbrev  0x00000873       0x87 TouchScreen Library/TouchScreen.o
 
-.debug_line     0x00000000     0x1115
+.debug_line     0x00000000     0x41ff
  *(.debug_line)
- .debug_line    0x00000000      0x103 LCD Library/cfaf320.o
- .debug_line    0x00000103       0x67 LCD Library/Font16.o
- .debug_line    0x0000016a       0x66 LCD Library/Font8.o
- .debug_line    0x000001d0      0xbf1 LCD Library/GrLCD.o
- .debug_line    0x00000dc1       0x68 LCD Library/helvb10.o
- .debug_line    0x00000e29       0x67 LCD Library/helvn6.o
- .debug_line    0x00000e90       0x69 LCD Library/timesb12.o
- .debug_line    0x00000ef9       0x67 Remote.o
- .debug_line    0x00000f60      0x1b5 TouchScreen Library/TouchScreen.o
+ .debug_line    0x00000000     0x242f FATFS Library/ff.o
+ .debug_line    0x0000242f      0xb0d FATFS Library/mmc.o
+ .debug_line    0x00002f3c       0x67 LCD Library/Font16.o
+ .debug_line    0x00002fa3       0x66 LCD Library/Font8.o
+ .debug_line    0x00003009      0xc9b LCD Library/GrLCD.o
+ .debug_line    0x00003ca4       0x68 LCD Library/helvb10.o
+ .debug_line    0x00003d0c       0x67 LCD Library/helvn6.o
+ .debug_line    0x00003d73       0x69 LCD Library/timesb12.o
+ .debug_line    0x00003ddc      0x26e Remote.o
+ .debug_line    0x0000404a      0x1b5 TouchScreen Library/TouchScreen.o
 
-.debug_frame    0x00000000      0x1b0
+.debug_frame    0x00000000      0x5b0
  *(.debug_frame)
- .debug_frame   0x00000000       0x30 LCD Library/cfaf320.o
- .debug_frame   0x00000030      0x110 LCD Library/GrLCD.o
- .debug_frame   0x00000140       0x20 Remote.o
- .debug_frame   0x00000160       0x50 TouchScreen Library/TouchScreen.o
+ .debug_frame   0x00000000      0x290 FATFS Library/ff.o
+ .debug_frame   0x00000290      0x120 FATFS Library/mmc.o
+ .debug_frame   0x000003b0      0x120 LCD Library/GrLCD.o
+ .debug_frame   0x000004d0       0x90 Remote.o
+ .debug_frame   0x00000560       0x50 TouchScreen Library/TouchScreen.o
 
-.debug_str      0x00000000     0x1534
+.debug_str      0x00000000     0x1ae5
  *(.debug_str)
- .debug_str     0x00000000       0xea LCD Library/cfaf320.o
-                                0x128 (size before relaxing)
- .debug_str     0x000000ea      0x420 LCD Library/Font16.o
+ .debug_str     0x00000000      0x4fe FATFS Library/ff.o
+                                0x57c (size before relaxing)
+ .debug_str     0x000004fe      0x11d FATFS Library/mmc.o
+                                0x255 (size before relaxing)
+ .debug_str     0x0000061b      0x420 LCD Library/Font16.o
                                 0x4e2 (size before relaxing)
- .debug_str     0x0000050a      0x3d1 LCD Library/Font8.o
+ .debug_str     0x00000a3b      0x3d1 LCD Library/Font8.o
                                 0x499 (size before relaxing)
- .debug_str     0x000008db      0x1ac LCD Library/GrLCD.o
-                                0x2c7 (size before relaxing)
- .debug_str     0x00000a87      0x370 LCD Library/helvb10.o
+ .debug_str     0x00000e0c      0x1b2 LCD Library/GrLCD.o
+                                0x2cd (size before relaxing)
+ .debug_str     0x00000fbe      0x370 LCD Library/helvb10.o
                                 0x44a (size before relaxing)
- .debug_str     0x00000df7      0x36f LCD Library/helvn6.o
+ .debug_str     0x0000132e      0x36f LCD Library/helvn6.o
                                 0x449 (size before relaxing)
- .debug_str     0x00001166      0x371 LCD Library/timesb12.o
+ .debug_str     0x0000169d      0x371 LCD Library/timesb12.o
                                 0x44b (size before relaxing)
- .debug_str     0x000014d7       0x13 Remote.o
-                                 0xda (size before relaxing)
- .debug_str     0x000014ea       0x4a TouchScreen Library/TouchScreen.o
+ .debug_str     0x00001a0e       0x8d Remote.o
+                                0x334 (size before relaxing)
+ .debug_str     0x00001a9b       0x4a TouchScreen Library/TouchScreen.o
                                 0x103 (size before relaxing)
 
 .debug_loc
@@ -1035,22 +1095,24 @@ OUTPUT(Remote.elf elf32-avr)
 LOAD linker stubs
 
 .debug_pubtypes
-                0x00000000      0x14e
+                0x00000000      0x242
  .debug_pubtypes
-                0x00000000       0x31 LCD Library/cfaf320.o
+                0x00000000       0x7f FATFS Library/ff.o
  .debug_pubtypes
-                0x00000031       0x1c LCD Library/Font16.o
+                0x0000007f       0x68 FATFS Library/mmc.o
  .debug_pubtypes
-                0x0000004d       0x1c LCD Library/Font8.o
+                0x000000e7       0x1c LCD Library/Font16.o
  .debug_pubtypes
-                0x00000069       0x54 LCD Library/GrLCD.o
+                0x00000103       0x1c LCD Library/Font8.o
  .debug_pubtypes
-                0x000000bd       0x1c LCD Library/helvb10.o
+                0x0000011f       0x54 LCD Library/GrLCD.o
  .debug_pubtypes
-                0x000000d9       0x1c LCD Library/helvn6.o
+                0x00000173       0x1c LCD Library/helvb10.o
  .debug_pubtypes
-                0x000000f5       0x1c LCD Library/timesb12.o
+                0x0000018f       0x1c LCD Library/helvn6.o
  .debug_pubtypes
-                0x00000111       0x12 Remote.o
+                0x000001ab       0x1c LCD Library/timesb12.o
  .debug_pubtypes
-                0x00000123       0x2b TouchScreen Library/TouchScreen.o
+                0x000001c7       0x50 Remote.o
+ .debug_pubtypes
+                0x00000217       0x2b TouchScreen Library/TouchScreen.o

@@ -1,25 +1,27 @@
 EAGLE AutoRouter Statistics:
 
-Job           : E:/Chris/CAD/Thesis/Remote/Remote.brd
+Job           : C:/lasar-thesis-project/Schematics and PCB Design/Remote/Remote.brd
 
-Start at      : 03:09:07 (1/19/2012)
-End at        : 03:12:39 (1/19/2012)
-Elapsed time  : 00:03:32
+Start at      : 18:11:35 (3/5/2012)
+End at        : 18:12:18 (3/5/2012)
+Elapsed time  : 00:00:43
 
-Signals       :    49   RoutingGrid: 5 mil  Layers: 2
-Connections   :   105   predefined:  0 ( 0 Vias )
+Signals       :    61   RoutingGrid: 5 mil  Layers: 2
+Connections   :   144   predefined:  0 ( 0 Vias )
 
-Router memory :   4037312
+Router memory :   1194112
 
-Passname          :    Busses     Route Optimize1 Optimize2 Optimize3 Optimize4
+Job has been interrupted!
 
-Time per pass     :  00:00:01  00:00:23  00:00:39  00:00:49  00:00:45  00:00:55
-Number of Ripups  :         0         4         0         0         0         0
-max. Level        :         0         1         0         0         0         0
-max. Total        :         0        31         0         0         0         0
+Passname          :    Busses     Route Optimize1 Optimize2
 
-Routed            :        14        84        84        84        84        84
-Vias              :         0       105        53        45        41        39
-Resolution        :    13.3 %    80.0 %    80.0 %    80.0 %    80.0 %    80.0 %
+Time per pass     :  00:00:01  00:00:25  00:00:09  00:00:08
+Number of Ripups  :         0        32         0         0
+max. Level        :         0         4         0         0
+max. Total        :         0        49         0         0
 
-Final             : 80.0% finished
+Routed            :        21       138       138       138
+Vias              :         0       210       109       103
+Resolution        :    14.6 %    95.8 %    95.8 %    95.8 %
+
+Final             : interrupted

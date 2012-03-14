@@ -1,100 +1,99 @@
-/******************************************************************************
+/*
+ * Satellite.c
+ *
+ * Created: 2/1/2012 4:17:34 PM
+ *  Author: Chris Williams
+ */ 
 
-Program to demonstrate the use servo motors with AVR Microcontrollers.
-
-Servo Motor: HITEC HS-645MG (360 Modified)
-Servo Control PIN (white): To OC1A PIN
-Crystal: 16MHz
-EXTENDED Fuse: 0xFF
-LOW Fuse: 0xD9
-HIGH Fuse: 0xF7
-
-WRITTEN BY:
-DERON JAKUB
-jakubderon@gmail.com
-*******************************************************************************/
-
-#include <avr/io.h>
-#include <avr\sfr_defs.h>  
 #define F_CPU 16000000UL
-#include <util/delay.h>
+//Indicates whether code will be compiled
+// for Smart Satellite or RTC-less Satellite
+// ......none of them are dumb :(
+#define SMART_SAT 1
 
-//Simple Wait Function
-void Wait()
-{
-   uint8_t i;
-   for(i=0;i<50;i++)
-   {
-      _delay_loop_2(0);
-      _delay_loop_2(0);
-      _delay_loop_2(0);
-   }
-}
+#include <avr\io.h>
+#include <avr\sfr_defs.h>   // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
+#include <util\delay.h>     // This is for using the _delay_ms() function.
+#include <avr\interrupt.h>
+//#include <avr\sleep.h>
+//#include <avr\eeprom.h>
+//#include "USART\USART.h"
+//#include "Satellite.h"
+
+//Servo Constants
+#define SERVO_PERIOD	312
+#define SERVO_FWD 31  //1ms
+//#define SERVO_CEN 23	//1.5ms (not needed)
+#define SERVO_REV 16	//2ms
+
+//Global Variables
+volatile unsigned int dim = 20;
+volatile unsigned int count = 0;
+volatile uint8_t rxflag = 0;
+volatile uint8_t slpflg = 0;
+volatile uint8_t zerocross = 1;
+volatile uint32_t freqCounter = 0;
+volatile uint32_t frequency = 0;
+
+void initServo(const int period_64us);
+void static inline openWindow(int pwm, int time);	//inline ensures function execution time optimization
+void static inline closeWindow(int time);
 
 int main(void)
 {
+	//Local Variables
+	//uint8_t hours = 0;
+	//uint8_t minutes = 0;
+	//uint8_t seconds = 0;
+	
+	DDRB &= ~(1 << PORTB0);
+	DDRC = 0xFF;
+	
+	initInterrupts();
+	
+	// turn on interrupts
+	sei();
+		
+	
+	while(1)
+	{
+		//PORTC &= ~(1 << PORTC0);
+		
+		//openWindow(SERVO_FWD, 3000);
+		_delay_ms(1000);
+		
+		//PORTC = (1 << PORTC0);
+		_delay_ms(1000);		
+	}	
+    return(0);
+}
 
-	//Port D pins as input
-	DDRD=0x00;
 
-	//Enable internal pull ups
-	PORTD=0xFF;
 
-	//Set PORTB1 pin as output
-	DDRB=0xFF;
-
-	/*=========================================TIMERS===========================================
-	Timer/Counter1 Control Register A - TCCR1A
-	bit    7    6     5    4     3       2     1    0
-	   ________________________________________________________________________
-	   | COM1A1 | COM1A0 | COM1B1 | COM1B0 | COM1C1 | COM1C0 | WGM11 | WGM10 |
-	   ------------------------------------------------------------------------
-	Read/Write    R/W  R/W   R/W   R/W     R/W   R/W   R/W   R/W  
-	Intial Value 0   0    0     0   0    0     0    0
-
-	Timer/Counter1 Control Register B - TCCR1B
-	bit    7    6     5    4     3       2     1    0
-	   __________________________________________________________________________
-	   | ICNC1  | ICES1  |   -   |  WGM13  |  WGM12  |  CS12  |  CS11  |  CS10  |
-	   ------------------------------------------------------------------------
-	Read/Write    R/W  R/W    R     R/W     R/W   R/W   R/W   R/W  
-	Intial Value 0   0    0     0   0    0     0    0
-	===============================================================================================
-	*/
-	//TOP=ICR1;
-	//Output compare OC1A 8 bit non inverted PWM
-	//Clear OC1A on Compare Match, set OC1A at TOP
-	//Fast PWM
-	//ICR1=20000 defines 50Hz PWM
-
-	ICR1=20000;
-	//TCCR1A = 01000010
-	TCCR1A = 0;
-	TCCR1A|=(1<<COM1A1) | (1<<WGM11);
-	//TCCR1B = 00011010
-	TCCR1B = 0;
-	TCCR1B|=(1<<WGM13)|(1<<WGM12)|(1<<CS11);
-	//start timer with prescaler 8  //16Mhz/8 = 2MHz
-
-	 for (;;) 
-	 {
-		 Wait();  
-		 OCR1A = 0x3FFF;
-			// set PWM for 25% duty cycle @ 16bit
-
-		OCR1B = 0xBFFF;
-			// set PWM for 75% duty cycle @ 16bit
+void initServo(const int period_64us) 
+{
+	DDRB |= (1 << PORTB1);
+	//initialize TMR1 (PWM) 
+	// clear on compare, fast PWM, TOP=ICR1 (WGM13/WGM12 in TCCR1B)
+	TCCR1A = (1 << COM1A1) | (1 << WGM11);
+	// prescaler 1024 (and WGM12 and WGM13)
+	TCCR1B = (1 << WGM12) | (1 << WGM13) | (1 << CS10) | (1 << CS12); 
+	ICR1 = period_64us;
+} 
  
-		 //increase duty cycle
-		 //OCR1A+=10;
-/*
-		 if(bit_is_clear(PIND, 1)) 
-		 
-			 //decease duty cycle
-			 OCR1A-=10;
-			 loop_until_bit_is_set(PIND, 1);
-		 }
-		 */
-	}
+ 
+void static inline openWindow(int pwm, int time) 
+{
+	TCCR1B |= (1 << CS10) | (1 << CS12);
+	OCR1A = SERVO_FWD;
+	delay_ms(time);
+	TCCR1B &= 0xF8;
+}
 
+void static inline closeWindow(int time) 
+{
+	TCCR1B |= (1 << CS10) | (1 << CS12);
+	OCR1A = SERVO_REV;
+	delay_ms(time);
+	TCCR1B &= 0xF8;
 }

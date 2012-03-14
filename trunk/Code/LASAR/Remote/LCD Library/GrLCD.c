@@ -2,7 +2,6 @@
 #include <avr/pgmspace.h>
 #include <stdlib.h>
 #include "typedefs.h"
-#include "cfaf320.h"
 #include "GrLCD.h"
 #include "Font8.h"
 #include "Font16.h"
@@ -684,6 +683,19 @@ void lineto(WORD x2, WORD y2)
 			d = d + dinc2;
 			x = x + xinc2;
 			y = y + yinc2;
+		}
+	}
+}
+
+void delay(WORD t)
+{
+	BYTE t1;
+
+	while(t--)
+	{
+		for(t1 = 11; t1 > 0; t1--)
+		{
+			asm("nop");
 		}
 	}
 }

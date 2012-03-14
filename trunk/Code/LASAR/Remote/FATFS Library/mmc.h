@@ -2,7 +2,7 @@
 /  Low level disk interface modlue include file
 /-----------------------------------------------------------------------*/
 
-#ifndef _DISKIO
+#ifndef _MMC
 
 #define _READONLY	0	/* 1: Remove write functions */
 #define _USE_IOCTL	1	/* 1: Use disk_ioctl fucntion */

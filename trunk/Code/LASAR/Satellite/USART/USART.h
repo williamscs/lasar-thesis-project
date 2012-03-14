@@ -10,6 +10,10 @@
 #define USART_H_
 
 
+//USART Stuff
+#define FOSC F_CPU    // Clock Speed
+#define BAUD 9600UL
+#define MYUBRR (F_CPU/(16*BAUD))-1
 
 
 

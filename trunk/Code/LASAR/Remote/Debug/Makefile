@@ -41,12 +41,14 @@ OUTPUT_FILE_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../LCD\ Library/ \
+../FATFS\ Library \
 ../TouchScreen\ Library
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../LCD\ Library/cfaf320.c \
+../FATFS\ Library/ff.c \
+../FATFS\ Library/mmc.c \
 ../LCD\ Library/Font16.c \
 ../LCD\ Library/Font8.c \
 ../LCD\ Library/GrLCD.c \
@@ -64,7 +66,8 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-LCD\ Library/cfaf320.o \
+FATFS\ Library/ff.o \
+FATFS\ Library/mmc.o \
 LCD\ Library/Font16.o \
 LCD\ Library/Font8.o \
 LCD\ Library/GrLCD.o \
@@ -76,7 +79,8 @@ TouchScreen\ Library/TouchScreen.o
 
 
 OBJS_AS_ARGS +=  \
-"LCD Library/cfaf320.o" \
+"FATFS Library/ff.o" \
+"FATFS Library/mmc.o" \
 "LCD Library/Font16.o" \
 "LCD Library/Font8.o" \
 "LCD Library/GrLCD.o" \
@@ -88,7 +92,8 @@ Remote.o \
 
 
 C_DEPS +=  \
-LCD\ Library/cfaf320.d \
+FATFS\ Library/ff.d \
+FATFS\ Library/mmc.d \
 LCD\ Library/Font16.d \
 LCD\ Library/Font8.d \
 LCD\ Library/GrLCD.d \
@@ -100,7 +105,8 @@ TouchScreen\ Library/TouchScreen.d
 
 
 C_DEPS_AS_ARGS +=  \
-"LCD Library/cfaf320.d" \
+"FATFS Library/ff.d" \
+"FATFS Library/mmc.d" \
 "LCD Library/Font16.d" \
 "LCD Library/Font8.d" \
 "LCD Library/GrLCD.d" \
@@ -138,10 +144,16 @@ ADDITIONAL_DEPENDENCIES:= $(HEX_FLASH_FILE_PATH) $(LSS_FILE_PATH) $(HEX_EEPROM_F
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR/GNU C Compiler
-LCD\ Library/cfaf320.o: ../LCD\ Library/cfaf320.c
+FATFS\ Library/ff.o: ../FATFS\ Library/ff.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler
-	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"cfaf320.d" -MQ"$(@:cfaf320.o=cfaf320.d)" -o"$@" "$<"
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"ff.d" -MQ"$(@:ff.o=ff.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+FATFS\ Library/mmc.o: ../FATFS\ Library/mmc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"mmc.d" -MQ"$(@:mmc.o=mmc.d)" -o"$@" "$<"
 	@echo Finished building: $<
 
 LCD\ Library/Font16.o: ../LCD\ Library/Font16.c
@@ -188,6 +200,12 @@ TouchScreen\ Library/TouchScreen.o: ../TouchScreen\ Library/TouchScreen.c
 	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"TouchScreen.d" -MQ"$(@:TouchScreen.o=TouchScreen.d)" -o"$@" "$<"
 	@echo Finished building: $<
 
+
+FATFS\ Library/%.o: ../FATFS\ Library/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=at90usb1287   -MD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo Finished building: $<
 
 LCD\ Library/%.o: ../LCD\ Library/%.c
 	@echo Building file: $<
