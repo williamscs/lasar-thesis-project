@@ -53,12 +53,13 @@ int main(void)
 	
 	DDRB &= ~(1 << PORTB0);
 	DDRC = 0xFF;
-    DDRD |= (1 << PORTD6); 
+	
+    DDRD = (1 << PORTD6); 
 	//DDRB = 0;
 	//_delay_ms(1000);
 	
 	initTimer(65);
-	//initInterrupts();
+	initInterrupts();
 	//initServo(SERVO_PERIOD);
 	USART_Init(MYUBRR);
 	dim = 100;
@@ -85,7 +86,6 @@ int main(void)
 		//str = "test";
 		//USART_Transmit('1');
 		//print(str);
-		//PORTD = (1 << PORTD6);
 		for( int j = 10; j < 90; ++j )
 		{
 			//PORTD |= (1 << PORTD3);
@@ -117,37 +117,26 @@ int main(void)
  */
 void initTimer( int dutycycle )
 {
+	
 	OCR0A = 130; //cap of Timer0
 	OCR0B = dutycycle;
-	 
-	
-	TCCR0A |= (1 << COM0A1) | (1 << WGM01);
+	 	
+	TCCR0A = (1 << COM0A1) | (1 << WGM01);
 	// set non-inverting mode 
 	// set CTC (Clear Timer on Compare) Mode
 
-    TCCR0B |= (1 << CS01);    // set prescaler to 8 and starts PWM
+    TCCR0B = (1 << CS01);    // set prescaler to 8
 	
 	TIMSK0 = (1 << OCIE0A) | (1 << TOIE0);	//Enable OVF
-
-	/* OLD CODE 2/15/2012
-	TCCR0A |= (1 << WGM01) | (1 << WGM00);
-    // set fast PWM Mode
-
-    TCCR0B |= (1 << CS01);
-    // set prescaler to 8 and starts PWM
-	
-	TIMSK0 = (1 << OCIE0B);
-	//Enable COMPA
-	*/
 }
 
 
 void initInterrupts()
 {
 	//Falling edge triggers interrupt for INT0 or INT1
-	EICRA |= (1 << ISC11) | (1 << ISC01);
+	EICRA = (1 << ISC11) | (1 << ISC01);
 	//Enable INT0 and INT1
-	EIMSK |= (1 << INT1) | (1 << INT0);
+	EIMSK = (1 << INT1) | (1 << INT0);
 	
 	//Enables PC[23:16] and PC[7:0]
 	PCICR = (1 << PCIE2) | (1 << PCIE0);
@@ -275,6 +264,7 @@ ISR(TIMER1_COMPA_vect)
 
 ISR(INT0_vect)
 {
+	print("Interrupt");
 	zerocross = 1;
 }
 
