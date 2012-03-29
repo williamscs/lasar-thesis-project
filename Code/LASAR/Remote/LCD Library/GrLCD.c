@@ -92,7 +92,7 @@ void LCDInit(void)
 		LCDCmd(*(ptr++));
 		LCDData(*(ptr++));
 	}
-	LCDClear(0, NR_ROWS);			// clear data mamory
+	LCDClear(0, NR_ROWS);			// clear data memory
 }
 
 /***********************************************************

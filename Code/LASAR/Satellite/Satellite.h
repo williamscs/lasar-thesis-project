@@ -43,5 +43,4 @@ void getTime(uint8_t * hours, uint8_t * minutes, uint8_t * seconds);
 
 
 
-
 #endif /* SATELLITE_H_ */
