@@ -118,7 +118,7 @@ int main (void)
 	// Values 001000   
 	DDRC |= (1<<DDC0);
 	////Enable Pin Change Interrupt on TxIn Pin PC3 
-	//initTimer(1234);
+	initTimer(1234);
 	
 	//PCINT//////////////////////////	
 	//Enables PC[23:16] and PC[7:0]
@@ -144,16 +144,16 @@ int main (void)
 		{
 			PORTC &= ~(1 << PORTC0);
 		}			
-		//itoa(Freq,buffer,10);
-		//strcat(buffer,"kHz ");
-		//USART_Print(buffer);
-		//_delay_ms(100);
+		itoa(Freq,buffer,10);
+		strcat(buffer,"kHz ");
+		USART_Print(buffer);
+		_delay_ms(100);
 		//USART_Transmit('e');
 		//USART_Print("Hello");
-		itoa(tInactive, buffer, 10);
-		strcat(buffer, "s ");
-		USART_Print(buffer);
-		_delay_ms(500);
+		//itoa(tInactive, buffer, 10);
+		//strcat(buffer, "s ");
+		//USART_Print(buffer);
+		//_delay_ms(500);
 	}
 	return 0;
 
@@ -170,7 +170,7 @@ ISR(TIMER1_COMPA_vect)
 		tInactive++;
 }
 
-//PIR Sensor
+/*PIR Sensor
 ISR(PCINT0_vect)
 {
 	if( !(PINB & (1 << PORTB0)) && !active)
@@ -185,11 +185,10 @@ ISR(PCINT0_vect)
 	{
 		USART_Print("Tripped Down");
 		active = 0;
-		
-	}
 	
+	}
 }
-
+*/
 
 ISR(PCINT2_vect)
 {
