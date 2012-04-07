@@ -11,13 +11,15 @@
 
 
 //USART Stuff
-
-
-
-
-#endif /* USART_H_ */
+#define FOSC F_CPU    // Clock Speed
+#define BAUD 38400ul
+#define MYUBRR 0x0019//((F_CPU/(BAUD<<4))-1)
 
 void USART_Init( unsigned int ubrr);
 void USART_Transmit( unsigned char data );
 unsigned char USART_Receive( void );
-void print(char * input);
+void USART_Print(char * input, int n);
+int print(char *format, ...);
+
+
+#endif /* USART_H_ */

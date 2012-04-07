@@ -1,15 +1,11 @@
 /*
- * Satellite.c
+ * servo test.c
  *
  * Created: 2/1/2012 4:17:34 PM
  *  Author: Chris Williams
  */ 
 
 #define F_CPU 16000000UL
-//Indicates whether code will be compiled
-// for Smart Satellite or RTC-less Satellite
-// ......none of them are dumb :(
-#define SMART_SAT 1
 
 #include <avr\io.h>
 #include <avr\sfr_defs.h>   // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
@@ -17,14 +13,16 @@
 #include <avr\interrupt.h>
 //#include <avr\sleep.h>
 //#include <avr\eeprom.h>
-//#include "USART\USART.h"
+#include "USART\USART.h"
 //#include "Satellite.h"
 
 //Servo Constants
 #define SERVO_PERIOD	312
-#define SERVO_FWD 0x0A  //1ms
+#define SERVO_FWD 0x07  //1ms
 //#define SERVO_CEN 23	//1.5ms (not needed)
 #define SERVO_REV 0x2F	//2ms
+
+#define CLOSE_TIME 2500
 
 //Global Variables
 volatile unsigned int dim = 20;
@@ -39,7 +37,28 @@ volatile uint8_t sActive = 0;
 void initServo();
 void static inline openWindow(int time);	//inline ensures function execution time optimization
 void static inline closeWindow(int time);
-void delay_ms();
+void static inline delay_ms();
+
+void static inline varyBlinds(int8_t percent) 
+{
+	int16_t time = percent*(CLOSE_TIME/100);
+	sActive = 1;
+	TCCR2B = (1 << CS22) | (1 << CS21) | (1 << CS20);
+	if(time > 0)
+	{
+		OCR2A = SERVO_FWD;
+	}		
+	else
+	{
+		OCR2A = SERVO_REV;
+		time *= -1;
+	}
+	print("Blinds closing for %d ms", time);
+	delay_ms(time);
+	sActive = 1;
+	TCCR2B = 0;
+	PORTC &= ~(1 << PORTC2);
+}
 
 int main(void)
 {
@@ -48,24 +67,23 @@ int main(void)
 	//uint8_t minutes = 0;
 	//uint8_t seconds = 0;
 	
-	//DDRB &= ~(1 << PORTB0);
 	DDRC = 0xFF;
-	
+	int turn =50;
 	//initInterrupts();
 	initServo();
-	
+	USART_Init(MYUBRR);
 	// turn on interrupts
 	sei();
-		
-	
-		openWindow(3000);
+	print("\nStart");
 	while(1)
 	{
 		//PORTC &= ~(1 << PORTC0);
 		
 		_delay_ms(1000);
-		closeWindow(3000);
+		print("Close Window");
+		varyBlinds(turn);
 		_delay_ms(1000);
+		turn *= -1;
 		
 		//PORTC = (1 << PORTC0);
 		//_delay_ms(1000);		
@@ -77,7 +95,7 @@ int main(void)
 
 void initServo() 
 {
-	DDRB |= (1 << PORTB1);
+	DDRC |= (1 << PORTC2);
 	////initialize TMR1 (PWM) 
 	//// clear on compare, fast PWM, TOP=ICR1 (WGM13/WGM12 in TCCR1B)
 	//TCCR1A = (1 << COM1A1) | (1 << WGM11);
@@ -95,7 +113,7 @@ void initServo()
 } 
  
  
-void openWindow(int time) 
+void static inline openWindow(int time) 
 {
 	sActive = 1;
 	TCCR2B = (1 << CS22) | (1 << CS21) | (1 << CS20);
@@ -103,10 +121,10 @@ void openWindow(int time)
 	delay_ms(time);
 	sActive = 0;
 	TCCR2B = 0;
-	PORTB &= ~(1 << PORTB1);
+	PORTC &= ~(1 << PORTC2);
 }
 
-void closeWindow(int time) 
+void static inline closeWindow(int time) 
 {
 	sActive = 1;
 	TCCR2B = (1 << CS22) | (1 << CS21) | (1 << CS20);
@@ -114,10 +132,10 @@ void closeWindow(int time)
 	delay_ms(time);
 	sActive = 0;
 	TCCR2B = 0;
-	PORTB &= ~(1 << PORTB1);
+	PORTC &= ~(1 << PORTC2);
 }
 
-void delay_ms(int dTime)
+void static inline delay_ms(int dTime)
 {
 	for( int i = 0; i < dTime; i++)
 	{
@@ -128,11 +146,13 @@ void delay_ms(int dTime)
 ISR(TIMER2_COMPA_vect)
 {
 	if(sActive)
-		PORTB &= ~(1 << PORTB1);
+		PORTC &= ~(1 << PORTC2);
 }
 
 ISR(TIMER2_OVF_vect)
 {
 	if(sActive)
-		PORTB |= (1 << PORTB1);
+		PORTC |= (1 << PORTC2);
 }
+
+ISR(__vector_default){} //prevents microcontroller from resetting

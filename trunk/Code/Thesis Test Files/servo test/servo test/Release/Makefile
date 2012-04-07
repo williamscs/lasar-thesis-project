@@ -39,12 +39,14 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../USART/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../servo\ test.c
+../servo\ test.c \
+../USART/USART.c
 
 
 PREPROCESSING_SRCS += 
@@ -54,19 +56,23 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-servo\ test.o
+servo\ test.o \
+USART/USART.o
 
 
 OBJS_AS_ARGS +=  \
-"servo test.o"
+"servo test.o" \
+USART/USART.o
 
 
 C_DEPS +=  \
-servo\ test.d
+servo\ test.d \
+USART/USART.d
 
 
 C_DEPS_AS_ARGS +=  \
-"servo test.d"
+"servo test.d" \
+USART/USART.d
 
 
 OUTPUT_FILE_PATH +=servo\ test.elf
@@ -102,8 +108,20 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"servo test.d" -MQ"$(@:servo test.o=servo test.d)" -o"$@" "$<"
 	@echo Finished building: $<
 
+USART/USART.o: ../USART/USART.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:USART.o=USART.d)" -MT"$(@:USART.o=USART.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
 
 ./%.o: .././%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+USART/%.o: ../USART/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler
 	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -Os -fpack-struct -fshort-enums -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"

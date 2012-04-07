@@ -4,138 +4,105 @@
  * Created: 3/29/2012 3:35:04 PM
  *  Author: Dubs
  */ 
-
-#define F_CPU 16000000UL
-
 #include<avr\io.h>
-#include<avr\sfr_defs.h>
-#include <stdlib.h>
-#include <util/delay.h>
-#include <string.h>
-#include "SPI\spi.h"
+#include<avr\sfr_defs.h>                       // The library files are where the definitions for the word DDR, PORT, PIN etc. are stored. 
+#include<util\delay.h>                          // This is for using the _delay_ms() function.
+#include<avr\interrupt.h>
+#include<string.h>
+
 #include "USART\USART.h"
 
-#define FOSC F_CPU    // Clock Speed
-#define BAUD 9600UL
-#define MYUBRR (F_CPU/(16*BAUD))-1
-
-void RTC_init()
+void initPIR()
 {
-	  // start the SPI library:
-	  setup_spi(SPI_MODE_1, SPI_MSB, SPI_NO_INTERRUPT, SPI_MSTR_CLK16);
-	  //set control register 
-	  PORTD &= ~(1 << PORTD5);  
-	  send_spi(0x8E);
-	  send_spi(0x60);
-	  //0b01100000
-	  
-	  PORTD |= (1 << PORTD5);
-	  _delay_ms(10);
+	PORTB |= (1 << PORTB0);
+	//Timer
+	TCCR1A |= (1 << COM1A0);
+	TCCR1B |= (1 << WGM12) | (1 << CS12);
+	TIMSK1 |= (1 << OCIE1A);
+	OCR1A = 0xF423;
+	
+	//Interrupt
+	//PCICR |= (1 << PCIE0);
+	//PCMSK0 |= (1 << PCINT0);
 }
 
-void SetTimeDate(int d, int mo, int y, int h, int mi, int s)
-{ 
-	int TimeDate [7]={s,mi,h,0,d,mo,y};
-	for(int i=0; i<=6;i++)
-	{
-		if(i==3)
-			i++;
-		
-		int b= TimeDate[i]/10;
-		int a= TimeDate[i]-b*10;
-		
-		if(i==2)
-		{
-			if (b==2)
-				b=0b00000010;
-			else if (b==1)
-				b=0b00000001;
-		}	
-		TimeDate[i]= a+(b<<4);
-		
-		PORTD &= ~(1 << PORTD5);
-		send_spi(i+0x80);
-		send_spi((uint8_t)TimeDate[i]);
-		PORTD |= (1 << PORTD5);
-	}
-}
-
-char* ReadTimeDate()
+uint8_t ctoi( char ascii)
 {
-	
-	char this[5];
-	char * temp = "";
-	int TimeDate [7]; //second,minute,hour,null,day,month,year
-	//int TimeDate[7] = {1,2,3,4,5,6,7};
-	for(int i=0; i<=6;i++)
-	{
-		if(i==3)
-			i++;
-		PORTD &= ~(1 << PORTD5);
-		send_spi(i+0x00); 
-		uint8_t n = send_spi(0x00);
-		//print(itoa(n,this, 10));
-		PORTD |= (1 << PORTD5);
-		int a=n & 0b00001111;    
-		if(i==2)
-		{	
-			int b=(n & 0b00110000)>>4; //24 hour mode
-			if(b==0b00000010)
-				b=20;        
-			else if(b==0b00000001)
-				b=10;
-			TimeDate[i]=a+b;
-		}
-		else if(i==4)
-		{
-			int b=(n & 0b00110000)>>4;
-			TimeDate[i]=a+b*10;
-		}
-		else if(i==5)
-		{
-			int b=(n & 0b00010000)>>4;
-			TimeDate[i]=a+b*10;
-		}
-		else if(i==6)
-		{
-			int b=(n & 0b11110000)>>4;
-			TimeDate[i]=a+b*10;
-		}
-		else
-		{	
-			int b=(n & 0b01110000)>>4;
-			TimeDate[i]=a+b*10;	
-		}
-	}
-	strcat(temp, itoa(TimeDate[4], this, 10));
-	strcat(temp, "/");
-	strcat(temp, itoa(TimeDate[5], this, 10));
-	strcat(temp, "/");
-	strcat(temp, itoa(TimeDate[6], this, 10));
-	strcat(temp, "     ");
-	strcat(temp, itoa(TimeDate[4], this, 10));
-	strcat(temp, ":");
-	strcat(temp, itoa(TimeDate[1], this, 10));
-	strcat(temp, ":");
-	strcat(temp, itoa(TimeDate[0], this, 10));
-	
-	return temp;
+	return ascii - 48;
 }
+
+volatile char command[15];
+volatile uint8_t set = 1;
+
+
 
 int main(void)
 {
-	char this[5];
-	itoa(23, this, 10);
-	RTC_init();
+	uint8_t hours;
+	uint8_t min;
+	uint8_t dim;
+	uint8_t i = 0;
+	char cmd[15];
+	PCICR |= (1 << PCIE1);
+	PCMSK1 |= (1 << PCINT9);
+	command[0] = '\0';
+	initPIR();
 	USART_Init(MYUBRR);
-	SetTimeDate(29, 3, 2012,3,49,34);
-	
+	sei();
+	print("Start");
 	while(1)
 	{
-		
-		print("New Line!");
-		ReadTimeDate();
-		_delay_ms(500);
+		if(!set)
+		{
+			strcpy(cmd, command);
+			for(i = 0; i < strlen(cmd); ++i)
+			{
+				switch (cmd[i])
+				{
+					case 'C':
+						hours = ctoi(cmd[i+2])*10 + ctoi(cmd[i+3]);
+						min = ctoi(cmd[i+5])*10 + ctoi(cmd[i+6]);
+						print("Clock set to %d:%d", hours, min );
+						i = i + 6;
+						break;
+					default:
+						break;//do nothing
+				}
+			}
+			set = 1;		
+		}		
+		_delay_ms(1000);
 	}
 	return 0;
 }
+
+
+
+ISR(USART_RX_vect)
+{
+	/* Wait for data to be received */
+	/* Get and return received data from buffer */
+	
+	uint8_t i = 0;
+	unsigned char received = 0;
+	while ( !(UCSR0A & (1<<RXC0)) );
+	received = UDR0;
+	while(received != ';')
+	{
+		//print("!");
+		if( received != 10)
+		{
+			//print(" %c at %d", received, i);
+			command[i] = received;			
+			i++;
+			while ( !(UCSR0A & (1<<RXC0)) );
+			received = UDR0;
+		}
+	}
+	command[i] = '\0';
+	set = 0;
+	print(command);
+} 
+
+
+ISR(__vector_default){} //prevents microcontroller from resetting
