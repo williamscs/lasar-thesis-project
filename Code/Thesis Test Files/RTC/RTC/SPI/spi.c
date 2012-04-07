@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
+#include<util\delay.h>
 #include "spi.h"
 
 #ifdef __cplusplus
@@ -62,18 +62,28 @@ void setup_spi(uint8_t mode, int dord, int interrupt, uint8_t clock)
 
 void disable_spi()
 {
-  SPCR = 0;
+	SPCR = 0;
 }
 
 uint8_t send_spi(uint8_t out)
 {
-  SPDR = out;
-  while (!(SPSR & (1<<SPIF)));
-  return SPDR;
+	//print(" sending");
+	
+	PORTD &= ~(1 << PORTD5);
+	SPDR = out;
+	while (!(SPSR & (1<<SPIF)));
+	PORTD |= (1 << PORTD5);
+	//print(" done sending");
+	return SPDR;
+  
 }
 
 uint8_t received_from_spi(uint8_t data)
 {
-  SPDR = data;
-  return SPDR;
+	PORTD &= ~(1 << PORTD5);
+	SPDR = data;
+	while(!(SPSR & (1 << SPIF)));
+	PORTD |= (1 << PORTD5);
+	
+	return SPDR;
 }

@@ -6,5 +6,7 @@ RTC.c
 
 SPI\spi.c
 
+uart.c
+
 USART\USART.c
 

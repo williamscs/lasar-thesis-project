@@ -15,10 +15,11 @@ Satellite.d Satellite.o: .././Satellite.c \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/util/delay_basic.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/io.h \
- c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/string.h \
+ c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/stdlib.h \
  c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/include/stddef.h \
- .././Satellite.h .././RTC\DS3234.h .././RTC\/SPI\spi.h \
- .././USART\USART.h
+ c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/string.h \
+ c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/eeprom.h \
+ .././Satellite.h .././USART\USART.h
 
 c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr\io.h:
 
@@ -52,14 +53,14 @@ c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/av
 
 c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/io.h:
 
-c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/string.h:
+c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/stdlib.h:
 
 c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/include/stddef.h:
 
+c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/string.h:
+
+c:\program\ files\ (x86)\atmel\avr\ studio\ 5.0\avr\ toolchain\bin\../lib/gcc/avr/4.5.1/../../../../avr/include/avr/eeprom.h:
+
 .././Satellite.h:
-
-.././RTC\DS3234.h:
-
-.././RTC\/SPI\spi.h:
 
 .././USART\USART.h:

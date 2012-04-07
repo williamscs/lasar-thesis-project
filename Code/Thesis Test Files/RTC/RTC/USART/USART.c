@@ -6,6 +6,8 @@
  */ 
 
 #include<avr/io.h>
+#include <stdio.h>
+#include <stdarg.h>
 #include <string.h> 
 #include"USART.h"
 
@@ -39,15 +41,25 @@ unsigned char USART_Receive( void )
 }
 
 
-void print(char * input)
+void USART_Print(char * input, int n)
 {
-	int length = strlen(input);
 	
-	for(int i = 0; i < length; ++i)
+	for(int i = 0; i < n; ++i)
 	{
 		USART_Transmit(input[i]);
 	}
 	
 }
 
-
+int print(char *format, ...)
+{
+	static char buf[128];
+	va_list va;
+	int n;
+	va_start(va, format);
+	n = vsprintf(buf, format, va);
+	USART_Print(buf, n);
+	va_end(va);
+	return n;
+	
+}
