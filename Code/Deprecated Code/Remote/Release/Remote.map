@@ -1,0 +1,1009 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+                              FATFS Library/ff.o (__mulsi3)
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+                              FATFS Library/ff.o (__udivmodsi4)
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                              c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o (exit)
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+                              FATFS Library/ff.o (__do_copy_data)
+c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                              FATFS Library/ff.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+font                0x1               LCD Library/GrLCD.o
+dsrow               0x1               LCD Library/GrLCD.o
+bgcolor             0x2               LCD Library/GrLCD.o
+f_err_code          0x1               Remote.o
+dscol               0x2               LCD Library/GrLCD.o
+fgcolor             0x2               LCD Library/GrLCD.o
+txtbuf              0x28              Remote.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800100         0x0000ff00         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+LOAD FATFS Library/ff.o
+LOAD FATFS Library/mmc.o
+LOAD LCD Library/Font16.o
+LOAD LCD Library/Font8.o
+LOAD LCD Library/GrLCD.o
+LOAD LCD Library/helvb10.o
+LOAD LCD Library/helvn6.o
+LOAD LCD Library/timesb12.o
+LOAD Remote.o
+LOAD TouchScreen Library/TouchScreen.o
+LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
+LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51\libc.a
+LOAD c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0xe9c0
+ *(.vectors)
+ .vectors       0x00000000       0x98 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000098      0x79c LCD Library/Font16.o
+                0x00000098                widtbl_M
+                0x00000108                chr_M_20
+                0x00000112                chr_M_21
+                0x00000116                chr_M_22
+                0x0000011c                chr_M_23
+                0x0000012c                chr_M_24
+                0x0000013a                chr_M_25
+                0x0000014a                chr_M_26
+                0x0000015a                chr_M_27
+                0x0000015e                chr_M_28
+                0x0000016a                chr_M_29
+                0x00000176                chr_M_2A
+                0x00000184                chr_M_2B
+                0x0000018e                chr_M_2C
+                0x00000192                chr_M_2D
+                0x0000019c                chr_M_2E
+                0x000001a4                chr_M_2F
+                0x000001b0                chr_M_30
+                0x000001be                chr_M_31
+                0x000001cc                chr_M_32
+                0x000001da                chr_M_33
+                0x000001e8                chr_M_34
+                0x000001f6                chr_M_35
+                0x00000204                chr_M_36
+                0x00000212                chr_M_37
+                0x00000220                chr_M_38
+                0x0000022e                chr_M_39
+                0x0000023c                chr_M_3A
+                0x00000240                chr_M_3B
+                0x00000244                chr_M_3C
+                0x0000024e                chr_M_3D
+                0x00000258                chr_M_3E
+                0x00000262                chr_M_3F
+                0x00000270                chr_M_40
+                0x00000280                chr_M_41
+                0x0000028e                chr_M_42
+                0x0000029c                chr_M_43
+                0x000002aa                chr_M_44
+                0x000002b8                chr_M_45
+                0x000002c6                chr_M_46
+                0x000002d4                chr_M_47
+                0x000002e2                chr_M_48
+                0x000002ee                chr_M_49
+                0x000002f4                chr_M_4A
+                0x00000302                chr_M_4B
+                0x00000310                chr_M_4C
+                0x0000031c                chr_M_4D
+                0x0000032e                chr_M_4E
+                0x0000033c                chr_M_4F
+                0x0000034a                chr_M_50
+                0x00000358                chr_M_51
+                0x00000366                chr_M_52
+                0x00000374                chr_M_53
+                0x00000382                chr_M_54
+                0x00000390                chr_M_55
+                0x0000039e                chr_M_56
+                0x000003ac                chr_M_57
+                0x000003be                chr_M_58
+                0x000003cc                chr_M_59
+                0x000003da                chr_M_5A
+                0x000003e8                chr_M_5B
+                0x000003ee                chr_M_5C
+                0x000003fa                chr_M_5D
+                0x00000400                chr_M_5E
+                0x00000420                chr_M_5F
+                0x00000440                chr_M_60
+                0x00000446                chr_M_61
+                0x00000452                chr_M_62
+                0x0000045e                chr_M_63
+                0x0000046a                chr_M_64
+                0x00000476                chr_M_65
+                0x00000482                chr_M_66
+                0x0000048c                chr_M_67
+                0x00000498                chr_M_68
+                0x000004a4                chr_M_69
+                0x000004ac                chr_M_6A
+                0x000004b4                chr_M_6B
+                0x000004be                chr_M_6C
+                0x000004c6                chr_M_6D
+                0x000004d4                chr_M_6E
+                0x000004e0                chr_M_6F
+                0x000004ee                chr_M_70
+                0x000004fa                chr_M_71
+                0x00000508                chr_M_72
+                0x00000512                chr_M_73
+                0x0000051c                chr_M_74
+                0x00000524                chr_M_75
+                0x00000530                chr_M_76
+                0x0000053e                chr_M_77
+                0x0000054c                chr_M_78
+                0x00000556                chr_M_79
+                0x00000562                chr_M_7A
+                0x0000056e                chr_M_7B
+                0x00000584                chr_M_7C
+                0x000005a4                chr_M_7D
+                0x000005b4                chr_M_7E
+                0x000005b8                chr_M_7F
+                0x000005d2                chr_M_80
+                0x000005f0                chr_M_81
+                0x000005fe                chr_M_82
+                0x0000061e                chr_M_83
+                0x0000063e                chr_M_84
+                0x00000654                chr_M_85
+                0x00000674                chr_M_86
+                0x0000067a                chr_M_87
+                0x00000684                chr_M_88
+                0x0000069e                chr_M_89
+                0x000006b8                chr_M_8A
+                0x000006d2                chr_M_8B
+                0x000006ec                chr_M_8C
+                0x00000706                chr_M_8D
+                0x00000720                chr_M_8E
+                0x0000073a                chr_M_8F
+                0x00000754                chrtbl_M
+ .progmem.data  0x00000834      0x30d LCD Library/Font8.o
+                0x00000834                widtbl_S
+                0x0000089c                chr_S_20
+                0x0000089f                chr_S_21
+                0x000008a2                chr_S_22
+                0x000008a5                chr_S_23
+                0x000008aa                chr_S_24
+                0x000008af                chr_S_25
+                0x000008b4                chr_S_26
+                0x000008b9                chr_S_27
+                0x000008bc                chr_S_28
+                0x000008bf                chr_S_29
+                0x000008c2                chr_S_2A
+                0x000008c7                chr_S_2B
+                0x000008cc                chr_S_2C
+                0x000008ce                chr_S_2D
+                0x000008d3                chr_S_2E
+                0x000008d4                chr_S_2F
+                0x000008d9                chr_S_30
+                0x000008de                chr_S_31
+                0x000008e3                chr_S_32
+                0x000008e8                chr_S_33
+                0x000008ed                chr_S_34
+                0x000008f2                chr_S_35
+                0x000008f7                chr_S_36
+                0x000008fc                chr_S_37
+                0x00000901                chr_S_38
+                0x00000906                chr_S_39
+                0x0000090b                chr_S_3A
+                0x0000090c                chr_S_3B
+                0x0000090e                chr_S_3C
+                0x00000912                chr_S_3D
+                0x00000916                chr_S_3E
+                0x0000091a                chr_S_3F
+                0x0000091f                chr_S_40
+                0x00000924                chr_S_41
+                0x00000929                chr_S_42
+                0x0000092e                chr_S_43
+                0x00000933                chr_S_44
+                0x00000938                chr_S_45
+                0x0000093d                chr_S_46
+                0x00000942                chr_S_47
+                0x00000947                chr_S_48
+                0x0000094c                chr_S_49
+                0x0000094f                chr_S_4A
+                0x00000954                chr_S_4B
+                0x00000959                chr_S_4C
+                0x0000095d                chr_S_4D
+                0x00000962                chr_S_4E
+                0x00000967                chr_S_4F
+                0x0000096c                chr_S_50
+                0x00000971                chr_S_51
+                0x00000976                chr_S_52
+                0x0000097b                chr_S_53
+                0x00000980                chr_S_54
+                0x00000985                chr_S_55
+                0x0000098a                chr_S_56
+                0x0000098f                chr_S_57
+                0x00000996                chr_S_58
+                0x0000099b                chr_S_59
+                0x000009a0                chr_S_5A
+                0x000009a5                chr_S_5B
+                0x000009a8                chr_S_5C
+                0x000009ad                chr_S_5D
+                0x000009b0                chr_S_5E
+                0x000009b5                chr_S_5F
+                0x000009ba                chr_S_60
+                0x000009bd                chr_S_61
+                0x000009c1                chr_S_62
+                0x000009c6                chr_S_63
+                0x000009ca                chr_S_64
+                0x000009cf                chr_S_65
+                0x000009d3                chr_S_66
+                0x000009d7                chr_S_67
+                0x000009db                chr_S_68
+                0x000009e0                chr_S_69
+                0x000009e2                chr_S_6A
+                0x000009e5                chr_S_6B
+                0x000009e9                chr_S_6C
+                0x000009ec                chr_S_6D
+                0x000009f2                chr_S_6E
+                0x000009f7                chr_S_6F
+                0x000009fb                chr_S_70
+                0x00000a00                chr_S_71
+                0x00000a05                chr_S_72
+                0x00000a0a                chr_S_73
+                0x00000a0e                chr_S_74
+                0x00000a11                chr_S_75
+                0x00000a16                chr_S_76
+                0x00000a1b                chr_S_77
+                0x00000a20                chr_S_78
+                0x00000a25                chr_S_79
+                0x00000a29                chr_S_7A
+                0x00000a2d                chr_S_7B
+                0x00000a30                chr_S_7C
+                0x00000a33                chr_S_7D
+                0x00000a36                chr_S_7E
+                0x00000a38                chr_S_7F
+                0x00000a39                chr_S_80
+                0x00000a40                chr_S_81
+                0x00000a47                chr_S_82
+                0x00000a4e                chr_S_83
+                0x00000a55                chr_S_84
+                0x00000a5c                chr_S_85
+                0x00000a63                chr_S_86
+                0x00000a6a                chr_S_87
+                0x00000a71                chrtbl_S
+ .progmem.data  0x00000b41     0x3243 LCD Library/helvb10.o
+                0x00000b41                widtbl_G
+                0x00000ba0                chr_G_20
+                0x00000bee                chr_G_21
+                0x00000c2a                chr_G_22
+                0x00000c6c                chr_G_23
+                0x00000d26                chr_G_24
+                0x00000daa                chr_G_25
+                0x00000e76                chr_G_26
+                0x00000f1e                chr_G_27
+                0x00000f54                chr_G_28
+                0x00000fae                chr_G_29
+                0x00000ff6                chr_G_2A
+                0x0000106e                chr_G_2B
+                0x00001134                chr_G_2C
+                0x0000116a                chr_G_2D
+                0x000011b8                chr_G_2E
+                0x000011ee                chr_G_2F
+                0x0000123c                chr_G_30
+                0x000012c0                chr_G_31
+                0x00001326                chr_G_32
+                0x000013aa                chr_G_33
+                0x0000142e                chr_G_34
+                0x000014b8                chr_G_35
+                0x0000153c                chr_G_36
+                0x000015c6                chr_G_37
+                0x0000164a                chr_G_38
+                0x000016ce                chr_G_39
+                0x00001752                chr_G_3A
+                0x0000178e                chr_G_3B
+                0x000017ca                chr_G_3C
+                0x0000188a                chr_G_3D
+                0x00001950                chr_G_3E
+                0x00001a16                chr_G_3F
+                0x00001a94                chr_G_40
+                0x00001b7e                chr_G_41
+                0x00001c26                chr_G_42
+                0x00001cc8                chr_G_43
+                0x00001d76                chr_G_44
+                0x00001e1e                chr_G_45
+                0x00001eb4                chr_G_46
+                0x00001f44                chr_G_47
+                0x00001ff2                chr_G_48
+                0x00002094                chr_G_49
+                0x000020ca                chr_G_4A
+                0x00002142                chr_G_4B
+                0x000021f0                chr_G_4C
+                0x00002280                chr_G_4D
+                0x00002346                chr_G_4E
+                0x000023e8                chr_G_4F
+                0x000024a2                chr_G_50
+                0x00002538                chr_G_51
+                0x000025f2                chr_G_52
+                0x00002694                chr_G_53
+                0x0000272a                chr_G_54
+                0x000027c0                chr_G_55
+                0x0000285c                chr_G_56
+                0x000028fe                chr_G_57
+                0x000029e2                chr_G_58
+                0x00002a84                chr_G_59
+                0x00002b20                chr_G_5A
+                0x00002bb6                chr_G_5B
+                0x00002c10                chr_G_5C
+                0x00002c88                chr_G_5D
+                0x00002cca                chr_G_5E
+                0x00002d90                chr_G_5F
+                0x00002e0e                chr_G_60
+                0x00002e44                chr_G_61
+                0x00002ec2                chr_G_62
+                0x00002f52                chr_G_63
+                0x00002fd6                chr_G_64
+                0x0000305a                chr_G_65
+                0x000030de                chr_G_66
+                0x0000312c                chr_G_67
+                0x000031b0                chr_G_68
+                0x0000323a                chr_G_69
+                0x00003270                chr_G_6A
+                0x000032a6                chr_G_6B
+                0x00003330                chr_G_6C
+                0x00003366                chr_G_6D
+                0x00003438                chr_G_6E
+                0x000034c2                chr_G_6F
+                0x00003552                chr_G_70
+                0x000035e2                chr_G_71
+                0x00003666                chr_G_72
+                0x000036c0                chr_G_73
+                0x0000373e                chr_G_74
+                0x00003786                chr_G_75
+                0x00003810                chr_G_76
+                0x0000389a                chr_G_77
+                0x0000395a                chr_G_78
+                0x000039d8                chr_G_79
+                0x00003a5c                chr_G_7A
+                0x00003ada                chr_G_7B
+                0x00003b4c                chr_G_7C
+                0x00003b94                chr_G_7D
+                0x00003c06                chr_G_7E
+                0x00003cc6                chrtbl_G
+ .progmem.data  0x00003d84     0x13ed LCD Library/helvn6.o
+                0x00003d84                widtbl_L
+                0x00003de3                chr_L_20
+                0x00003e03                chr_L_21
+                0x00003e17                chr_L_22
+                0x00003e2f                chr_L_23
+                0x00003e73                chr_L_24
+                0x00003ea7                chr_L_25
+                0x00003efb                chr_L_26
+                0x00003f3f                chr_L_27
+                0x00003f4f                chr_L_28
+                0x00003f6f                chr_L_29
+                0x00003f83                chr_L_2A
+                0x00003faf                chr_L_2B
+                0x00003fff                chr_L_2C
+                0x00004013                chr_L_2D
+                0x0000402f                chr_L_2E
+                0x00004043                chr_L_2F
+                0x00004063                chr_L_30
+                0x00004097                chr_L_31
+                0x000040bb                chr_L_32
+                0x000040ef                chr_L_33
+                0x00004123                chr_L_34
+                0x00004157                chr_L_35
+                0x0000418b                chr_L_36
+                0x000041bf                chr_L_37
+                0x000041f3                chr_L_38
+                0x00004227                chr_L_39
+                0x0000425b                chr_L_3A
+                0x0000426f                chr_L_3B
+                0x00004283                chr_L_3C
+                0x000042cf                chr_L_3D
+                0x0000431f                chr_L_3E
+                0x0000436f                chr_L_3F
+                0x0000439f                chr_L_40
+                0x000043ff                chr_L_41
+                0x0000443f                chr_L_42
+                0x0000447f                chr_L_43
+                0x000044c3                chr_L_44
+                0x00004507                chr_L_45
+                0x00004543                chr_L_46
+                0x0000457b                chr_L_47
+                0x000045bf                chr_L_48
+                0x000045ff                chr_L_49
+                0x0000460f                chr_L_4A
+                0x0000463b                chr_L_4B
+                0x0000467f                chr_L_4C
+                0x000046b3                chr_L_4D
+                0x000046ff                chr_L_4E
+                0x0000473f                chr_L_4F
+                0x00004787                chr_L_50
+                0x000047c3                chr_L_51
+                0x0000480b                chr_L_52
+                0x0000484b                chr_L_53
+                0x00004887                chr_L_54
+                0x000048bf                chr_L_55
+                0x000048ff                chr_L_56
+                0x0000493b                chr_L_57
+                0x00004997                chr_L_58
+                0x000049d3                chr_L_59
+                0x00004a13                chr_L_5A
+                0x00004a4f                chr_L_5B
+                0x00004a6f                chr_L_5C
+                0x00004a9b                chr_L_5D
+                0x00004ab3                chr_L_5E
+                0x00004b03                chr_L_5F
+                0x00004b37                chr_L_60
+                0x00004b47                chr_L_61
+                0x00004b7f                chr_L_62
+                0x00004bb7                chr_L_63
+                0x00004be7                chr_L_64
+                0x00004c1b                chr_L_65
+                0x00004c4f                chr_L_66
+                0x00004c6b                chr_L_67
+                0x00004c9f                chr_L_68
+                0x00004cd3                chr_L_69
+                0x00004ce3                chr_L_6A
+                0x00004cf3                chr_L_6B
+                0x00004d23                chr_L_6C
+                0x00004d33                chr_L_6D
+                0x00004d83                chr_L_6E
+                0x00004db7                chr_L_6F
+                0x00004def                chr_L_70
+                0x00004e27                chr_L_71
+                0x00004e5b                chr_L_72
+                0x00004e7b                chr_L_73
+                0x00004ea7                chr_L_74
+                0x00004ebf                chr_L_75
+                0x00004ef3                chr_L_76
+                0x00004f1f                chr_L_77
+                0x00004f63                chr_L_78
+                0x00004f93                chr_L_79
+                0x00004fc7                chr_L_7A
+                0x00004ff3                chr_L_7B
+                0x0000501f                chr_L_7C
+                0x0000503b                chr_L_7D
+                0x00005063                chr_L_7E
+                0x000050b3                chrtbl_L
+ .progmem.data  0x00005171     0x4ee5 LCD Library/timesb12.o
+                0x00005171                widtbl_H
+                0x000051d0                chr_H_20
+                0x00005238                chr_H_21
+                0x00005298                chr_H_22
+                0x00005308                chr_H_23
+                0x00005430                chr_H_24
+                0x000054e8                chr_H_25
+                0x00005610                chr_H_26
+                0x00005738                chr_H_27
+                0x00005790                chr_H_28
+                0x00005828                chr_H_29
+                0x000058a0                chr_H_2A
+                0x00005950                chr_H_2B
+                0x00005a98                chr_H_2C
+                0x00005ae8                chr_H_2D
+                0x00005b58                chr_H_2E
+                0x00005ba8                chr_H_2F
+                0x00005c18                chr_H_30
+                0x00005cd0                chr_H_31
+                0x00005d80                chr_H_32
+                0x00005e38                chr_H_33
+                0x00005ee8                chr_H_34
+                0x00005fa0                chr_H_35
+                0x00006058                chr_H_36
+                0x00006110                chr_H_37
+                0x000061d0                chr_H_38
+                0x00006288                chr_H_39
+                0x00006340                chr_H_3A
+                0x00006398                chr_H_3B
+                0x000063f0                chr_H_3C
+                0x00006528                chr_H_3D
+                0x00006668                chr_H_3E
+                0x000067a8                chr_H_3F
+                0x00006850                chr_H_40
+                0x000069c8                chr_H_41
+                0x00006ad8                chr_H_42
+                0x00006bd0                chr_H_43
+                0x00006cd8                chr_H_44
+                0x00006df0                chr_H_45
+                0x00006ef0                chr_H_46
+                0x00006fd8                chr_H_47
+                0x00007100                chr_H_48
+                0x00007228                chr_H_49
+                0x000072b0                chr_H_4A
+                0x00007368                chr_H_4B
+                0x000074a0                chr_H_4C
+                0x000075a0                chr_H_4D
+                0x00007708                chr_H_4E
+                0x00007820                chr_H_4F
+                0x00007948                chr_H_50
+                0x00007a38                chr_H_51
+                0x00007b60                chr_H_52
+                0x00007c80                chr_H_53
+                0x00007d58                chr_H_54
+                0x00007e48                chr_H_55
+                0x00007f60                chr_H_56
+                0x00008070                chr_H_57
+                0x000081f0                chr_H_58
+                0x00008308                chr_H_59
+                0x00008420                chr_H_5A
+                0x00008518                chr_H_5B
+                0x000085b0                chr_H_5C
+                0x00008670                chr_H_5D
+                0x000086e0                chr_H_5E
+                0x00008820                chr_H_5F
+                0x000088e8                chr_H_60
+                0x00008940                chr_H_61
+                0x00008a08                chr_H_62
+                0x00008ad8                chr_H_63
+                0x00008b80                chr_H_64
+                0x00008c58                chr_H_65
+                0x00008d00                chr_H_66
+                0x00008da0                chr_H_67
+                0x00008e60                chr_H_68
+                0x00008f38                chr_H_69
+                0x00008fa8                chr_H_6A
+                0x00009028                chr_H_6B
+                0x00009110                chr_H_6C
+                0x00009180                chr_H_6D
+                0x000092c0                chr_H_6E
+                0x00009398                chr_H_6F
+                0x00009458                chr_H_70
+                0x00009528                chr_H_71
+                0x00009600                chr_H_72
+                0x000096b0                chr_H_73
+                0x00009748                chr_H_74
+                0x000097c8                chr_H_75
+                0x000098a0                chr_H_76
+                0x00009960                chr_H_77
+                0x00009a70                chr_H_78
+                0x00009b30                chr_H_79
+                0x00009bf0                chr_H_7A
+                0x00009c98                chr_H_7B
+                0x00009d38                chr_H_7C
+                0x00009db0                chr_H_7D
+                0x00009e58                chr_H_7E
+                0x00009f98                chrtbl_H
+                0x0000a056                . = ALIGN (0x2)
+                0x0000a056                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000a056        0x0 linker stubs
+ *(.trampolines*)
+                0x0000a056                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000a056                __ctors_start = .
+ *(.ctors)
+                0x0000a056                __ctors_end = .
+                0x0000a056                __dtors_start = .
+ *(.dtors)
+                0x0000a056                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000a056        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+                0x0000a056                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000a056        0xc c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000a062       0x1a c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+                0x0000a062                __do_copy_data
+ .init4         0x0000a07c       0x10 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000a07c                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000a08c        0x8 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+ *(.init9)
+ *(.text)
+ .text          0x0000a094        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+                0x0000a094                __vector_22
+                0x0000a094                __vector_28
+                0x0000a094                __vector_32
+                0x0000a094                __vector_34
+                0x0000a094                __vector_24
+                0x0000a094                __vector_12
+                0x0000a094                __bad_interrupt
+                0x0000a094                __vector_6
+                0x0000a094                __vector_31
+                0x0000a094                __vector_35
+                0x0000a094                __vector_3
+                0x0000a094                __vector_30
+                0x0000a094                __vector_25
+                0x0000a094                __vector_11
+                0x0000a094                __vector_13
+                0x0000a094                __vector_17
+                0x0000a094                __vector_19
+                0x0000a094                __vector_7
+                0x0000a094                __vector_27
+                0x0000a094                __vector_5
+                0x0000a094                __vector_33
+                0x0000a094                __vector_37
+                0x0000a094                __vector_4
+                0x0000a094                __vector_9
+                0x0000a094                __vector_2
+                0x0000a094                __vector_21
+                0x0000a094                __vector_15
+                0x0000a094                __vector_36
+                0x0000a094                __vector_29
+                0x0000a094                __vector_8
+                0x0000a094                __vector_26
+                0x0000a094                __vector_14
+                0x0000a094                __vector_10
+                0x0000a094                __vector_16
+                0x0000a094                __vector_18
+                0x0000a094                __vector_20
+ .text          0x0000a098     0x355a FATFS Library/ff.o
+                0x0000ad32                clust2sect
+                0x0000ad90                get_fat
+                0x0000b0f8                put_fat
+                0x0000bb30                f_mount
+                0x0000bb5c                f_open
+                0x0000be30                f_read
+                0x0000c13c                f_write
+                0x0000c480                f_sync
+                0x0000c50e                f_close
+                0x0000c526                f_lseek
+                0x0000c8ac                f_opendir
+                0x0000c97e                f_readdir
+                0x0000ca2e                f_stat
+                0x0000cab8                f_getfree
+                0x0000cd32                f_truncate
+                0x0000ce52                f_unlink
+                0x0000cf9e                f_mkdir
+                0x0000d294                f_chmod
+                0x0000d32c                f_utime
+                0x0000d3d2                f_rename
+ .text          0x0000d5f2      0x898 FATFS Library/mmc.o
+                0x0000d838                disk_initialize
+                0x0000d9c8                disk_status
+                0x0000d9d6                disk_read
+                0x0000da78                disk_write
+                0x0000db58                disk_ioctl
+                0x0000de60                disk_timerproc
+                0x0000de82                get_fattime
+ .text          0x0000de8a        0x0 LCD Library/Font16.o
+ .text          0x0000de8a        0x0 LCD Library/Font8.o
+ .text          0x0000de8a      0x95e LCD Library/GrLCD.o
+                0x0000de8a                LCDCmd
+                0x0000de9e                LCDData
+                0x0000deb2                LCDRead
+                0x0000def0                LCDSetGCur
+                0x0000df38                LCDWrBlock
+                0x0000dfca                LCDRdBlock
+                0x0000e060                LCDErase
+                0x0000e0c8                LCDClear
+                0x0000e10a                LCDSetTCur
+                0x0000e18c                LCDChar
+                0x0000e43a                LCDPixLen
+                0x0000e4aa                LCDText
+                0x0000e5e4                plot
+                0x0000e5fc                point
+                0x0000e612                lineto
+                0x0000e78e                delay
+                0x0000e7a0                LCDInit
+ .text          0x0000e7e8        0x0 LCD Library/helvb10.o
+ .text          0x0000e7e8        0x0 LCD Library/helvn6.o
+ .text          0x0000e7e8        0x0 LCD Library/timesb12.o
+ .text          0x0000e7e8       0xe4 Remote.o
+                0x0000e7e8                init10msTimer
+                0x0000e7f6                display_rgb
+                0x0000e846                main
+                0x0000e87c                USART_Init
+                0x0000e892                USART_Transmit
+                0x0000e8a0                USART_Receive
+                0x0000e8a4                __vector_1
+                0x0000e8b8                __vector_23
+ .text          0x0000e8cc       0x6e TouchScreen Library/TouchScreen.o
+                0x0000e8cc                initTouchScreen
+                0x0000e8e8                analogRead
+                0x0000e912                getY
+                0x0000e926                getX
+ .text          0x0000e93a        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+ .text          0x0000e93a        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+ .text          0x0000e93a        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text          0x0000e93a        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x0000e93a        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000e93a                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x0000e93a       0x3e c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+                0x0000e93a                __mulsi3
+ .text.libgcc   0x0000e978       0x44 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+                0x0000e978                __udivmodsi4
+ .text.libgcc   0x0000e9bc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x0000e9bc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000e9bc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x0000e9bc                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000e9bc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x0000e9bc                _exit
+                0x0000e9bc                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000e9bc        0x4 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000e9c0                _etext = .
+
+.data           0x00800100       0xc0 load address 0x0000e9c0
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+ .data          0x00800100        0xf FATFS Library/ff.o
+ .data          0x0080010f        0x1 FATFS Library/mmc.o
+ .data          0x00800110        0x0 LCD Library/Font16.o
+ .data          0x00800110        0x0 LCD Library/Font8.o
+ .data          0x00800110       0xb0 LCD Library/GrLCD.o
+ .data          0x008001c0        0x0 LCD Library/helvb10.o
+ .data          0x008001c0        0x0 LCD Library/helvn6.o
+ .data          0x008001c0        0x0 LCD Library/timesb12.o
+ .data          0x008001c0        0x0 Remote.o
+ .data          0x008001c0        0x0 TouchScreen Library/TouchScreen.o
+ .data          0x008001c0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+ .data          0x008001c0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+ .data          0x008001c0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .data          0x008001c0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .data          0x008001c0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x008001c0                . = ALIGN (0x2)
+                0x008001c0                _edata = .
+                0x008001c0                PROVIDE (__data_end, .)
+
+.bss            0x008001c0       0x3d
+                0x008001c0                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x008001c0        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+ .bss           0x008001c0        0x4 FATFS Library/ff.o
+ .bss           0x008001c4        0x3 FATFS Library/mmc.o
+ .bss           0x008001c7        0x0 LCD Library/Font16.o
+ .bss           0x008001c7        0x0 LCD Library/Font8.o
+ .bss           0x008001c7        0x5 LCD Library/GrLCD.o
+                0x008001c7                CJ_code
+                0x008001c8                gr_x
+                0x008001ca                gr_y
+ .bss           0x008001cc        0x0 LCD Library/helvb10.o
+ .bss           0x008001cc        0x0 LCD Library/helvn6.o
+ .bss           0x008001cc        0x0 LCD Library/timesb12.o
+ .bss           0x008001cc        0x0 Remote.o
+ .bss           0x008001cc        0x0 TouchScreen Library/TouchScreen.o
+ .bss           0x008001cc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_mulsi3.o)
+ .bss           0x008001cc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodsi4.o)
+ .bss           0x008001cc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .bss           0x008001cc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .bss           0x008001cc        0x0 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x008001cc        0x8 LCD Library/GrLCD.o
+                0x008001cc                font
+                0x008001cd                dsrow
+                0x008001ce                bgcolor
+                0x008001d0                dscol
+                0x008001d2                fgcolor
+ COMMON         0x008001d4       0x29 Remote.o
+                0x008001d4                f_err_code
+                0x008001d5                txtbuf
+                0x008001fd                PROVIDE (__bss_end, .)
+                0x0000e9c0                __data_load_start = LOADADDR (.data)
+                0x0000ea80                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008001fd        0x0
+                0x008001fd                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008001fd                PROVIDE (__noinit_end, .)
+                0x008001fd                _end = .
+                0x008001fd                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x6cc
+ *(.stab)
+ .stab          0x00000000      0x6cc c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+
+.stabstr        0x00000000       0x85
+ *(.stabstr)
+ .stabstr       0x00000000       0x85 c:/program files (x86)/atmel/avr studio 5.0/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtusb1286.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(Remote.elf elf32-avr)
+LOAD linker stubs

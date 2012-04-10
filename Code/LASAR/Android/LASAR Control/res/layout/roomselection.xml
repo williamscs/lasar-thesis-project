@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+	    
+	<ImageView
+         android:id="@+id/imageView1"
+         android:layout_width="wrap_content"
+         android:layout_height="100dp"
+         android:src="@drawable/logo"
+         android:contentDescription="@string/logo" />
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+	
+		<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    >
+	
+	    <Button
+	        android:id="@+id/room1"
+	        android:layout_width="match_parent"
+	        android:layout_height="100dp"
+	        android:text="@string/room1"
+	        android:onClick="toMain"
+	        android:contentDescription="@string/room1" />
+	
+	    <Button
+	        android:id="@+id/room2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="100dp"
+	        android:text="@string/room2"
+	        android:onClick="toMain"
+	        android:contentDescription="@string/room2" />
+	
+	    <Button
+	        android:id="@+id/room3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="100dp"
+	        android:text="@string/room3"
+	        android:onClick="toMain"
+	        android:contentDescription="@string/room3" />
+
+	
+	</TableLayout>
+</ScrollView>
+
+</TableLayout>
