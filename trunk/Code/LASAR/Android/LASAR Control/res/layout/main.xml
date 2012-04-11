@@ -15,47 +15,50 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
     android:transcriptMode="alwaysScroll" >
 
     <ListView
         android:id="@+id/in"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="150dp"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll" />
+        android:transcriptMode="alwaysScroll"
+        android:visibility="visible" />
 
     <ScrollView
         android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:transcriptMode="alwaysScroll" >
 
             <EditText
                 android:id="@+id/edit_text_out"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:inputType="text" />
+                android:inputType="text"
+            	android:visibility="visible"  />
 
             <Button
                 android:id="@+id/button_pump"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/send" />
+                android:text="@string/send"
+                android:visibility="visible" />
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/logo"
@@ -71,11 +74,11 @@
                 android:textSize="50dp" />
 
             <TableLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content" >
 
                 <TableRow
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1" >
 
@@ -98,7 +101,7 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:baselineAligned="false" >
@@ -109,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="fill_vertical"
                         android:layout_weight="1"
-                        android:max="100" />
+                        android:max="99" />
 
                     <ToggleButton
                         android:id="@+id/toggleButton1"
@@ -121,7 +124,7 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:baselineAligned="true" >
@@ -145,7 +148,7 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1" >
 
@@ -154,7 +157,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:max="100" />
+                        android:max="99" />
 
                     <ToggleButton
                         android:layout_width="wrap_content"
@@ -175,7 +178,7 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/updateTime" >
@@ -183,7 +186,7 @@
 
             <Button
                 android:id="@+id/button_cmd3"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/cmd3" >
