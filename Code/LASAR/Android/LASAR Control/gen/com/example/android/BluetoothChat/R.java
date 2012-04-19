@@ -21,32 +21,33 @@ public final class R {
     }
     public static final class id {
         public static final int TextView02=0x7f060008;
-        public static final int TextView03=0x7f06000f;
-        public static final int button1=0x7f060010;
-        public static final int button_cmd3=0x7f060011;
+        public static final int TextView03=0x7f060010;
+        public static final int blindsBar=0x7f06000e;
+        public static final int button1=0x7f060011;
+        public static final int button_cmd3=0x7f060012;
         public static final int button_pump=0x7f060005;
+        public static final int dimBar=0x7f06000a;
         public static final int edit_text_out=0x7f060004;
+        public static final int freqButton=0x7f06000f;
         public static final int imageView1=0x7f060006;
         public static final int in=0x7f060002;
-        public static final int leave=0x7f060018;
-        public static final int returned=0x7f060019;
-        public static final int room1=0x7f060014;
-        public static final int room2=0x7f060015;
-        public static final int room3=0x7f060016;
+        public static final int leave=0x7f060019;
+        public static final int returned=0x7f06001a;
+        public static final int room1=0x7f060015;
+        public static final int room2=0x7f060016;
+        public static final int room3=0x7f060017;
         public static final int roomname=0x7f060007;
         public static final int scrollView1=0x7f060003;
-        public static final int seekBar1=0x7f06000a;
-        public static final int seekBar2=0x7f06000e;
-        public static final int sleep=0x7f06001a;
+        public static final int sleep=0x7f06001b;
         public static final int textView1=0x7f060009;
         public static final int textView2=0x7f06000d;
-        public static final int textView3=0x7f060013;
+        public static final int textView3=0x7f060014;
         public static final int textView4=0x7f06000c;
-        public static final int textView5=0x7f060012;
+        public static final int textView5=0x7f060013;
         public static final int title_left_text=0x7f060000;
         public static final int title_right_text=0x7f060001;
         public static final int toggleButton1=0x7f06000b;
-        public static final int wake=0x7f060017;
+        public static final int wake=0x7f060018;
     }
     public static final class layout {
         public static final int custom_title=0x7f030000;
@@ -72,6 +73,7 @@ public final class R {
          */
         public static final int connect=0x7f04000d;
         public static final int discoverable=0x7f04000e;
+        public static final int frequencybutton=0x7f040020;
         public static final int logo=0x7f040019;
         public static final int none_found=0x7f040009;
         public static final int none_paired=0x7f040008;
@@ -93,9 +95,11 @@ public final class R {
         public static final int time=0x7f040015;
         public static final int title_connected_to=0x7f040004;
         public static final int title_connecting=0x7f040003;
+        public static final int title_left_text=0x7f040021;
         public static final int title_not_connected=0x7f040005;
         public static final int title_other_devices=0x7f04000b;
         public static final int title_paired_devices=0x7f04000a;
+        public static final int title_right_text=0x7f040022;
         public static final int updateTime=0x7f040017;
     }
 }

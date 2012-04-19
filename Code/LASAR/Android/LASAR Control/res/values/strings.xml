@@ -15,7 +15,7 @@
 -->
 
 <resources>
-    <string name="app_name">LASAR Connect</string>
+    <string name="app_name">LASAR</string>
 
     <!--  BluetoothChat -->
     <string name="not_connected">You are not connected to a device</string>
@@ -53,4 +53,7 @@
 	<string name="room2">Bed Room</string>
 	<string name="room3">Kitchen</string>
 	<string name="Room">Room 1</string>
+	<string name="frequencybutton">Lux</string>
+	<string name="title_left_text">LASAR</string>
+	<string name="title_right_text">Not Connected</string>
 </resources>

@@ -9,14 +9,14 @@
 #ifndef SATELLITE_H_
 #define SATELLITE_H_
 
-#define DEBUG 1
+#define DEBUG 0
 
 //Servo Constants
 #define SERVO_PERIOD	312
 #define SERVO_FWD 0x0A  //1ms
 //#define SERVO_CEN 23	//1.5ms (not needed)
 #define SERVO_REV 0x2F	//2ms
-#define CLOSE_TIME 2500
+#define CLOSE_TIME 7000
 
  typedef struct
 {
@@ -40,6 +40,9 @@ void static inline delay_ms(uint16_t tick);
 void initAC(int dutycycle);
 void initL2F();
 void initPIR();
+void checkAlarm();
+void setDim( int arg );
+void setBlinds( int arg );
 void checkPIR();
 void initServo();
 void initTimer( int dutycycle);

@@ -416,10 +416,7 @@ public class BluetoothChatService {
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
-                    while(!checkForSemi(buffer))
-                    {
-                    	bytes += mmInStream.read(buffer, bytes, 1024-bytes);
-                    }
+                    
                     // Send the obtained bytes to the UI Activity
                     mHandler.obtainMessage(LASARControl.MESSAGE_READ, bytes, -1, buffer)
                             .sendToTarget();
@@ -431,15 +428,6 @@ public class BluetoothChatService {
             }
         }
         
-        private boolean checkForSemi( byte[] buffer )
-        {
-        	boolean ret = false;
-
-            String tmp = new String(buffer);
-            if(tmp.indexOf(';') > 0)
-            	ret = true;
-        	return ret;
-        }
         /**
          * Write to the connected OutStream.
          * @param buffer  The bytes to write

@@ -23,21 +23,24 @@ volatile char command[15];
 volatile uint8_t set = 1;
 
 //AC
-volatile int dim = 20;
+volatile int dim;
+volatile int tdim;
 volatile unsigned int count = 0;
 volatile uint8_t zerocross = 0;
 
 //Blinds
-volatile int8_t blinds = 0;
+volatile int8_t blinds;
 volatile uint8_t sActive = 0;
 
 //PIR Sensor
-volatile uint8_t active = 0;
+volatile uint8_t active = 1;
 volatile uint8_t tInactive = 0;
 
 //L2F
 volatile unsigned long NumChanges = 0; //Counter of Pulses in Each Measurement Period
-volatile unsigned int Freq = 0;		  //Store the Frequency
+volatile float Freq = 0;		  //Store the Frequency
+volatile int d1;
+volatile int d2;
 
 //Realtime Clock
 uint8_t chour = 8;
@@ -50,6 +53,7 @@ Pref EEMEM sleep;
 Pref EEMEM ret;
 Time EEMEM lTime;
 uint8_t EEMEM sBlinds = 0;
+uint8_t EEMEM sDim = 0;
 char buffer[12];
 
 int main(void)
@@ -58,22 +62,30 @@ int main(void)
 	uint8_t min = 0;
 	uint8_t sec;
 	uint8_t i = 0;
-	
+		
 	char cmd[15];
     DDRC |= (1 << DDC0);
 	
 	initServo();
 	initAC(65);
-	//initL2F();
+	initL2F();
 	initPIR();
 	//Bluetooth Init
 	USART_Init(MYUBRR);
 	// turn on interrupts
     sei();
-	print("Start");
-	if(eeprom_read_byte(&sBlinds))
-		blinds = eeprom_read_byte(&sBlinds);
+	int tmp = eeprom_read_byte(&sBlinds);
+	if( tmp > 0)
+		setBlinds(eeprom_read_byte(&sBlinds));
+	else
+		setBlinds(0);
+	tmp = eeprom_read_byte(&sDim);
+	if(tmp > 0)
+		setDim(tmp);
+	else
+		setDim(0);
 	#if DEBUG
+	print("Start");
 	print("Wake set to %d:%d with dim value %d",
 		eeprom_read_byte (&wake.hour),
 		eeprom_read_byte (&wake.min),
@@ -95,17 +107,14 @@ int main(void)
 		eeprom_read_byte (&sleep.dim),
 		eeprom_read_byte (&sleep.blinds));
 	#endif
-	_delay_ms(1000);
-	print("Close Window");
-	varyBlinds(100);
     while(1)
     {
-		
 		checkPIR();
 		if(!set)
 		{
+			tInactive = 0;
+			set = 1;
 			strcpy(cmd, (const char*)command);
-			print(cmd);
 			for(i = 0; i < strlen(cmd); ++i)
 			{
 				switch (cmd[i])
@@ -130,24 +139,17 @@ int main(void)
 							print("New Time: %02d:%02d:%02d", chour, cmin, csec);
 							#endif
 							
-						}							
+						} 				
 						break;
 					case 'D':	//Dimness
-						dim  = getDigits(cmd, &i);
-						#if DEBUG
-						print("Dim set to %d", dim);
-						#endif
+						setDim(getDigits(cmd, &i));
+						tdim = dim;
 						i++;
 						break;
 					case 'B':	//Blinds
-						#if DEBUG
-						print("Blinds set to %d", blinds);
-						#endif
-						blinds = getDigits(cmd, &i);
+						setBlinds(getDigits(cmd, &i));
 						int8_t cmpBlinds = (int8_t)eeprom_read_byte(&sBlinds) - blinds;
-						#if DEBUG
-						print("Blinds difference is %d", cmpBlinds);
-						#endif
+						
 						if(cmpBlinds != 0)
 						{
 							varyBlinds(cmpBlinds);
@@ -158,12 +160,12 @@ int main(void)
 					case 'O':	//Toggle On/Off
 						if(cmd[1] == 'F')	//OFF
 						{
-							dim = -1;
+							setDim(-1);
 							i = i + 2;
 						}							
 						else if (cmd[1] == 'N')	//ON
 						{
-							dim = MAX;
+							setDim(MAX);
 							i++;
 						}
 						print("Dim set to %d", dim);
@@ -209,7 +211,10 @@ int main(void)
 						i++;
 						break;
 					case 'X':
-						print("D:%d:%d", dim, blinds);
+						print("XD:%d:%d", dim, blinds);
+						break;
+					case 'F':
+						print("F:%d.%04d", d1, d2);
 						break;
 					case '?':
 						print("Wake set to %d:%d with dim value %d",
@@ -236,11 +241,10 @@ int main(void)
 					default:
 						//print("Default case");
 						break;//do nothing
-				}
+				}//switch(cmd[i])
 				
-			}
-			set = 1;		
-		}
+			}//for(each command)		
+		}//if(!set)
 		
 		
 		//Clock Logic
@@ -257,13 +261,95 @@ int main(void)
 					chour = 0;
 				}					
 			}
+			print("%d:%d:%d", chour,cmin,csec);
+			checkAlarm();
 		}
 		
-		_delay_ms(1000);
-    }
+		if(tInactive > 15 && tInactive < 18)
+		{
+			if(dim > 0)
+				tdim = dim;
+			setDim(-1);
+		}
+		//_delay_ms(1000);
+    }//while
 	                              
     return(0);
 }
+
+void checkAlarm()
+{
+	uint8_t aHour = eeprom_read_byte(&wake.hour);
+	#if DEBUG
+	print("Wake hour is: %d", eeprom_read_byte(&wake.hour));
+	#endif	
+	if(aHour == chour)
+	{
+		#if DEBUG
+		print("Wake minute is: %d", eeprom_read_byte(&wake.min));
+		#endif	
+		if((eeprom_read_byte(&wake.min))==cmin)
+		{
+			setDim(eeprom_read_byte(&wake.dim));
+			setBlinds(eeprom_read_byte(&wake.blinds));
+		}
+	}
+		
+	aHour = eeprom_read_byte(&leave.hour);
+		
+	if(aHour == chour)
+	{
+		if((eeprom_read_byte(&leave.min))==cmin)
+		{
+			setDim(eeprom_read_byte(&leave.dim));
+			setBlinds(eeprom_read_byte(&leave.blinds));
+		}
+	}
+		
+	aHour = eeprom_read_byte(&ret.hour);
+		
+	if(aHour == chour)
+	{
+		if((eeprom_read_byte(&ret.min))==cmin)
+		{
+			setDim(eeprom_read_byte(&ret.dim));
+			setBlinds(eeprom_read_byte(&ret.blinds));
+				
+		}
+	}
+		
+	aHour = eeprom_read_byte(&sleep.hour);
+		
+	if(aHour == chour)
+	{
+		if((eeprom_read_byte(&sleep.min))==cmin)
+		{
+			setDim(eeprom_read_byte(&sleep.dim));
+			setBlinds(eeprom_read_byte(&sleep.blinds));
+		}
+	}
+}
+
+void setDim( int arg )
+{
+	dim = arg;
+	#if DEBUG
+	print("Dim set to %d", dim);
+	#endif
+}
+
+void setBlinds( int arg )
+{
+	blinds  = arg;
+	
+	#if DEBUG
+	print("Blinds set to %d", blinds);
+	#endif
+}
+
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
 
 uint8_t getDigits(char * cmd, uint8_t * i)
 {
@@ -278,7 +364,9 @@ uint8_t getDigits(char * cmd, uint8_t * i)
 	return tmp;	
 }
 
-
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
 void checkPIR()
 {
 	if( !active && !(PINB & (1 << PINB0)))
@@ -287,21 +375,26 @@ void checkPIR()
 		if( !(PINB & (1 << PINB0)) && !active)
 		{
 			#if DEBUG
-			print(" !!");
+			//print(" !!");
 			#endif
 			active = 1;
 		
 			tInactive = 0;
+			if(dim != tdim)
+				setDim(tdim);
 		}			
 	}
 	else if(active && (PINB & (1<<PINB0)))
 	{
-		print(" No Motion");
+		//print(" No Motion");
 		active = 0;
 		
 	}	
 }
 
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
 void initAC(int dutycycle)
 {
 	DDRC |= (1<<DDC0);
@@ -320,6 +413,9 @@ void initAC(int dutycycle)
     EIMSK |= (1 << INT0);
 }
 
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
 void initL2F()
 {
 	//Uses same Timer as PIR
@@ -329,6 +425,9 @@ void initL2F()
 	PCMSK2 |= (1 << PCINT20);	
 }
 
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
 void initPIR()
 {
 	PORTB |= (1 << PORTB0);
@@ -343,6 +442,9 @@ void initPIR()
 	//PCMSK0 |= (1 << PCINT0);
 }
 
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
 void initServo() 
 {
 	DDRC |= (1 << PORTC2);
@@ -362,8 +464,12 @@ void initServo()
 	TIMSK2 = (1 << OCIE2A) | (1 << TOIE2);  //Enable OVF
 } 
 
-void static inline varyBlinds(int8_t percent) 
+/************************************************************************/
+/*                                                                      */
+/************************************************************************/
+void static varyBlinds(int8_t percent) 
 {
+	//uint8_t tmp = blinds;
 	int16_t time = percent*(CLOSE_TIME/100);
 	sActive = 1;
 	TCCR2B = (1 << CS22) | (1 << CS21) | (1 << CS20);
@@ -389,7 +495,7 @@ void static inline varyBlinds(int8_t percent)
  * INTERRUPT SERVICE ROUTINES
  */
 
-//PIR Sensor - This is polled now.
+/*PIR Sensor - This is polled now.
 //ISR(PCINT0_vect)
 //{
 	//if( !(PINB & (1 << PORTB0)) && !active)
@@ -409,18 +515,20 @@ void static inline varyBlinds(int8_t percent)
 //}
 
 
-///////////////////////////
-//---------PCINT Counter---
-ISR(PCINT1_vect) 
-{
-	if(PINC & (1<<PINC3)) //detect Rising Edge
-		NumChanges = NumChanges + 1;
-		//PORTD ^= (1<<PORTD6);   //LED Alternates ON and OFF
-		////delay_ms(2000);
-		//PORTC ^= (1 << PORTC2); //[Follows the Input]		
-} 
+/////////////////////////////
+////---------PCINT Counter---
+//ISR(PCINT1_vect) 
+//{
+	//if(PINC & (1<<PINC3)) //detect Rising Edge
+		//++NumChanges;
+		////PORTD ^= (1<<PORTD6);   //LED Alternates ON and OFF
+		//////delay_ms(2000);
+		////PORTC ^= (1 << PORTC2); //[Follows the Input]		
+//} */
 
-//L2F Detection
+/************************************************************************/
+/* L2F Detection                                                        */
+/************************************************************************/
 ISR(PCINT2_vect)
 {
 	if(PIND & (1<< PORTD4))
@@ -429,8 +537,9 @@ ISR(PCINT2_vect)
 	
 }
 
-////////////////////////////
-//-----Bluetooth Receive----
+/************************************************************************/
+/* Bluetooth Receive                                                    */
+/************************************************************************/
 ISR(USART_RX_vect)
 {
 	/* Wait for data to be received */
@@ -458,7 +567,7 @@ ISR(USART_RX_vect)
 	}
 	command[i] = '\0';
 	set = 0;
-	print((char *)command);
+	//print((char *)command);
 } 
  
 //CREATED: 2/15/2012
@@ -487,12 +596,15 @@ ISR(TIMER0_COMPA_vect)
 //L2F - Frequency Calculation
 ISR(TIMER1_COMPA_vect)
 {
-    Freq = NumChanges/1000;
+    d1 = NumChanges/1000;
+	d2 = NumChanges - d1;
 	NumChanges = 0;
 	++csec;
 	
 	if(!active)
+	{
 		tInactive++;
+	}		
 }
 
 ISR(TIMER2_COMPA_vect)
