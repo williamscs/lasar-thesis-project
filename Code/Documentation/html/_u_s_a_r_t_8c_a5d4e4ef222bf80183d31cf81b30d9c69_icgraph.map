@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_u_s_a_r_t_8h.html#afbee8ed7c48bd35c6f88a5eb6de189eb" title="print" alt="" coords="153,126,199,153"/>
+<area shape="rect" id="node5" href="$_satellite_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="512,101,563,127"/>
+<area shape="rect" id="node7" href="$_satellite_8h.html#a1f576ee1d06e908fc16330a4506780a9" title="Check current time vs alarm times Checks the hour of an alarm. If true, it then checks the minutes..." alt="" coords="373,75,464,102"/>
+<area shape="rect" id="node10" href="$_satellite_8h.html#a3f325a8aec708de6a186e6268f38d045" title="Set current Dim Value Provides a central function to call in order to change the value. NOTE: This does change the brightness level." alt="" coords="255,25,318,51"/>
+<area shape="rect" id="node14" href="$_satellite_8h.html#ac3f87e7d8ba1b0dbacfd1bc1674cb92c" title="Monitor any movement registered by PIR sensor In the even of motion, the PIR data line will be high..." alt="" coords="379,177,458,203"/>
+<area shape="rect" id="node17" href="$_satellite_8h.html#a7fbfa2cedde30ed04396cc0a3f232f59" title="Set current Blinds value Provides a central function to call in order to change the value..." alt="" coords="249,126,325,153"/>
+<area shape="rect" id="node22" href="$_satellite_8c.html#a21eb55c2ad090fd3041505a5a09898e5" title="Open/Close Blinds Calculates the amount of time to open or close the blinds. Sign value of the percen..." alt="" coords="378,227,459,254"/>
+<area shape="rect" id="node25" href="$_satellite_8c.html#a09ce999e15ad60b8a3f07d08af1946f9" title="Bluetooth Receive Receives a string from the Bluetooth module. Relies on &#39;;&#39; terminator." alt="" coords="265,278,308,305"/>
+</map>

@@ -1,0 +1,155 @@
+\hypertarget{spi_8h}{\section{Satellite/\-R\-T\-C/\-S\-P\-I/spi.h File Reference}
+\label{spi_8h}\index{Satellite/\-R\-T\-C/\-S\-P\-I/spi.\-h@{Satellite/\-R\-T\-C/\-S\-P\-I/spi.\-h}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spi_8h_a003fbe87aad5106aed3802d794580bbf}{S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N}~P\-O\-R\-T\-D5
+\item 
+\#define \hyperlink{spi_8h_aee89f642bb559e12db93e9f412ea185e}{S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N}~P\-O\-R\-T\-B5
+\item 
+\#define \hyperlink{spi_8h_a67d2c0b6e0ecbd0351958756e4830172}{S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N}~P\-O\-R\-T\-B3
+\item 
+\#define \hyperlink{spi_8h_a315722498711fce1e1aa6ea6654385cf}{S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N}~P\-O\-R\-T\-B4
+\item 
+\#define \hyperlink{spi_8h_a1ec07ad94d5f6276c1c0b41d0550fe52}{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0}~0x00 /$\ast$ Sample (\-Rising) Setup (\-Falling) C\-P\-O\-L=0, C\-P\-H\-A=0 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_af2af9f45539491c9753960535dc20fde}{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1}~0x01 /$\ast$ Setup (\-Rising) Sample (\-Falling) C\-P\-O\-L=0, C\-P\-H\-A=1 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_a8fa3edd8616f8803490c93f09243a612}{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2}~0x02 /$\ast$ Sample (\-Falling) Setup (\-Rising) C\-P\-O\-L=1, C\-P\-H\-A=0 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_a6a091da9f9011457fe28ab25f64c858d}{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3}~0x03 /$\ast$ Setup (\-Falling) Sample (\-Rising) C\-P\-O\-L=1, C\-P\-H\-A=1 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_a5a49a9323b5e0f95d8f08cccde5439e6}{S\-P\-I\-\_\-\-L\-S\-B}~1 /$\ast$ send least significant bit (bit 0) first $\ast$/
+\item 
+\#define \hyperlink{spi_8h_adbe0ae38094cacd36ef5bc6d08516ec3}{S\-P\-I\-\_\-\-M\-S\-B}~0 /$\ast$ send most significant bit (bit 7) first $\ast$/
+\item 
+\#define \hyperlink{spi_8h_aafaf1f4083ac4fe007ce62dd12724ff7}{S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}~0
+\item 
+\#define \hyperlink{spi_8h_abcc154757b25dda166dce9045be9ab84}{S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}~1
+\item 
+\#define \hyperlink{spi_8h_a943af7f8a98cf5a3f2107ed593215a4b}{S\-P\-I\-\_\-\-S\-L\-A\-V\-E}~0x\-F0
+\item 
+\#define \hyperlink{spi_8h_aa19f01bd2b4ca43f0f0db772769e6dd5}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4}~0x00 /$\ast$ chip clock/4 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_ad2ca6390ef48b2c620297486e0c5d623}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16}~0x01 /$\ast$ chip clock/16 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_adc5bef0f466f34d6d483500098fb9d34}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64}~0x02 /$\ast$ chip clock/64 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_a1e9dd129ec884cd2ecd26eb445e7799c}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128}~0x03 /$\ast$ chip clock/128 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_a58e492986b1839ae5ed43e7e666059b4}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2}~0x04 /$\ast$ chip clock/2 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_aa9ffd89e575f13561ba82a516cb0de51}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8}~0x05 /$\ast$ chip clock/8 $\ast$/
+\item 
+\#define \hyperlink{spi_8h_a1721eae25c64517d5638fa590e85f0e6}{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32}~0x06 /$\ast$ chip clock/32 $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi_8h_a718fd95b673032c496cb31b73e589ffb}{setup\-\_\-spi} (uint8\-\_\-t mode, int dord, int interrupt, uint8\-\_\-t clock)
+\item 
+void \hyperlink{spi_8h_acff71e2314af39dd88d589808f64ae8d}{disable\-\_\-spi} (void)
+\item 
+uint8\-\_\-t \hyperlink{spi_8h_a6c4c47d9a595f6208f146fa4d75cff4d}{send\-\_\-spi} (uint8\-\_\-t out)
+\item 
+uint8\-\_\-t \hyperlink{spi_8h_a370f062d99c6c730acb14d8c16197e0c}{received\-\_\-from\-\_\-spi} (uint8\-\_\-t out)
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{spi_8h_abcc154757b25dda166dce9045be9ab84}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T@{S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}}
+\index{S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T@{S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}~1}}\label{spi_8h_abcc154757b25dda166dce9045be9ab84}
+\hypertarget{spi_8h_a5a49a9323b5e0f95d8f08cccde5439e6}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-L\-S\-B@{S\-P\-I\-\_\-\-L\-S\-B}}
+\index{S\-P\-I\-\_\-\-L\-S\-B@{S\-P\-I\-\_\-\-L\-S\-B}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-L\-S\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-L\-S\-B}~1 /$\ast$ send least significant bit (bit 0) first $\ast$/}}\label{spi_8h_a5a49a9323b5e0f95d8f08cccde5439e6}
+\hypertarget{spi_8h_a315722498711fce1e1aa6ea6654385cf}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N}}
+\index{S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-I\-S\-O\-\_\-\-P\-I\-N}~P\-O\-R\-T\-B4}}\label{spi_8h_a315722498711fce1e1aa6ea6654385cf}
+\hypertarget{spi_8h_a1ec07ad94d5f6276c1c0b41d0550fe52}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0}}
+\index{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-0}~0x00 /$\ast$ Sample (\-Rising) Setup (\-Falling) C\-P\-O\-L=0, C\-P\-H\-A=0 $\ast$/}}\label{spi_8h_a1ec07ad94d5f6276c1c0b41d0550fe52}
+\hypertarget{spi_8h_af2af9f45539491c9753960535dc20fde}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1}}
+\index{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-1}~0x01 /$\ast$ Setup (\-Rising) Sample (\-Falling) C\-P\-O\-L=0, C\-P\-H\-A=1 $\ast$/}}\label{spi_8h_af2af9f45539491c9753960535dc20fde}
+\hypertarget{spi_8h_a8fa3edd8616f8803490c93f09243a612}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2}}
+\index{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-2}~0x02 /$\ast$ Sample (\-Falling) Setup (\-Rising) C\-P\-O\-L=1, C\-P\-H\-A=0 $\ast$/}}\label{spi_8h_a8fa3edd8616f8803490c93f09243a612}
+\hypertarget{spi_8h_a6a091da9f9011457fe28ab25f64c858d}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3}}
+\index{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3@{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-3}~0x03 /$\ast$ Setup (\-Falling) Sample (\-Rising) C\-P\-O\-L=1, C\-P\-H\-A=1 $\ast$/}}\label{spi_8h_a6a091da9f9011457fe28ab25f64c858d}
+\hypertarget{spi_8h_a67d2c0b6e0ecbd0351958756e4830172}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N}}
+\index{S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-O\-S\-I\-\_\-\-P\-I\-N}~P\-O\-R\-T\-B3}}\label{spi_8h_a67d2c0b6e0ecbd0351958756e4830172}
+\hypertarget{spi_8h_adbe0ae38094cacd36ef5bc6d08516ec3}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-B@{S\-P\-I\-\_\-\-M\-S\-B}}
+\index{S\-P\-I\-\_\-\-M\-S\-B@{S\-P\-I\-\_\-\-M\-S\-B}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-B}~0 /$\ast$ send most significant bit (bit 7) first $\ast$/}}\label{spi_8h_adbe0ae38094cacd36ef5bc6d08516ec3}
+\hypertarget{spi_8h_a1e9dd129ec884cd2ecd26eb445e7799c}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K128}~0x03 /$\ast$ chip clock/128 $\ast$/}}\label{spi_8h_a1e9dd129ec884cd2ecd26eb445e7799c}
+\hypertarget{spi_8h_ad2ca6390ef48b2c620297486e0c5d623}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K16}~0x01 /$\ast$ chip clock/16 $\ast$/}}\label{spi_8h_ad2ca6390ef48b2c620297486e0c5d623}
+\hypertarget{spi_8h_a58e492986b1839ae5ed43e7e666059b4}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K2}~0x04 /$\ast$ chip clock/2 $\ast$/}}\label{spi_8h_a58e492986b1839ae5ed43e7e666059b4}
+\hypertarget{spi_8h_a1721eae25c64517d5638fa590e85f0e6}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K32}~0x06 /$\ast$ chip clock/32 $\ast$/}}\label{spi_8h_a1721eae25c64517d5638fa590e85f0e6}
+\hypertarget{spi_8h_aa19f01bd2b4ca43f0f0db772769e6dd5}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K4}~0x00 /$\ast$ chip clock/4 $\ast$/}}\label{spi_8h_aa19f01bd2b4ca43f0f0db772769e6dd5}
+\hypertarget{spi_8h_adc5bef0f466f34d6d483500098fb9d34}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K64}~0x02 /$\ast$ chip clock/64 $\ast$/}}\label{spi_8h_adc5bef0f466f34d6d483500098fb9d34}
+\hypertarget{spi_8h_aa9ffd89e575f13561ba82a516cb0de51}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8}}
+\index{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8@{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-M\-S\-T\-R\-\_\-\-C\-L\-K8}~0x05 /$\ast$ chip clock/8 $\ast$/}}\label{spi_8h_aa9ffd89e575f13561ba82a516cb0de51}
+\hypertarget{spi_8h_aafaf1f4083ac4fe007ce62dd12724ff7}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T@{S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}}
+\index{S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T@{S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-N\-O\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}~0}}\label{spi_8h_aafaf1f4083ac4fe007ce62dd12724ff7}
+\hypertarget{spi_8h_aee89f642bb559e12db93e9f412ea185e}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N}}
+\index{S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-S\-C\-K\-\_\-\-P\-I\-N}~P\-O\-R\-T\-B5}}\label{spi_8h_aee89f642bb559e12db93e9f412ea185e}
+\hypertarget{spi_8h_a943af7f8a98cf5a3f2107ed593215a4b}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-S\-L\-A\-V\-E@{S\-P\-I\-\_\-\-S\-L\-A\-V\-E}}
+\index{S\-P\-I\-\_\-\-S\-L\-A\-V\-E@{S\-P\-I\-\_\-\-S\-L\-A\-V\-E}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-S\-L\-A\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-S\-L\-A\-V\-E}~0x\-F0}}\label{spi_8h_a943af7f8a98cf5a3f2107ed593215a4b}
+\hypertarget{spi_8h_a003fbe87aad5106aed3802d794580bbf}{\index{spi.\-h@{spi.\-h}!S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N}}
+\index{S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N@{S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N}!spi.h@{spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-P\-I\-\_\-\-S\-S\-\_\-\-P\-I\-N}~P\-O\-R\-T\-D5}}\label{spi_8h_a003fbe87aad5106aed3802d794580bbf}
+
+
+\subsection{Function Documentation}
+\hypertarget{spi_8h_acff71e2314af39dd88d589808f64ae8d}{\index{spi.\-h@{spi.\-h}!disable\-\_\-spi@{disable\-\_\-spi}}
+\index{disable\-\_\-spi@{disable\-\_\-spi}!spi.h@{spi.\-h}}
+\subsubsection[{disable\-\_\-spi}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf disable\-\_\-spi} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{spi_8h_acff71e2314af39dd88d589808f64ae8d}
+\hypertarget{spi_8h_a370f062d99c6c730acb14d8c16197e0c}{\index{spi.\-h@{spi.\-h}!received\-\_\-from\-\_\-spi@{received\-\_\-from\-\_\-spi}}
+\index{received\-\_\-from\-\_\-spi@{received\-\_\-from\-\_\-spi}!spi.h@{spi.\-h}}
+\subsubsection[{received\-\_\-from\-\_\-spi}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf received\-\_\-from\-\_\-spi} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{out}
+\end{DoxyParamCaption}
+)}}\label{spi_8h_a370f062d99c6c730acb14d8c16197e0c}
+\hypertarget{spi_8h_a6c4c47d9a595f6208f146fa4d75cff4d}{\index{spi.\-h@{spi.\-h}!send\-\_\-spi@{send\-\_\-spi}}
+\index{send\-\_\-spi@{send\-\_\-spi}!spi.h@{spi.\-h}}
+\subsubsection[{send\-\_\-spi}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf send\-\_\-spi} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{spi_8h_a6c4c47d9a595f6208f146fa4d75cff4d}
+\hypertarget{spi_8h_a718fd95b673032c496cb31b73e589ffb}{\index{spi.\-h@{spi.\-h}!setup\-\_\-spi@{setup\-\_\-spi}}
+\index{setup\-\_\-spi@{setup\-\_\-spi}!spi.h@{spi.\-h}}
+\subsubsection[{setup\-\_\-spi}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf setup\-\_\-spi} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{mode, }
+\item[{int}]{dord, }
+\item[{int}]{interrupt, }
+\item[{uint8\-\_\-t}]{clock}
+\end{DoxyParamCaption}
+)}}\label{spi_8h_a718fd95b673032c496cb31b73e589ffb}

@@ -1,0 +1,338 @@
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service}{\section{Bluetooth\-Chat\-Service Class Reference}
+\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service}\index{Bluetooth\-Chat\-Service@{Bluetooth\-Chat\-Service}}
+}
+
+
+Collaboration diagram for Bluetooth\-Chat\-Service\-:
+% FIG 0
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_accept_thread}{Accept\-Thread}
+\item 
+class \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread}{Connected\-Thread}
+\item 
+class \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connect_thread}{Connect\-Thread}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a82aeace1fb85fa6450790cb18d9154e8}{Bluetooth\-Chat\-Service} (Context context, Handler handler)
+\item 
+synchronized int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a6a50c2d9aca011bf98c1ef858548b905}{get\-State} ()
+\item 
+synchronized void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ae3e5313b36e6f003857174584df1753e}{start} ()
+\item 
+synchronized void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a210e75ad8ad1a78004ee6fe643acd0aa}{connect} (Bluetooth\-Device device)
+\item 
+synchronized void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a7684309f45e8b4bbbe3478b7c6b7d786}{connected} (Bluetooth\-Socket socket, Bluetooth\-Device device)
+\item 
+synchronized void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a4bcef6dec76484d625984ace718f36fd}{stop} ()
+\item 
+void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a8f39f71b4e3de075a0b64236eb5ec876}{write} (byte\mbox{[}$\,$\mbox{]} out)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_acca6c8882253f023c0c4a78c76e07a5d}{S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E} = 0
+\item 
+static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5b119ac8b511b1ccc522ad84810097fd}{S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N} = 1
+\item 
+static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a3f330f5177bb8c94ae6c8796c4839e0c}{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G} = 2
+\item 
+static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a65bee812daa1c06904d2bfc9b6c98607}{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D} = 3
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+synchronized void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a09b77b92fc6c880860a3dbf4ab21e36c}{set\-State} (int state)
+\item 
+void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a784e1d9992765b96eb29e9ba63ad8902}{connection\-Failed} ()
+\item 
+void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_abd4a195467743d2b3642bde9c5d2e0f6}{connection\-Lost} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Bluetooth\-Adapter \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ad0137191bfc9f5f84d692c5179046dac}{m\-Adapter}
+\item 
+final Handler \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ac596631c3faeaba71c591b7d6232c489}{m\-Handler}
+\item 
+\hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_accept_thread}{Accept\-Thread} \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5e8a8695cae6c6a842646ec72feb30d7}{m\-Accept\-Thread}
+\item 
+\hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connect_thread}{Connect\-Thread} \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a329b61002394a1b98ae8366549c3f4e8}{m\-Connect\-Thread}
+\item 
+\hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread}{Connected\-Thread} \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a35e6f3f781880c30d3fffef2e408d367}{m\-Connected\-Thread}
+\item 
+int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a9170ea7c3cb727e1c86da45a7ed88a54}{m\-State}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a844c5efdea72aa6bf76fb98b1072572a}{T\-A\-G} = \char`\"{}Bluetooth\-Chat\-Service\char`\"{}
+\item 
+static final boolean \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5d04bb9010fad999fbcad7c652d6c0ce}{D} = true
+\item 
+static final String \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a2e2a8b5e4b33363e36e2d75ff425c86c}{N\-A\-M\-E} = \char`\"{}Bluetooth\-Chat\char`\"{}
+\item 
+static final U\-U\-I\-D \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ad6683c9b25da0fe7ea60ab048c7589cb}{M\-Y\-\_\-\-U\-U\-I\-D} = U\-U\-I\-D.\-from\-String(\char`\"{}00001101-\/0000-\/1000-\/8000-\/00805\-F9\-B34\-F\-B\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class does all the work for setting up and managing Bluetooth connections with other devices. It has a thread that listens for incoming connections, a thread for connecting with a device, and a thread for performing data transmissions when connected. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a82aeace1fb85fa6450790cb18d9154e8}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!Bluetooth\-Chat\-Service@{Bluetooth\-Chat\-Service}}
+\index{Bluetooth\-Chat\-Service@{Bluetooth\-Chat\-Service}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{Bluetooth\-Chat\-Service}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bluetooth\-Chat\-Service} (
+\begin{DoxyParamCaption}
+\item[{Context}]{context, }
+\item[{Handler}]{handler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a82aeace1fb85fa6450790cb18d9154e8}
+Constructor. Prepares a new \hyperlink{namespacecom_1_1example_1_1android_1_1_bluetooth_chat}{Bluetooth\-Chat} session. 
+\begin{DoxyParams}{Parameters}
+{\em context} & The U\-I Activity Context \\
+\hline
+{\em handler} & A Handler to send messages back to the U\-I Activity \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a210e75ad8ad1a78004ee6fe643acd0aa}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!connect@{connect}}
+\index{connect@{connect}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void {\bf connect} (
+\begin{DoxyParamCaption}
+\item[{Bluetooth\-Device}]{device}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a210e75ad8ad1a78004ee6fe643acd0aa}
+Start the \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connect_thread}{Connect\-Thread} to initiate a connection to a remote device. 
+\begin{DoxyParams}{Parameters}
+{\em device} & The Bluetooth\-Device to connect \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+% FIG 1
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 2
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a7684309f45e8b4bbbe3478b7c6b7d786}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!connected@{connected}}
+\index{connected@{connected}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{connected}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void {\bf connected} (
+\begin{DoxyParamCaption}
+\item[{Bluetooth\-Socket}]{socket, }
+\item[{Bluetooth\-Device}]{device}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a7684309f45e8b4bbbe3478b7c6b7d786}
+Start the \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread}{Connected\-Thread} to begin managing a Bluetooth connection 
+\begin{DoxyParams}{Parameters}
+{\em socket} & The Bluetooth\-Socket on which the connection was made \\
+\hline
+{\em device} & The Bluetooth\-Device that has been connected \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+% FIG 3
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 4
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a784e1d9992765b96eb29e9ba63ad8902}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!connection\-Failed@{connection\-Failed}}
+\index{connection\-Failed@{connection\-Failed}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{connection\-Failed}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf connection\-Failed} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a784e1d9992765b96eb29e9ba63ad8902}
+Indicate that the connection attempt failed and notify the U\-I Activity. 
+
+Here is the call graph for this function\-:
+% FIG 5
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 6
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_abd4a195467743d2b3642bde9c5d2e0f6}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!connection\-Lost@{connection\-Lost}}
+\index{connection\-Lost@{connection\-Lost}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{connection\-Lost}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf connection\-Lost} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_abd4a195467743d2b3642bde9c5d2e0f6}
+Indicate that the connection was lost and notify the U\-I Activity. 
+
+Here is the call graph for this function\-:
+% FIG 7
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 8
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a6a50c2d9aca011bf98c1ef858548b905}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!get\-State@{get\-State}}
+\index{get\-State@{get\-State}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{get\-State}]{\setlength{\rightskip}{0pt plus 5cm}synchronized int {\bf get\-State} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a6a50c2d9aca011bf98c1ef858548b905}
+Return the current connection state. 
+
+Here is the caller graph for this function\-:
+% FIG 9
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a09b77b92fc6c880860a3dbf4ab21e36c}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!set\-State@{set\-State}}
+\index{set\-State@{set\-State}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{set\-State}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void {\bf set\-State} (
+\begin{DoxyParamCaption}
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a09b77b92fc6c880860a3dbf4ab21e36c}
+Set the current state of the chat connection 
+\begin{DoxyParams}{Parameters}
+{\em state} & An integer defining the current connection state \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:
+% FIG 10
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ae3e5313b36e6f003857174584df1753e}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!start@{start}}
+\index{start@{start}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void {\bf start} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ae3e5313b36e6f003857174584df1753e}
+Start the chat service. Specifically start \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_accept_thread}{Accept\-Thread} to begin a session in listening (server) mode. Called by the Activity on\-Resume() 
+
+Here is the call graph for this function\-:
+% FIG 11
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 12
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a4bcef6dec76484d625984ace718f36fd}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!stop@{stop}}
+\index{stop@{stop}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}synchronized void {\bf stop} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a4bcef6dec76484d625984ace718f36fd}
+Stop all threads 
+
+Here is the call graph for this function\-:
+% FIG 13
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 14
+
+
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a8f39f71b4e3de075a0b64236eb5ec876}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!write@{write}}
+\index{write@{write}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf write} (
+\begin{DoxyParamCaption}
+\item[{byte\mbox{[}$\,$\mbox{]}}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a8f39f71b4e3de075a0b64236eb5ec876}
+Write to the \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread}{Connected\-Thread} in an unsynchronized manner 
+\begin{DoxyParams}{Parameters}
+{\em out} & The bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread_ae29f62e52ac434bc0b80facee55ff1c8}{Connected\-Thread\-::write(byte\mbox{[}$\,$\mbox{]})} 
+\end{DoxySeeAlso}
+
+
+Here is the call graph for this function\-:
+% FIG 15
+
+
+
+
+Here is the caller graph for this function\-:
+% FIG 16
+
+
+
+
+\subsection{Field Documentation}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5d04bb9010fad999fbcad7c652d6c0ce}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!D@{D}}
+\index{D@{D}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{D}]{\setlength{\rightskip}{0pt plus 5cm}final boolean {\bf D} = true\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5d04bb9010fad999fbcad7c652d6c0ce}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5e8a8695cae6c6a842646ec72feb30d7}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!m\-Accept\-Thread@{m\-Accept\-Thread}}
+\index{m\-Accept\-Thread@{m\-Accept\-Thread}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{m\-Accept\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Accept\-Thread} {\bf m\-Accept\-Thread}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5e8a8695cae6c6a842646ec72feb30d7}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ad0137191bfc9f5f84d692c5179046dac}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!m\-Adapter@{m\-Adapter}}
+\index{m\-Adapter@{m\-Adapter}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{m\-Adapter}]{\setlength{\rightskip}{0pt plus 5cm}final Bluetooth\-Adapter {\bf m\-Adapter}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ad0137191bfc9f5f84d692c5179046dac}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a35e6f3f781880c30d3fffef2e408d367}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!m\-Connected\-Thread@{m\-Connected\-Thread}}
+\index{m\-Connected\-Thread@{m\-Connected\-Thread}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{m\-Connected\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Connected\-Thread} {\bf m\-Connected\-Thread}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a35e6f3f781880c30d3fffef2e408d367}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a329b61002394a1b98ae8366549c3f4e8}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!m\-Connect\-Thread@{m\-Connect\-Thread}}
+\index{m\-Connect\-Thread@{m\-Connect\-Thread}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{m\-Connect\-Thread}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Connect\-Thread} {\bf m\-Connect\-Thread}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a329b61002394a1b98ae8366549c3f4e8}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ac596631c3faeaba71c591b7d6232c489}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!m\-Handler@{m\-Handler}}
+\index{m\-Handler@{m\-Handler}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{m\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}final Handler {\bf m\-Handler}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ac596631c3faeaba71c591b7d6232c489}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a9170ea7c3cb727e1c86da45a7ed88a54}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!m\-State@{m\-State}}
+\index{m\-State@{m\-State}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{m\-State}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf m\-State}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a9170ea7c3cb727e1c86da45a7ed88a54}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ad6683c9b25da0fe7ea60ab048c7589cb}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!M\-Y\-\_\-\-U\-U\-I\-D@{M\-Y\-\_\-\-U\-U\-I\-D}}
+\index{M\-Y\-\_\-\-U\-U\-I\-D@{M\-Y\-\_\-\-U\-U\-I\-D}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{M\-Y\-\_\-\-U\-U\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}final U\-U\-I\-D {\bf M\-Y\-\_\-\-U\-U\-I\-D} = U\-U\-I\-D.\-from\-String(\char`\"{}00001101-\/0000-\/1000-\/8000-\/00805\-F9\-B34\-F\-B\char`\"{})\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_ad6683c9b25da0fe7ea60ab048c7589cb}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a2e2a8b5e4b33363e36e2d75ff425c86c}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!N\-A\-M\-E@{N\-A\-M\-E}}
+\index{N\-A\-M\-E@{N\-A\-M\-E}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}final String {\bf N\-A\-M\-E} = \char`\"{}Bluetooth\-Chat\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a2e2a8b5e4b33363e36e2d75ff425c86c}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a65bee812daa1c06904d2bfc9b6c98607}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D@{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D}}
+\index{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D@{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D} = 3\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a65bee812daa1c06904d2bfc9b6c98607}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a3f330f5177bb8c94ae6c8796c4839e0c}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G@{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G}}
+\index{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G@{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf S\-T\-A\-T\-E\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a3f330f5177bb8c94ae6c8796c4839e0c}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5b119ac8b511b1ccc522ad84810097fd}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N@{S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N}}
+\index{S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N@{S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf S\-T\-A\-T\-E\-\_\-\-L\-I\-S\-T\-E\-N} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a5b119ac8b511b1ccc522ad84810097fd}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_acca6c8882253f023c0c4a78c76e07a5d}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E@{S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E}}
+\index{S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E@{S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf S\-T\-A\-T\-E\-\_\-\-N\-O\-N\-E} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_acca6c8882253f023c0c4a78c76e07a5d}
+\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a844c5efdea72aa6bf76fb98b1072572a}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}!T\-A\-G@{T\-A\-G}}
+\index{T\-A\-G@{T\-A\-G}!com::example::android::BluetoothChat::BluetoothChatService@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-Bluetooth\-Chat\-Service}}
+\subsubsection[{T\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}final String {\bf T\-A\-G} = \char`\"{}Bluetooth\-Chat\-Service\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_a844c5efdea72aa6bf76fb98b1072572a}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Code/\-L\-A\-S\-A\-R/\-Android/\-L\-A\-S\-A\-R Control/src/com/example/android/\-Bluetooth\-Chat/\hyperlink{_bluetooth_chat_service_8java}{Bluetooth\-Chat\-Service.\-java}\end{DoxyCompactItemize}

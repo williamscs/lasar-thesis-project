@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_u_s_a_r_t_8c.html#afbee8ed7c48bd35c6f88a5eb6de189eb" title="print" alt="" coords="246,5,293,32"/>
+<area shape="rect" id="node9" href="$_satellite_8c.html#a3f325a8aec708de6a186e6268f38d045" title="Set current Dim Value Provides a central function to call in order to change the value. NOTE: This does change the brightness level." alt="" coords="134,31,197,57"/>
+<area shape="rect" id="node5" href="$_u_s_a_r_t_8c.html#a5d4e4ef222bf80183d31cf81b30d9c69" title="USART_Print" alt="" coords="341,5,440,32"/>
+<area shape="rect" id="node7" href="$_u_s_a_r_t_8c.html#ab8c416106cf1aff4ccdb3da4860fc179" title="USART_Transmit" alt="" coords="488,5,611,32"/>
+</map>
