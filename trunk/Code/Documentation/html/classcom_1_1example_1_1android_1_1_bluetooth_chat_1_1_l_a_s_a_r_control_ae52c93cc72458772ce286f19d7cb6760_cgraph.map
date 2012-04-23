@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#ab4704f4dc963fbe366442390a52df041" title="updateDim" alt="" coords="210,5,294,32"/>
+<area shape="rect" id="node5" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#ab084bbab05e4d41e495608164e6bd56c" title="updateSatellite" alt="" coords="198,56,306,83"/>
+<area shape="rect" id="node7" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#a6a8a2004434afabb628a490d0d5273f9" title="sendMessage" alt="" coords="355,56,458,83"/>
+<area shape="rect" id="node9" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service.html#a6a50c2d9aca011bf98c1ef858548b905" title="com.example.android.BluetoothChat.BluetoothChatService.getState" alt="" coords="507,31,920,57"/>
+<area shape="rect" id="node11" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service.html#a8f39f71b4e3de075a0b64236eb5ec876" title="com.example.android.BluetoothChat.BluetoothChatService.write" alt="" coords="518,81,909,108"/>
+<area shape="rect" id="node13" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread.html#ae29f62e52ac434bc0b80facee55ff1c8" title="com.example.android.BluetoothChat.BluetoothChatService.ConnectedThread.write" alt="" coords="968,81,1464,108"/>
+</map>

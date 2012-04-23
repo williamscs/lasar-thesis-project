@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service.html#a6a50c2d9aca011bf98c1ef858548b905" title="com.example.android.BluetoothChat.BluetoothChatService.getState" alt="" coords="157,5,571,32"/>
+<area shape="rect" id="node5" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service.html#a8f39f71b4e3de075a0b64236eb5ec876" title="com.example.android.BluetoothChat.BluetoothChatService.write" alt="" coords="169,56,559,83"/>
+<area shape="rect" id="node7" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread.html#ae29f62e52ac434bc0b80facee55ff1c8" title="com.example.android.BluetoothChat.BluetoothChatService.ConnectedThread.write" alt="" coords="619,56,1115,83"/>
+</map>
