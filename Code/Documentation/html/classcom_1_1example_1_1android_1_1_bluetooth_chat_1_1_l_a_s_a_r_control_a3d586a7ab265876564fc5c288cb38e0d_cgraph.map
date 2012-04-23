@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#ab4704f4dc963fbe366442390a52df041" title="updateDim" alt="" coords="267,5,351,32"/>
+<area shape="rect" id="node5" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#a6901587f25cd87fc5b259ac4685dff18" title="updateBlinds" alt="" coords="261,56,358,83"/>
+<area shape="rect" id="node7" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service.html#a4bcef6dec76484d625984ace718f36fd" title="com.example.android.BluetoothChat.BluetoothChatService.stop" alt="" coords="115,107,504,133"/>
+<area shape="rect" id="node9" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connect_thread.html#a02d5fa6b14e221f3012a794b905be166" title="com.example.android.BluetoothChat.BluetoothChatService.ConnectThread.cancel" alt="" coords="559,31,1052,57"/>
+<area shape="rect" id="node11" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread.html#a02d5fa6b14e221f3012a794b905be166" title="com.example.android.BluetoothChat.BluetoothChatService.ConnectedThread.cancel" alt="" coords="552,81,1059,108"/>
+<area shape="rect" id="node13" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_accept_thread.html#a02d5fa6b14e221f3012a794b905be166" title="com.example.android.BluetoothChat.BluetoothChatService.AcceptThread.cancel" alt="" coords="562,132,1049,159"/>
+<area shape="rect" id="node15" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service.html#a09b77b92fc6c880860a3dbf4ab21e36c" title="com.example.android.BluetoothChat.BluetoothChatService.setState" alt="" coords="599,183,1012,209"/>
+</map>
