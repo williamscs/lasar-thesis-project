@@ -1,0 +1,30 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="BluetoothChatService",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mAdapter" ,fontname="Helvetica"];
+  Node2 [label="BluetoothAdapter",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mHandler" ,fontname="Helvetica"];
+  Node3 [label="Handler",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mConnectedThread" ,fontname="Helvetica"];
+  Node4 [label="BluetoothChatService.ConnectedThread",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connected_thread.html"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mmInStream" ,fontname="Helvetica"];
+  Node5 [label="InputStream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mmOutStream" ,fontname="Helvetica"];
+  Node6 [label="OutputStream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mmSocket" ,fontname="Helvetica"];
+  Node7 [label="BluetoothSocket",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" MY_UUID" ,fontname="Helvetica"];
+  Node8 [label="UUID",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mAcceptThread" ,fontname="Helvetica"];
+  Node9 [label="BluetoothChatService.AcceptThread",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_accept_thread.html"];
+  Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mmServerSocket" ,fontname="Helvetica"];
+  Node10 [label="BluetoothServerSocket",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mConnectThread" ,fontname="Helvetica"];
+  Node11 [label="BluetoothChatService.ConnectThread",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connect_thread.html"];
+  Node12 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mmDevice" ,fontname="Helvetica"];
+  Node12 [label="BluetoothDevice",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mmSocket" ,fontname="Helvetica"];
+}

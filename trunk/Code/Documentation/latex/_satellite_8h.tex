@@ -1,0 +1,412 @@
+\hypertarget{_satellite_8h}{\section{Code/\-L\-A\-S\-A\-R/\-Embedded/\-Satellite/\-Satellite.h File Reference}
+\label{_satellite_8h}\index{Code/\-L\-A\-S\-A\-R/\-Embedded/\-Satellite/\-Satellite.\-h@{Code/\-L\-A\-S\-A\-R/\-Embedded/\-Satellite/\-Satellite.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{_satellite_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_pref}{Pref}
+\begin{DoxyCompactList}\small\item\em Preference type Holds all values needed for storing preferences. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_satellite_8h_ad72dbcf6d0153db1b8d8a58001feed83}{D\-E\-B\-U\-G}~0
+\item 
+\#define \hyperlink{_satellite_8h_a392fb874e547e582e9c66a08a1f23326}{M\-A\-X}~1
+\item 
+\#define \hyperlink{_satellite_8h_a29e413f6725b2ba32d165ffaa35b01e5}{O\-F\-F}~-\/1
+\item 
+\#define \hyperlink{_satellite_8h_afb004735ca38de9210e8b8e9e84fcacb}{S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D}~312
+\item 
+\#define \hyperlink{_satellite_8h_a496d0a0c60b8d9cb6f759577c310f217}{S\-E\-R\-V\-O\-\_\-\-F\-W\-D}~0x0\-A
+\item 
+\#define \hyperlink{_satellite_8h_a8c35450502e6060e9b1617139e745883}{S\-E\-R\-V\-O\-\_\-\-R\-E\-V}~0x2\-F
+\item 
+\#define \hyperlink{_satellite_8h_a1f1b7bda7db3f5e87e41ea51d048224c}{C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E}~7000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{_satellite_8h_a0ab136e9ebd2b5d9caae63438d058188}{delay\-\_\-ms} (uint16\-\_\-t tick)
+\item 
+void \hyperlink{_satellite_8h_af0309a165c5eb3e860fd75ce362b8529}{init\-A\-C} (int dutycycle)
+\begin{DoxyCompactList}\small\item\em Initializes A\-C light control Declares timer settings and starts the timer Initializes the interrupt values specific to the phase control. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a2f78b3f3318ab9a0a24a164f24256268}{init\-L2\-F} ()
+\begin{DoxyCompactList}\small\item\em Initializes Light to Frequency Converter Sets the proper interrupt values for P\-C\-I\-N\-T20. This uses the same timer as the P\-I\-R sensor. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a228ca26c149b48d0fa6a9e3c2c7975d0}{init\-P\-I\-R} ()
+\begin{DoxyCompactList}\small\item\em Initialize Personal Infrared Sensor Sets the proper interrupt values for P\-C\-I\-N\-T0. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a1f576ee1d06e908fc16330a4506780a9}{check\-Alarm} ()
+\begin{DoxyCompactList}\small\item\em Check current time vs alarm times Checks the hour of an alarm. If true, it then checks the minutes. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a3f325a8aec708de6a186e6268f38d045}{set\-Dim} (int arg)
+\begin{DoxyCompactList}\small\item\em Set current Dim Value Provides a central function to call in order to change the value. N\-O\-T\-E\-: This {\bfseries does} change the brightness level. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a7fbfa2cedde30ed04396cc0a3f232f59}{set\-Blinds} (int arg)
+\begin{DoxyCompactList}\small\item\em Set current Blinds value Provides a central function to call in order to change the value. N\-O\-T\-E\-: Does {\bfseries not} change the blinds level. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_ac3f87e7d8ba1b0dbacfd1bc1674cb92c}{check\-P\-I\-R} ()
+\begin{DoxyCompactList}\small\item\em Monitor any movement registered by P\-I\-R sensor In the even of motion, the P\-I\-R data line will be high. The line is debounced in order to not receive noise. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a7f03a61277bace0b0331e42497e0b69c}{init\-Servo} ()
+\begin{DoxyCompactList}\small\item\em Initialize Servos that control Blinds A nice hack that uses a smaller, 8-\/bit timer to do the work usually relegated to a 16-\/bit timer. \end{DoxyCompactList}\item 
+void \hyperlink{_satellite_8h_a065adbd131fc5f61263a53739d642766}{init\-Timer} (int dutycycle)
+\item 
+static void \hyperlink{_satellite_8h_a21eb55c2ad090fd3041505a5a09898e5}{vary\-Blinds} (int8\-\_\-t percent)
+\item 
+void \hyperlink{_satellite_8h_afd9b09f58917f0e2d14c61b956eba214}{S\-P\-I\-\_\-init} (void)
+\item 
+char \hyperlink{_satellite_8h_ae7e64ca53a04fe609757c9260dc3791d}{S\-P\-I\-\_\-\-Transmit} (char c\-Data)
+\item 
+void \hyperlink{_satellite_8h_a478a022a994b38488f713e1a30107b70}{get\-Time} (uint8\-\_\-t $\ast$hours, uint8\-\_\-t $\ast$minutes, uint8\-\_\-t $\ast$seconds)
+\item 
+uint8\-\_\-t \hyperlink{_satellite_8h_a11e0fd7642e9f27565483c004bfbadd7}{get\-Digits} (char $\ast$cmd, uint8\-\_\-t $\ast$i)
+\begin{DoxyCompactList}\small\item\em Modified atoi Parses the command string for integer values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_satellite_8h_a1f1b7bda7db3f5e87e41ea51d048224c}{\index{Satellite.\-h@{Satellite.\-h}!C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E@{C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E}}
+\index{C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E@{C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf C\-L\-O\-S\-E\-\_\-\-T\-I\-M\-E}~7000}}\label{_satellite_8h_a1f1b7bda7db3f5e87e41ea51d048224c}
+Amount of time needed to fully open/close the blinds \hypertarget{_satellite_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\index{Satellite.\-h@{Satellite.\-h}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
+\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf D\-E\-B\-U\-G}~0}}\label{_satellite_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+Allows for a debug mode that provides more verbose feedback \hypertarget{_satellite_8h_a392fb874e547e582e9c66a08a1f23326}{\index{Satellite.\-h@{Satellite.\-h}!M\-A\-X@{M\-A\-X}}
+\index{M\-A\-X@{M\-A\-X}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf M\-A\-X}~1}}\label{_satellite_8h_a392fb874e547e582e9c66a08a1f23326}
+A\-C Lighting fully on \hypertarget{_satellite_8h_a29e413f6725b2ba32d165ffaa35b01e5}{\index{Satellite.\-h@{Satellite.\-h}!O\-F\-F@{O\-F\-F}}
+\index{O\-F\-F@{O\-F\-F}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf O\-F\-F}~-\/1}}\label{_satellite_8h_a29e413f6725b2ba32d165ffaa35b01e5}
+A\-C Lighting fully off \hypertarget{_satellite_8h_a496d0a0c60b8d9cb6f759577c310f217}{\index{Satellite.\-h@{Satellite.\-h}!S\-E\-R\-V\-O\-\_\-\-F\-W\-D@{S\-E\-R\-V\-O\-\_\-\-F\-W\-D}}
+\index{S\-E\-R\-V\-O\-\_\-\-F\-W\-D@{S\-E\-R\-V\-O\-\_\-\-F\-W\-D}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{S\-E\-R\-V\-O\-\_\-\-F\-W\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-E\-R\-V\-O\-\_\-\-F\-W\-D}~0x0\-A}}\label{_satellite_8h_a496d0a0c60b8d9cb6f759577c310f217}
+\hypertarget{_satellite_8h_afb004735ca38de9210e8b8e9e84fcacb}{\index{Satellite.\-h@{Satellite.\-h}!S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D@{S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D}}
+\index{S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D@{S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-E\-R\-V\-O\-\_\-\-P\-E\-R\-I\-O\-D}~312}}\label{_satellite_8h_afb004735ca38de9210e8b8e9e84fcacb}
+Period \hypertarget{_satellite_8h_a8c35450502e6060e9b1617139e745883}{\index{Satellite.\-h@{Satellite.\-h}!S\-E\-R\-V\-O\-\_\-\-R\-E\-V@{S\-E\-R\-V\-O\-\_\-\-R\-E\-V}}
+\index{S\-E\-R\-V\-O\-\_\-\-R\-E\-V@{S\-E\-R\-V\-O\-\_\-\-R\-E\-V}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{S\-E\-R\-V\-O\-\_\-\-R\-E\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf S\-E\-R\-V\-O\-\_\-\-R\-E\-V}~0x2\-F}}\label{_satellite_8h_a8c35450502e6060e9b1617139e745883}
+
+
+\subsection{Function Documentation}
+\hypertarget{_satellite_8h_a1f576ee1d06e908fc16330a4506780a9}{\index{Satellite.\-h@{Satellite.\-h}!check\-Alarm@{check\-Alarm}}
+\index{check\-Alarm@{check\-Alarm}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{check\-Alarm}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf check\-Alarm} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a1f576ee1d06e908fc16330a4506780a9}
+
+
+Check current time vs alarm times Checks the hour of an alarm. If true, it then checks the minutes. 
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_satellite_8h_a1f576ee1d06e908fc16330a4506780a9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{_satellite_8h_a1f576ee1d06e908fc16330a4506780a9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_ac3f87e7d8ba1b0dbacfd1bc1674cb92c}{\index{Satellite.\-h@{Satellite.\-h}!check\-P\-I\-R@{check\-P\-I\-R}}
+\index{check\-P\-I\-R@{check\-P\-I\-R}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{check\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf check\-P\-I\-R} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_ac3f87e7d8ba1b0dbacfd1bc1674cb92c}
+
+
+Monitor any movement registered by P\-I\-R sensor In the even of motion, the P\-I\-R data line will be high. The line is debounced in order to not receive noise. 
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_satellite_8h_ac3f87e7d8ba1b0dbacfd1bc1674cb92c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{_satellite_8h_ac3f87e7d8ba1b0dbacfd1bc1674cb92c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a0ab136e9ebd2b5d9caae63438d058188}{\index{Satellite.\-h@{Satellite.\-h}!delay\-\_\-ms@{delay\-\_\-ms}}
+\index{delay\-\_\-ms@{delay\-\_\-ms}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{delay\-\_\-ms}]{\setlength{\rightskip}{0pt plus 5cm}static void {\bf delay\-\_\-ms} (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{tick}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}\label{_satellite_8h_a0ab136e9ebd2b5d9caae63438d058188}
+\hypertarget{_satellite_8h_a11e0fd7642e9f27565483c004bfbadd7}{\index{Satellite.\-h@{Satellite.\-h}!get\-Digits@{get\-Digits}}
+\index{get\-Digits@{get\-Digits}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{get\-Digits}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf get\-Digits} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{cmd, }
+\item[{uint8\-\_\-t $\ast$}]{i}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a11e0fd7642e9f27565483c004bfbadd7}
+
+
+Modified atoi Parses the command string for integer values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Command string \\
+\hline
+{\em i} & Length of the entire command string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value parsed 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{_satellite_8h_a11e0fd7642e9f27565483c004bfbadd7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a478a022a994b38488f713e1a30107b70}{\index{Satellite.\-h@{Satellite.\-h}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-Time} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{hours, }
+\item[{uint8\-\_\-t $\ast$}]{minutes, }
+\item[{uint8\-\_\-t $\ast$}]{seconds}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a478a022a994b38488f713e1a30107b70}
+\hypertarget{_satellite_8h_af0309a165c5eb3e860fd75ce362b8529}{\index{Satellite.\-h@{Satellite.\-h}!init\-A\-C@{init\-A\-C}}
+\index{init\-A\-C@{init\-A\-C}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{init\-A\-C}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-A\-C} (
+\begin{DoxyParamCaption}
+\item[{int}]{dutycycle}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_af0309a165c5eb3e860fd75ce362b8529}
+
+
+Initializes A\-C light control Declares timer settings and starts the timer Initializes the interrupt values specific to the phase control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dutycycle} & Duty cycle of A\-C wave \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{_satellite_8h_af0309a165c5eb3e860fd75ce362b8529_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a2f78b3f3318ab9a0a24a164f24256268}{\index{Satellite.\-h@{Satellite.\-h}!init\-L2\-F@{init\-L2\-F}}
+\index{init\-L2\-F@{init\-L2\-F}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{init\-L2\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-L2\-F} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a2f78b3f3318ab9a0a24a164f24256268}
+
+
+Initializes Light to Frequency Converter Sets the proper interrupt values for P\-C\-I\-N\-T20. This uses the same timer as the P\-I\-R sensor. 
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{_satellite_8h_a2f78b3f3318ab9a0a24a164f24256268_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a228ca26c149b48d0fa6a9e3c2c7975d0}{\index{Satellite.\-h@{Satellite.\-h}!init\-P\-I\-R@{init\-P\-I\-R}}
+\index{init\-P\-I\-R@{init\-P\-I\-R}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{init\-P\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-P\-I\-R} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a228ca26c149b48d0fa6a9e3c2c7975d0}
+
+
+Initialize Personal Infrared Sensor Sets the proper interrupt values for P\-C\-I\-N\-T0. 
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{_satellite_8h_a228ca26c149b48d0fa6a9e3c2c7975d0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a7f03a61277bace0b0331e42497e0b69c}{\index{Satellite.\-h@{Satellite.\-h}!init\-Servo@{init\-Servo}}
+\index{init\-Servo@{init\-Servo}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{init\-Servo}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-Servo} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a7f03a61277bace0b0331e42497e0b69c}
+
+
+Initialize Servos that control Blinds A nice hack that uses a smaller, 8-\/bit timer to do the work usually relegated to a 16-\/bit timer. 
+
+$<$ Prescalar /1024
+
+$<$ Enable O\-V\-F 
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{_satellite_8h_a7f03a61277bace0b0331e42497e0b69c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a065adbd131fc5f61263a53739d642766}{\index{Satellite.\-h@{Satellite.\-h}!init\-Timer@{init\-Timer}}
+\index{init\-Timer@{init\-Timer}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{init\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf init\-Timer} (
+\begin{DoxyParamCaption}
+\item[{int}]{dutycycle}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a065adbd131fc5f61263a53739d642766}
+\hypertarget{_satellite_8h_a7fbfa2cedde30ed04396cc0a3f232f59}{\index{Satellite.\-h@{Satellite.\-h}!set\-Blinds@{set\-Blinds}}
+\index{set\-Blinds@{set\-Blinds}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{set\-Blinds}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-Blinds} (
+\begin{DoxyParamCaption}
+\item[{int}]{arg}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a7fbfa2cedde30ed04396cc0a3f232f59}
+
+
+Set current Blinds value Provides a central function to call in order to change the value. N\-O\-T\-E\-: Does {\bfseries not} change the blinds level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Percent difference that blinds must be set to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the move has been performed 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_satellite_8h_a7fbfa2cedde30ed04396cc0a3f232f59_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{_satellite_8h_a7fbfa2cedde30ed04396cc0a3f232f59_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_a3f325a8aec708de6a186e6268f38d045}{\index{Satellite.\-h@{Satellite.\-h}!set\-Dim@{set\-Dim}}
+\index{set\-Dim@{set\-Dim}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{set\-Dim}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf set\-Dim} (
+\begin{DoxyParamCaption}
+\item[{int}]{arg}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_a3f325a8aec708de6a186e6268f38d045}
+
+
+Set current Dim Value Provides a central function to call in order to change the value. N\-O\-T\-E\-: This {\bfseries does} change the brightness level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The new brightness level \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether the move has been performed 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_satellite_8h_a3f325a8aec708de6a186e6268f38d045_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{_satellite_8h_a3f325a8aec708de6a186e6268f38d045_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_satellite_8h_afd9b09f58917f0e2d14c61b956eba214}{\index{Satellite.\-h@{Satellite.\-h}!S\-P\-I\-\_\-init@{S\-P\-I\-\_\-init}}
+\index{S\-P\-I\-\_\-init@{S\-P\-I\-\_\-init}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{S\-P\-I\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf S\-P\-I\-\_\-init} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_afd9b09f58917f0e2d14c61b956eba214}
+\hypertarget{_satellite_8h_ae7e64ca53a04fe609757c9260dc3791d}{\index{Satellite.\-h@{Satellite.\-h}!S\-P\-I\-\_\-\-Transmit@{S\-P\-I\-\_\-\-Transmit}}
+\index{S\-P\-I\-\_\-\-Transmit@{S\-P\-I\-\_\-\-Transmit}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-Transmit}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf S\-P\-I\-\_\-\-Transmit} (
+\begin{DoxyParamCaption}
+\item[{char}]{c\-Data}
+\end{DoxyParamCaption}
+)}}\label{_satellite_8h_ae7e64ca53a04fe609757c9260dc3791d}
+\hypertarget{_satellite_8h_a21eb55c2ad090fd3041505a5a09898e5}{\index{Satellite.\-h@{Satellite.\-h}!vary\-Blinds@{vary\-Blinds}}
+\index{vary\-Blinds@{vary\-Blinds}!Satellite.h@{Satellite.\-h}}
+\subsubsection[{vary\-Blinds}]{\setlength{\rightskip}{0pt plus 5cm}static void {\bf vary\-Blinds} (
+\begin{DoxyParamCaption}
+\item[{int8\-\_\-t}]{percent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static\mbox{]}}}}\label{_satellite_8h_a21eb55c2ad090fd3041505a5a09898e5}

@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_satellite_8c.html#a7f03a61277bace0b0331e42497e0b69c" title="Initialize Servos that control Blinds A nice hack that uses a smaller, 8&#45;bit timer to do the work usu..." alt="" coords="114,5,185,32"/>
+<area shape="rect" id="node5" href="$_satellite_8c.html#af0309a165c5eb3e860fd75ce362b8529" title="Initializes AC light control Declares timer settings and starts the timer Initializes the interrupt v..." alt="" coords="121,56,178,83"/>
+<area shape="rect" id="node7" href="$_satellite_8c.html#a2f78b3f3318ab9a0a24a164f24256268" title="Initializes Light to Frequency Converter Sets the proper interrupt values for PCINT20. This uses the same timer as the PIR sensor." alt="" coords="119,107,180,133"/>
+<area shape="rect" id="node9" href="$_satellite_8c.html#a228ca26c149b48d0fa6a9e3c2c7975d0" title="Initialize Personal Infrared Sensor Sets the proper interrupt values for PCINT0." alt="" coords="119,157,179,184"/>
+<area shape="rect" id="node11" href="$_u_s_a_r_t_8c.html#a99f79737b2f8bf945b4c169c69e3e3eb" title="USART_Init" alt="" coords="105,208,194,235"/>
+<area shape="rect" id="node13" href="$_satellite_8c.html#a7fbfa2cedde30ed04396cc0a3f232f59" title="Set current Blinds value Provides a central function to call in order to change the value..." alt="" coords="245,309,321,336"/>
+<area shape="rect" id="node15" href="$_u_s_a_r_t_8c.html#afbee8ed7c48bd35c6f88a5eb6de189eb" title="print" alt="" coords="371,385,418,412"/>
+<area shape="rect" id="node21" href="$_satellite_8c.html#a3f325a8aec708de6a186e6268f38d045" title="Set current Dim Value Provides a central function to call in order to change the value. NOTE: This does change the brightness level." alt="" coords="251,411,314,437"/>
+<area shape="rect" id="node25" href="$_satellite_8c.html#ac3f87e7d8ba1b0dbacfd1bc1674cb92c" title="Monitor any movement registered by PIR sensor In the even of motion, the PIR data line will be high..." alt="" coords="110,461,189,488"/>
+<area shape="rect" id="node29" href="$_satellite_8c.html#a11e0fd7642e9f27565483c004bfbadd7" title="Modified atoi Parses the command string for integer values." alt="" coords="113,563,186,589"/>
+<area shape="rect" id="node31" href="$_satellite_8c.html#a21eb55c2ad090fd3041505a5a09898e5" title="Open/Close Blinds Calculates the amount of time to open or close the blinds. Sign value of the percen..." alt="" coords="109,512,190,539"/>
+<area shape="rect" id="node36" href="$_satellite_8c.html#a1f576ee1d06e908fc16330a4506780a9" title="Check current time vs alarm times Checks the hour of an alarm. If true, it then checks the minutes..." alt="" coords="104,360,195,387"/>
+<area shape="rect" id="node17" href="$_u_s_a_r_t_8c.html#a5d4e4ef222bf80183d31cf81b30d9c69" title="USART_Print" alt="" coords="467,385,565,412"/>
+<area shape="rect" id="node19" href="$_u_s_a_r_t_8c.html#ab8c416106cf1aff4ccdb3da4860fc179" title="USART_Transmit" alt="" coords="613,385,736,412"/>
+<area shape="rect" id="node34" href="$_satellite_8c.html#a0ab136e9ebd2b5d9caae63438d058188" title="Allows for dynamic delay." alt="" coords="243,563,322,589"/>
+</map>

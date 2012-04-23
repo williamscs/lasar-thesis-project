@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$_satellite_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="256,22,307,49"/>
+<area shape="rect" id="node5" href="$_satellite_8h.html#a1f576ee1d06e908fc16330a4506780a9" title="Check current time vs alarm times Checks the hour of an alarm. If true, it then checks the minutes..." alt="" coords="117,22,208,49"/>
+<area shape="rect" id="node8" href="$_satellite_8h.html#ac3f87e7d8ba1b0dbacfd1bc1674cb92c" title="Monitor any movement registered by PIR sensor In the even of motion, the PIR data line will be high..." alt="" coords="123,73,202,100"/>
+</map>

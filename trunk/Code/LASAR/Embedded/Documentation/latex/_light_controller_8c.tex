@@ -1,0 +1,193 @@
+\hypertarget{_light_controller_8c}{\section{Satellite/\-Light\-Controller.c File Reference}
+\label{_light_controller_8c}\index{Satellite/\-Light\-Controller.\-c@{Satellite/\-Light\-Controller.\-c}}
+}
+{\ttfamily \#include $<$avr$\backslash$io.\-h$>$}\\*
+{\ttfamily \#include $<$avr$\backslash$sfr\-\_\-defs.\-h$>$}\\*
+{\ttfamily \#include $<$util$\backslash$delay.\-h$>$}\\*
+{\ttfamily \#include $<$avr$\backslash$interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$avr$\backslash$pgmspace.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}lcd.\-h\char`\"{}}\\*
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_light_controller_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U}~16000000\-U\-L
+\item 
+\#define \hyperlink{_light_controller_8c_a802b2b582b121e4632aa9a491d503720}{F\-O\-S\-C}~16000000\-U\-L
+\item 
+\#define \hyperlink{_light_controller_8c_a62634036639f88eece6fbf226b45f84b}{B\-A\-U\-D}~9600\-U\-L
+\item 
+\#define \hyperlink{_light_controller_8c_a711e9130c825a7269c8c87dbb57a85e0}{M\-Y\-U\-B\-R\-R}~0x0067
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_light_controller_8c_ad5d82db0d0535db771f6dc145c9af7f7}{ledshow} ()
+\item 
+void \hyperlink{_light_controller_8c_a99f79737b2f8bf945b4c169c69e3e3eb}{U\-S\-A\-R\-T\-\_\-\-Init} (unsigned int ubrr)
+\item 
+void \hyperlink{_light_controller_8c_ab8c416106cf1aff4ccdb3da4860fc179}{U\-S\-A\-R\-T\-\_\-\-Transmit} (unsigned char data)
+\item 
+unsigned char \hyperlink{_light_controller_8c_a48435142a44158906915a0de70dcab5c}{U\-S\-A\-R\-T\-\_\-\-Receive} (void)
+\item 
+int \hyperlink{_light_controller_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\item 
+\hyperlink{_light_controller_8c_aec43762dc86e029b395d4e5819192c2d}{I\-S\-R} (T\-I\-M\-E\-R0\-\_\-\-C\-O\-M\-P\-A\-\_\-vect)
+\item 
+\hyperlink{_light_controller_8c_add2d7cdddfb682dcc0391e60cf42c7d6}{I\-S\-R} (T\-I\-M\-E\-R0\-\_\-\-O\-V\-F\-\_\-vect)
+\item 
+\hyperlink{_light_controller_8c_a09ce999e15ad60b8a3f07d08af1946f9}{I\-S\-R} (U\-S\-A\-R\-T\-\_\-\-R\-X\-\_\-vect)
+\item 
+\hyperlink{_light_controller_8c_a317c504c8745a1256efed69e0dbf6e66}{I\-S\-R} (T\-I\-M\-E\-R1\-\_\-\-C\-O\-M\-P\-B\-\_\-vect)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned int \hyperlink{_light_controller_8c_a746c0c20e6183095a0a83e5de67459d2}{dim} = 0
+\item 
+volatile unsigned int \hyperlink{_light_controller_8c_af51b27b42d1da1194dde8fc35acfb378}{tick} = 0
+\item 
+volatile uint8\-\_\-t \hyperlink{_light_controller_8c_a236f770a65f752918757c3958cf5f204}{rxflag} = 0
+\item 
+const uint8\-\_\-t sinewave\mbox{[}$\,$\mbox{]} \hyperlink{_light_controller_8c_acd812f7397eed68b8eb05691842c9232}{P\-R\-O\-G\-M\-E\-M}
+\item 
+uint8\-\_\-t \hyperlink{_light_controller_8c_af27e3188294c2df66d975b74a09c001d}{i} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{_light_controller_8c_a62634036639f88eece6fbf226b45f84b}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!B\-A\-U\-D@{B\-A\-U\-D}}
+\index{B\-A\-U\-D@{B\-A\-U\-D}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{B\-A\-U\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf B\-A\-U\-D}~9600\-U\-L}}\label{_light_controller_8c_a62634036639f88eece6fbf226b45f84b}
+\hypertarget{_light_controller_8c_a43bafb28b29491ec7f871319b5a3b2f8}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!F\-\_\-\-C\-P\-U@{F\-\_\-\-C\-P\-U}}
+\index{F\-\_\-\-C\-P\-U@{F\-\_\-\-C\-P\-U}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{F\-\_\-\-C\-P\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf F\-\_\-\-C\-P\-U}~16000000\-U\-L}}\label{_light_controller_8c_a43bafb28b29491ec7f871319b5a3b2f8}
+\hypertarget{_light_controller_8c_a802b2b582b121e4632aa9a491d503720}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!F\-O\-S\-C@{F\-O\-S\-C}}
+\index{F\-O\-S\-C@{F\-O\-S\-C}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{F\-O\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf F\-O\-S\-C}~16000000\-U\-L}}\label{_light_controller_8c_a802b2b582b121e4632aa9a491d503720}
+\hypertarget{_light_controller_8c_a711e9130c825a7269c8c87dbb57a85e0}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!M\-Y\-U\-B\-R\-R@{M\-Y\-U\-B\-R\-R}}
+\index{M\-Y\-U\-B\-R\-R@{M\-Y\-U\-B\-R\-R}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{M\-Y\-U\-B\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf M\-Y\-U\-B\-R\-R}~0x0067}}\label{_light_controller_8c_a711e9130c825a7269c8c87dbb57a85e0}
+
+
+\subsection{Function Documentation}
+\hypertarget{_light_controller_8c_aec43762dc86e029b395d4e5819192c2d}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!I\-S\-R@{I\-S\-R}}
+\index{I\-S\-R@{I\-S\-R}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-S\-R} (
+\begin{DoxyParamCaption}
+\item[{T\-I\-M\-E\-R0\-\_\-\-C\-O\-M\-P\-A\-\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_aec43762dc86e029b395d4e5819192c2d}
+\hypertarget{_light_controller_8c_add2d7cdddfb682dcc0391e60cf42c7d6}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!I\-S\-R@{I\-S\-R}}
+\index{I\-S\-R@{I\-S\-R}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-S\-R} (
+\begin{DoxyParamCaption}
+\item[{T\-I\-M\-E\-R0\-\_\-\-O\-V\-F\-\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_add2d7cdddfb682dcc0391e60cf42c7d6}
+\hypertarget{_light_controller_8c_a09ce999e15ad60b8a3f07d08af1946f9}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!I\-S\-R@{I\-S\-R}}
+\index{I\-S\-R@{I\-S\-R}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-S\-R} (
+\begin{DoxyParamCaption}
+\item[{U\-S\-A\-R\-T\-\_\-\-R\-X\-\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_a09ce999e15ad60b8a3f07d08af1946f9}
+\hypertarget{_light_controller_8c_a317c504c8745a1256efed69e0dbf6e66}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!I\-S\-R@{I\-S\-R}}
+\index{I\-S\-R@{I\-S\-R}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-S\-R} (
+\begin{DoxyParamCaption}
+\item[{T\-I\-M\-E\-R1\-\_\-\-C\-O\-M\-P\-B\-\_\-vect}]{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_a317c504c8745a1256efed69e0dbf6e66}
+\hypertarget{_light_controller_8c_ad5d82db0d0535db771f6dc145c9af7f7}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!ledshow@{ledshow}}
+\index{ledshow@{ledshow}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{ledshow}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf ledshow} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_ad5d82db0d0535db771f6dc145c9af7f7}
+\hypertarget{_light_controller_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!main@{main}}
+\index{main@{main}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+\hypertarget{_light_controller_8c_a99f79737b2f8bf945b4c169c69e3e3eb}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!U\-S\-A\-R\-T\-\_\-\-Init@{U\-S\-A\-R\-T\-\_\-\-Init}}
+\index{U\-S\-A\-R\-T\-\_\-\-Init@{U\-S\-A\-R\-T\-\_\-\-Init}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{U\-S\-A\-R\-T\-\_\-\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf U\-S\-A\-R\-T\-\_\-\-Init} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{ubrr}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_a99f79737b2f8bf945b4c169c69e3e3eb}
+\hypertarget{_light_controller_8c_a48435142a44158906915a0de70dcab5c}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!U\-S\-A\-R\-T\-\_\-\-Receive@{U\-S\-A\-R\-T\-\_\-\-Receive}}
+\index{U\-S\-A\-R\-T\-\_\-\-Receive@{U\-S\-A\-R\-T\-\_\-\-Receive}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{U\-S\-A\-R\-T\-\_\-\-Receive}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char {\bf U\-S\-A\-R\-T\-\_\-\-Receive} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_a48435142a44158906915a0de70dcab5c}
+\hypertarget{_light_controller_8c_ab8c416106cf1aff4ccdb3da4860fc179}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!U\-S\-A\-R\-T\-\_\-\-Transmit@{U\-S\-A\-R\-T\-\_\-\-Transmit}}
+\index{U\-S\-A\-R\-T\-\_\-\-Transmit@{U\-S\-A\-R\-T\-\_\-\-Transmit}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{U\-S\-A\-R\-T\-\_\-\-Transmit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf U\-S\-A\-R\-T\-\_\-\-Transmit} (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{data}
+\end{DoxyParamCaption}
+)}}\label{_light_controller_8c_ab8c416106cf1aff4ccdb3da4860fc179}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_light_controller_8c_a746c0c20e6183095a0a83e5de67459d2}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!dim@{dim}}
+\index{dim@{dim}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{dim}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int {\bf dim} = 0}}\label{_light_controller_8c_a746c0c20e6183095a0a83e5de67459d2}
+\hypertarget{_light_controller_8c_af27e3188294c2df66d975b74a09c001d}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!i@{i}}
+\index{i@{i}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{i}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf i} = 0}}\label{_light_controller_8c_af27e3188294c2df66d975b74a09c001d}
+\hypertarget{_light_controller_8c_acd812f7397eed68b8eb05691842c9232}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!P\-R\-O\-G\-M\-E\-M@{P\-R\-O\-G\-M\-E\-M}}
+\index{P\-R\-O\-G\-M\-E\-M@{P\-R\-O\-G\-M\-E\-M}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{P\-R\-O\-G\-M\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t sinewave \mbox{[}$\,$\mbox{]} {\bf P\-R\-O\-G\-M\-E\-M}}}\label{_light_controller_8c_acd812f7397eed68b8eb05691842c9232}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+ 
+{ 
+
+0x80,0x83,0x86,0x89,0x8c,0x8f,0x92,0x95,0x98,0x9c,0x9f,0xa2,0xa5,0xa8,0xab,0xae
+      , 
+0xb0,0xb3,0xb6,0xb9,0xbc,0xbf,0xc1,0xc4,0xc7,0xc9,0xcc,0xce,0xd1,0xd3,0xd5,0xd8
+      , 
+0xda,0xdc,0xde,0xe0,0xe2,0xe4,0xe6,0xe8,0xea,0xec,0xed,0xef,0xf0,0xf2,0xf3,0xf5
+      , 
+0xf6,0xf7,0xf8,0xf9,0xfa,0xfb,0xfc,0xfc,0xfd,0xfe,0xfe,0xff,0xff,0xff,0xff,0xff
+      , 
+0xff,0xff,0xff,0xff,0xff,0xff,0xfe,0xfe,0xfd,0xfc,0xfc,0xfb,0xfa,0xf9,0xf8,0xf7
+      , 
+0xf6,0xf5,0xf3,0xf2,0xf0,0xef,0xed,0xec,0xea,0xe8,0xe6,0xe4,0xe2,0xe0,0xde,0xdc
+      , 
+0xda,0xd8,0xd5,0xd3,0xd1,0xce,0xcc,0xc9,0xc7,0xc4,0xc1,0xbf,0xbc,0xb9,0xb6,0xb3
+      , 
+0xb0,0xae,0xab,0xa8,0xa5,0xa2,0x9f,0x9c,0x98,0x95,0x92,0x8f,0x8c,0x89,0x86,0x83
+      , 
+0x80,0x7c,0x79,0x76,0x73,0x70,0x6d,0x6a,0x67,0x63,0x60,0x5d,0x5a,0x57,0x54,0x51
+      , 
+0x4f,0x4c,0x49,0x46,0x43,0x40,0x3e,0x3b,0x38,0x36,0x33,0x31,0x2e,0x2c,0x2a,0x27
+      , 
+0x25,0x23,0x21,0x1f,0x1d,0x1b,0x19,0x17,0x15,0x13,0x12,0x10,0x0f,0x0d,0x0c,0x0a
+      , 
+0x09,0x08,0x07,0x06,0x05,0x04,0x03,0x03,0x02,0x01,0x01,0x00,0x00,0x00,0x00,0x00
+      , 
+0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x01,0x02,0x03,0x03,0x04,0x05,0x06,0x07,0x08
+      , 
+0x09,0x0a,0x0c,0x0d,0x0f,0x10,0x12,0x13,0x15,0x17,0x19,0x1b,0x1d,0x1f,0x21,0x23
+      , 
+0x25,0x27,0x2a,0x2c,0x2e,0x31,0x33,0x36,0x38,0x3b,0x3e,0x40,0x43,0x46,0x49,0x4c
+      , 
+0x4f,0x51,0x54,0x57,0x5a,0x5d,0x60,0x63,0x67,0x6a,0x6d,0x70,0x73,0x76,0x79,0x7c
+       
+
+}
+\end{DoxyCode}
+\hypertarget{_light_controller_8c_a236f770a65f752918757c3958cf5f204}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!rxflag@{rxflag}}
+\index{rxflag@{rxflag}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{rxflag}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t {\bf rxflag} = 0}}\label{_light_controller_8c_a236f770a65f752918757c3958cf5f204}
+\hypertarget{_light_controller_8c_af51b27b42d1da1194dde8fc35acfb378}{\index{Light\-Controller.\-c@{Light\-Controller.\-c}!tick@{tick}}
+\index{tick@{tick}!LightController.c@{Light\-Controller.\-c}}
+\subsubsection[{tick}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int {\bf tick} = 0}}\label{_light_controller_8c_af51b27b42d1da1194dde8fc35acfb378}

@@ -9,33 +9,30 @@
 #ifndef SATELLITE_H_
 #define SATELLITE_H_
 
-#define DEBUG 0
+#define DEBUG 0			/**< Allows for a debug mode that provides more verbose feedback */
 
-//Servo Constants
-#define SERVO_PERIOD	312
-#define SERVO_FWD 0x0A  //1ms
-//#define SERVO_CEN 23	//1.5ms (not needed)
-#define SERVO_REV 0x2F	//2ms
-#define CLOSE_TIME 7000
+/*AC Values */
+#define MAX 1			/**< AC Lighting fully on */
+#define OFF -1			/**< AC Lighting fully off */
 
+/* Servo Constants */
+#define SERVO_PERIOD	312		/**< Period */
+#define SERVO_FWD 0x0A  //1ms	/**< PWM signal for moving servo forward (1 ms) */
+#define SERVO_REV 0x2F	//2ms	/**< PWM signal for moving servo backward (2ms) */
+#define CLOSE_TIME 7000			/**< Amount of time needed to fully open/close the blinds */
+
+/*! \brief Preference type
+ *  Holds all values needed for storing preferences
+ *  */
  typedef struct
 {
-    uint8_t hour;
-    uint8_t min;
-	uint8_t dim;
-	uint8_t blinds;
+    uint8_t hour;	/**< Alarm hour */
+    uint8_t min;	/**< Alarm minute */
+	uint8_t dim;	/**< Preference brightness */
+	uint8_t blinds; /**< Preference blinds level */
 } Pref;
 
- typedef struct
-{
-    uint8_t hour;
-    uint8_t min;
-} Time;
-
-
-
-
-//Function headers
+/* Function headers */
 void static inline delay_ms(uint16_t tick);
 void initAC(int dutycycle);
 void initL2F();
@@ -46,20 +43,10 @@ void setBlinds( int arg );
 void checkPIR();
 void initServo();
 void initTimer( int dutycycle);
-void static inline varyBlinds(int8_t percent);	//inline ensures function execution time optimization
+void static inline varyBlinds(int8_t percent);
 void SPI_init(void);
 char SPI_Transmit(char cData);
 void getTime(uint8_t * hours, uint8_t * minutes, uint8_t * seconds);
 uint8_t getDigits(char * cmd, uint8_t * i);
-
-
-
-
-//AC Values
-#define MAX 25
-#define OFF -1
-
-
-
 
 #endif /* SATELLITE_H_ */
