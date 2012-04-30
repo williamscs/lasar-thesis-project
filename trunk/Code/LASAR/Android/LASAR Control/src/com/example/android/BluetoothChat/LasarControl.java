@@ -16,6 +16,7 @@
 
 package com.example.android.BluetoothChat;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import android.app.Activity;
 import android.app.Dialog;
@@ -53,84 +54,78 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 	private static final String TAG = "BluetoothChat";
 	private static final boolean D = true;
 	// Message types sent from the BluetoothChatService Handler
-	public static final int MESSAGE_STATE_CHANGE = 1;
-	public static final int MESSAGE_READ = 2;
-	public static final int MESSAGE_WRITE = 3;
-	public static final int MESSAGE_DEVICE_NAME = 4;
-	public static final int MESSAGE_TOAST = 5;
+	public static final int MESSAGE_STATE_CHANGE = 1;	/**<  */
+	public static final int MESSAGE_READ = 2;			/**<  */
+	public static final int MESSAGE_WRITE = 3;			/**<  */
+	public static final int MESSAGE_DEVICE_NAME = 4;	/**<  */
+	public static final int MESSAGE_TOAST = 5;			/**<  */
 	
 	
-	//Update Constants
-	private static final int BRIGHTNESS = 3;
-	private static final int BLINDS = 2;
-	private static final int CLOCK = 0;
+	//Used as Enum for updateSatellite
+	private static final int BRIGHTNESS = 2;	/**< Mask for updating Brightness */
+	private static final int BLINDS = 1;		/**< Mask for updating Brightness */
+	private static final int CLOCK = 0;			/**< Mask for updating Brightness */
 
-	//Visibility Constants
-	public static final int GONE = 8;
-	public static final int VISIBLE = 0;
+	//Visibility Constants	
+	public static final int GONE = 8;		/**<  */
+	public static final int VISIBLE = 0;	/**<  */
 
 	// Key names received from the BluetoothChatService Handler
-	public static final String DEVICE_NAME = "device_name";
-	public static final String TOAST = "toast";
+	public static final String DEVICE_NAME = "device_name";		/**<  */
+	public static final String TOAST = "toast";					/**<  */
 
 
-	private static final int REQUEST_ENABLE_BT = 3;
+	private static final int REQUEST_ENABLE_BT = 3;		/**<  */
 
 	// Layout Views
-	private TextView mTitle;
-	private ListView mConversationView;
-	private EditText mOutEditText;
+	private TextView mTitle;				/**<  */
+	private ListView mConversationView;		/**<  */
+	private EditText mOutEditText;			/**<  */
 
 	// Button Variables
-	private Button mSendButton;
-	private Button mPickTime;
-	private ToggleButton toggleButton1;
+	private Button mSendButton;			/**<  */
+	private Button mPickTime;			/**<  */
+	private ToggleButton toggleButton1;	/**<  */
 
 	// SeekBar Variables 
-	private SeekBar dimSeek;
-	private SeekBar blindsSeek;
-	TextView mProgressText;
-	TextView mProgressText2;
+	private SeekBar dimSeek;		/**<  */
+	private SeekBar blindsSeek;		/**<  */
+	TextView mProgressText;			/**<  */
+	TextView mProgressText2;		/**<  */
 
 	// Variable Integers For Settings
-	int dim = 50;
-	int blinds = 50;
+	int dim = 50;		/**<  */
+	int blinds = 50;	/**<  */
 
 	// Time Setting Variables
-	private TextView mTimeDisplay;
-	private TextView mUpdateTime;
+	private TextView mTimeDisplay;	/**<  */
+	private TextView mUpdateTime;	/**<  */
 	
 	//Values to be saved into microcontroller's
 	// rudimentary Real-time Clock
-	private int mHour;
-	private int mMinute;
-	private int mSecond;
-	static final int TIME_DIALOG_ID = 0;
+	private int mHour;						/**<  */
+	private int mMinute;					/**<  */
+	private int mSecond;					/**<  */
+	static final int TIME_DIALOG_ID = 0;	/**<  */
 	
 	//Values to be saved into microcontroller's
 	// Preferences settings
-	private String sHour;
-	private String sMinute;
-	private String sSecond;
-	String SavedTime;
+	private String sHour;		/**<  */
+	private String sMinute;		/**<  */
+	private String sSecond;		/**<  */
+	String SavedTime;			/**<  */
 
-	//Bluetooth MAC ADDRESSES
-	//DEBUGX [RN42-D5CC]: 00066645D5CC
-	//ROOM A [RN42-D5CC]:   
-	//ROOM B [RN42-D5CC]: 
-	//ROOM C [RN42-D5CC]: 
 
-	//[SAT2] = 00066645D5CA
-
-	// Name of the connected device
+	/** Name of the connected device */
 	private String mConnectedDeviceName = null;
-	// Array adapter for the conversation thread
+	
+	/** Array adapter for the conversation thread */
 	private ArrayAdapter<String> mConversationArrayAdapter;
-	// String buffer for outgoing messages
+	/** String buffer for outgoing messages */
 	private StringBuffer mOutStringBuffer;
-	// Local Bluetooth adapter
+	/** Local Bluetooth adapter */
 	private BluetoothAdapter mBluetoothAdapter = null;
-	// Member object for the chat services
+	/** Member object for the chat services */
 	private BluetoothChatService mChatService = null;
 
 
@@ -143,8 +138,7 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 		// Set up the window layout
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.roomselection);
-		//requestWindowFeature(Window.FEATURE_NO_TITLE);
-	   // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
 
 
@@ -173,7 +167,7 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 	}
 
 	/**
-	 * updates the time we display in the TextView
+	 * Updates the time we display in the TextView.
 	 */
 	private void updateDisplay() {
 		mTimeDisplay.setText(
@@ -189,7 +183,7 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 	}
 
 	/**
-	 * the callback received when the user "sets" the time in the dialog
+	 * The callback received when the user "sets" the time in the dialog.
 	 */
 	private TimePickerDialog.OnTimeSetListener mTimeSetListener =
 			new TimePickerDialog.OnTimeSetListener() {
@@ -201,9 +195,9 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 	};
 
 	/**
-	 * Pads the value, if needed with a preceding zero
+	 * Pads the value, if needed with a preceding zero.
 	 * @param c Value that must be padded
-	 * @return
+	 * @return Padded number as a string
 	 */
 	private static String pad(int c) {
 		if (c >= 10)
@@ -282,10 +276,6 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see android.widget.SeekBar.OnSeekBarChangeListener#onStopTrackingTouch(android.widget.SeekBar)
-	 */
 	public void onStopTrackingTouch(SeekBar seekBar) {
 
 		switch(seekBar.getId()){
@@ -349,6 +339,7 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 	 * 	message
 	 * 	mConversationArrayAdapter
 	 ***********************/
+	
 	/**
 	 * Initializes all communications with the Bluetooth module
 	 */
@@ -558,14 +549,14 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 		return false;
 	}
 
-	public static String EXTRA_DEVICE_ADDRESS = "device_address";
-
 	/**
-	 * @param view
+	 * @brief Changes to Room Control screen.
+	 * The MAC addresses are hard-coded to appropriately connect to the RN-42's.
+	 * @param view The view from the original activity
 	 */
 	public void toMain(View view)
 	{
-		String address = "00:06:66:45:D5:C5";
+		String address = "00:06:66:45:D5:C4";
 		setContentView(R.layout.main);
 		//SetupSeekBars
 		final TextView tvRoom = (TextView) findViewById(R.id.roomname);
@@ -580,7 +571,7 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 		}
 		else if(tvRoom.getText().toString().compareToIgnoreCase("Kitchen") == 0)
 		{
-			address = "00:06:66:45:D5:C4";
+			address = "00:06:66:45:D5:C5";
 		}
 		// Cancel discovery because it's costly and we're about to connect
 
@@ -652,6 +643,8 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 	}
 
 	/**
+	 * @brief Parses incoming stream.
+	 * Finds Dimness and Blinds value on startup. Finds Frequency if prompted.
 	 * @param info
 	 */
 	public void getInfo( String info )
@@ -683,11 +676,19 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 			info = info.substring(j+2, info.lastIndexOf(';'));
 			float x = Float.parseFloat(info);
 			double k = (2.239 * x * x) + (8.8824 * x) + 43.068;
+			k = roundTwoDecimals(k);
 			Toast.makeText(this, String.valueOf(k) + " lux" , Toast.LENGTH_LONG).show();
 		}
 	}
+	
+	double roundTwoDecimals(double d)
+	{
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
+	}
 
 	/**
+	 * 
 	 * @param view
 	 */
 	public void getFreq(View view)
@@ -704,6 +705,11 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 		{
 			dim = -1;
 			dimSeek.setProgress(0);
+		}
+		else if( new_dim >= 100 )
+		{
+			dim = 99;
+			dimSeek.setProgress(dim);
 		}
 		else
 		{
@@ -737,11 +743,11 @@ public class LASARControl extends Activity implements OnSeekBarChangeListener
 		int min = c.get(Calendar.MINUTE);
 		int sec = c.get(Calendar.SECOND);
 		String out = "";
-		if( (toChange % BLINDS) == 0)
+		if( (toChange & BLINDS) >= 0)
 		{
 			out = out+"B:"+blinds+":";
 		}
-		if( (toChange % BRIGHTNESS) == 0)
+		if( (toChange & BRIGHTNESS) >= 0)
 		{
 			out = out+"D:";
 			if((100-dim) < 10)

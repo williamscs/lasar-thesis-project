@@ -23,7 +23,7 @@ volatile char command[15];		/**< Full Command string from Android */
 volatile uint8_t set = 1;		/**< Flag to indicate if command has been set */
 
 /* AC */
-volatile int dim;				/**< AC Lighting brightness */
+volatile int dim = -1;				/**< AC Lighting brightness */
 volatile int tdim;				/**< "Temp Dim" or the previous brightness level */
 volatile unsigned int count = 0;/**< Compares this value vs dim to achieve proper delay */
 volatile uint8_t zerocross = 0;	/**< Flag to indicate a zero cross on AC line */
@@ -56,6 +56,7 @@ uint8_t EEMEM sDim = 0;			/**< Saved brightness level */
 
 int main(void)
 {
+	dim = -1;
 	uint8_t hours = 0;
 	uint8_t min = 0;
 	uint8_t sec;
@@ -105,6 +106,8 @@ int main(void)
 		eeprom_read_byte (&sleep.dim),
 		eeprom_read_byte (&sleep.blinds));
 	#endif
+	if( dim == 255 )
+		dim = -1;
     while(1)
     {
 		checkPIR();
@@ -146,13 +149,6 @@ int main(void)
 						break;
 					case 'B':	/* Blinds */
 						setBlinds(getDigits(cmd, &i));
-						int8_t cmpBlinds = (int8_t)eeprom_read_byte(&sBlinds) - blinds;
-						
-						if(cmpBlinds != 0)
-						{
-							varyBlinds(cmpBlinds);
-						}
-						eeprom_write_byte(&sBlinds, (uint8_t)blinds);
 						i++;
 						break;
 					case 'O':	/* Toggle On/Off */
@@ -215,31 +211,34 @@ int main(void)
 						print("F:%d.%04d", d1, d2);
 						break;
 					case '?': /* What are the current alarm values? */
-						print("Wake set to %d:%d with dim value %d",
+						print("Wake set to %d:%d with dim value %d and blinds at %d",
 							eeprom_read_byte (&wake.hour),
 							eeprom_read_byte (&wake.min),
 							eeprom_read_byte (&wake.dim),
 							eeprom_read_byte (&wake.blinds));
-						print("Leave set to %d:%d with dim value %d",
+						/*
+						print("Leave set to %d:%d with dim value %d and blinds at %d",
 							eeprom_read_byte (&leave.hour),
 							eeprom_read_byte (&leave.min),
 							eeprom_read_byte (&leave.dim),
 							eeprom_read_byte (&leave.blinds));
-						print("Return set to %d:%d with dim value %d",
+						print("Return set to %d:%d with dim value %d and blinds at %d",
 							eeprom_read_byte (&ret.hour),
 							eeprom_read_byte (&ret.min),
 							eeprom_read_byte (&ret.dim),
 							eeprom_read_byte (&ret.blinds));
-						print("Sleep set to %d:%d with dim value %d",
+						print("Sleep set to %d:%d with dim value %d and blinds at %d",
 							eeprom_read_byte (&sleep.hour),
 							eeprom_read_byte (&sleep.min),
 							eeprom_read_byte (&sleep.dim),
 							eeprom_read_byte (&sleep.blinds));
+							*/
 						break;
 					default:
 						#if DEBUG
 						print("Default case");
 						#endif
+						i = strlen(cmd);
 						break;/* do nothing */
 				}/* switch(cmd[i]) */
 				
@@ -291,8 +290,12 @@ void checkAlarm()
 		#endif	
 		if((eeprom_read_byte(&wake.min))==cmin)
 		{
-			setDim(eeprom_read_byte(&wake.dim));
-			setBlinds(eeprom_read_byte(&wake.blinds));
+			print( "Dim is %d", eeprom_read_byte(&wake.dim));
+			print( "Blinds are %d",eeprom_read_byte(&wake.blinds));
+			setDim((int)eeprom_read_byte(&wake.dim));
+			_delay_ms(100);
+			setBlinds((int)eeprom_read_byte(&wake.blinds));
+			
 		}
 	}
 		
@@ -302,6 +305,7 @@ void checkAlarm()
 	{
 		if((eeprom_read_byte(&leave.min))==cmin)
 		{
+				
 			setDim(eeprom_read_byte(&leave.dim));
 			setBlinds(eeprom_read_byte(&leave.blinds));
 		}
@@ -313,6 +317,7 @@ void checkAlarm()
 	{
 		if((eeprom_read_byte(&ret.min))==cmin)
 		{
+			
 			setDim(eeprom_read_byte(&ret.dim));
 			setBlinds(eeprom_read_byte(&ret.blinds));
 				
@@ -338,7 +343,10 @@ void checkAlarm()
  * \return Whether the move has been performed */
 void setDim( int arg )
 {
-	dim = arg;
+	if(arg == 0)
+		dim = -1;
+	else
+		dim = arg;
 	#if DEBUG
 	print("Dim set to %d", dim);
 	#endif
@@ -351,8 +359,15 @@ void setDim( int arg )
  * \return Whether the move has been performed */
 void setBlinds( int arg )
 {
-	blinds  = arg;
+	blinds = arg;
+	int8_t cmpBlinds = (int8_t)eeprom_read_byte(&sBlinds) - blinds;
+						
+	if(cmpBlinds != 0)
+	{
+		varyBlinds(cmpBlinds);
+	}
 	
+	eeprom_write_byte(&sBlinds, (uint8_t)blinds);
 	#if DEBUG
 	print("Blinds set to %d", blinds);
 	#endif
@@ -483,7 +498,7 @@ void static varyBlinds(int8_t percent)
 	print("Blinds closing for %d ms", time);
 	#endif	
 	delay_ms(time);
-	sActive = 1;
+	sActive = 0;
 	TCCR2B = 0;
 	PORTC &= ~(1 << PORTC2);
 }
@@ -552,6 +567,8 @@ ISR(TIMER0_COMPA_vect)
         {
                   
             count = count + 1;
+			if( count < 0 )
+				count = 0;
         }
     }
 }

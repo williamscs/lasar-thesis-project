@@ -26,7 +26,7 @@
         android:layout_height="150dp"
         android:stackFromBottom="true"
         android:transcriptMode="alwaysScroll"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:inputType="text"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/button_pump"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/send"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imageView1"
