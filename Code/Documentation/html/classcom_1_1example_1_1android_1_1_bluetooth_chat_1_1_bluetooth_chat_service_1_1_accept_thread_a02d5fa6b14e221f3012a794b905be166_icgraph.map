@@ -5,5 +5,5 @@
 <area shape="rect" id="node7" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_bluetooth_chat_service_1_1_connect_thread.html#a13a43e6d814de94978c515cb084873b1" title="com.example.android.BluetoothChat.BluetoothChatService.ConnectThread.run" alt="" coords="587,56,1061,83"/>
 <area shape="rect" id="node11" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#a8a744b43949a3939f448facad211e3d2" title="com.example.android.BluetoothChat.LASARControl.onDestroy" alt="" coords="633,107,1015,133"/>
 <area shape="rect" id="node13" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#acb776333595cb036bf935852041cb088" title="com.example.android.BluetoothChat.LASARControl.onBackPressed" alt="" coords="616,157,1032,184"/>
-<area shape="rect" id="node15" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#a3d586a7ab265876564fc5c288cb38e0d" title="com.example.android.BluetoothChat.LASARControl.getInfo" alt="" coords="643,208,1005,235"/>
+<area shape="rect" id="node15" href="$classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control.html#a3d586a7ab265876564fc5c288cb38e0d" title="Parses incoming stream. Finds Dimness and Blinds value on startup. Finds Frequency if prompted..." alt="" coords="643,208,1005,235"/>
 </map>

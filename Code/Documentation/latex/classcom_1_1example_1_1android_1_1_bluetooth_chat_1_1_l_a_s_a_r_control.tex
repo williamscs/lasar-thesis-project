@@ -3,8 +3,7 @@
 }
 
 
-Inheritance diagram for L\-A\-S\-A\-R\-Control\-:
-\nopagebreak
+Inheritance diagram for L\-A\-S\-A\-R\-Control\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,8 +12,7 @@ Inheritance diagram for L\-A\-S\-A\-R\-Control\-:
 \end{figure}
 
 
-Collaboration diagram for L\-A\-S\-A\-R\-Control\-:
-\nopagebreak
+Collaboration diagram for L\-A\-S\-A\-R\-Control\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -47,11 +45,11 @@ boolean \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a
 boolean \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a37a55c533c74b60c0290ef1329d74e65}{on\-Options\-Item\-Selected} (Menu\-Item item)
 \item 
 void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1f166dbb18c9970efc1bc01b9b2e5c54}{to\-Main} (View view)
-\item 
+\begin{DoxyCompactList}\small\item\em Changes to Room Control screen. The M\-A\-C addresses are hard-\/coded to appropriately connect to the R\-N-\/42's. \end{DoxyCompactList}\item 
 void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_acb776333595cb036bf935852041cb088}{on\-Back\-Pressed} ()
 \item 
 void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a3d586a7ab265876564fc5c288cb38e0d}{get\-Info} (String info)
-\item 
+\begin{DoxyCompactList}\small\item\em Parses incoming stream. Finds Dimness and Blinds value on startup. Finds Frequency if prompted. \end{DoxyCompactList}\item 
 void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_adc846b4b8d9a9ee1e53b348432eb8aff}{get\-Freq} (View view)
 \item 
 void \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a281a2ae677c641ec8d556d283435bd40}{on\-Start\-Tracking\-Touch} (Seek\-Bar arg0)
@@ -76,8 +74,6 @@ static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_
 static final String \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aeb66e03c65cb4e4c8cecd9b5e9542612}{D\-E\-V\-I\-C\-E\-\_\-\-N\-A\-M\-E} = \char`\"{}device\-\_\-name\char`\"{}
 \item 
 static final String \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_adafe8a0d70641fa1cab3d27fa09742e7}{T\-O\-A\-S\-T} = \char`\"{}toast\char`\"{}
-\item 
-static String \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_adfb4e91cee59f339c15f8ae793db217a}{E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S} = \char`\"{}device\-\_\-address\char`\"{}
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -162,9 +158,9 @@ static final String \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat
 \item 
 static final boolean \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a5d04bb9010fad999fbcad7c652d6c0ce}{D} = true
 \item 
-static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a092ffe5b32750a16468ca8889e5e5edd}{B\-R\-I\-G\-H\-T\-N\-E\-S\-S} = 3
+static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a092ffe5b32750a16468ca8889e5e5edd}{B\-R\-I\-G\-H\-T\-N\-E\-S\-S} = 2
 \item 
-static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4acafe4eb14a0b7380bd0e9adacd2ef4}{B\-L\-I\-N\-D\-S} = 2
+static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4acafe4eb14a0b7380bd0e9adacd2ef4}{B\-L\-I\-N\-D\-S} = 1
 \item 
 static final int \hyperlink{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a80574276d2be6a6b39d7dc353685cf55}{C\-L\-O\-C\-K} = 0
 \item 
@@ -185,8 +181,7 @@ This is the main Activity that displays the current chat session.
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ae52c93cc72458772ce286f19d7cb6760}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -197,8 +192,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -221,8 +215,7 @@ Here is the caller graph for this function\-:
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -239,14 +232,17 @@ Here is the call graph for this function\-:
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a3d586a7ab265876564fc5c288cb38e0d}
 
+
+Parses incoming stream. Finds Dimness and Blinds value on startup. Finds Frequency if prompted. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em info} & \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -264,8 +260,7 @@ Here is the call graph for this function\-:
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_acb776333595cb036bf935852041cb088}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -304,8 +299,7 @@ Here is the call graph for this function\-:
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a8a744b43949a3939f448facad211e3d2}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -323,8 +317,7 @@ Here is the call graph for this function\-:
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a37a55c533c74b60c0290ef1329d74e65}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -351,8 +344,7 @@ Here is the call graph for this function\-:
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ac98847d21be8b44457423bb004e2e655}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -398,8 +390,7 @@ Here is the call graph for this function\-:
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_abb13b75125cb8cb24fbeeef2451e262c}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -415,18 +406,17 @@ Here is the call graph for this function\-:
 \item[{int}]{c}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ad6e6064f6c7bf4149b827c8882acc43c}
-Pads the value, if needed with a preceding zero 
+Pads the value, if needed with a preceding zero. 
 \begin{DoxyParams}{Parameters}
 {\em c} & Value that must be padded \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+Padded number as a string 
 \end{DoxyReturn}
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -449,8 +439,7 @@ Sends a message.
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -461,8 +450,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -480,8 +468,7 @@ Here is the caller graph for this function\-:
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a5bb861876066eec2e7de8212bc5312b5}
 Initializes all communications with the Bluetooth module 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -492,8 +479,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -510,14 +496,17 @@ Here is the caller graph for this function\-:
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1f166dbb18c9970efc1bc01b9b2e5c54}
 
+
+Changes to Room Control screen. The M\-A\-C addresses are hard-\/coded to appropriately connect to the R\-N-\/42's. 
+
+
 \begin{DoxyParams}{Parameters}
-{\em view} & \\
+{\em view} & The view from the original activity \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -540,8 +529,7 @@ Here is the call graph for this function\-:
 \end{DoxyParams}
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -564,8 +552,7 @@ Here is the caller graph for this function\-:
 \end{DoxyParams}
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -581,10 +568,9 @@ Here is the caller graph for this function\-:
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ab7eb3c8c2e8604801ee00f11d3af8c3f}
-updates the time we display in the Text\-View 
+Updates the time we display in the Text\-View. 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -595,8 +581,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -622,8 +607,7 @@ Sends values to be updated on Satellite device
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -634,8 +618,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -649,17 +632,17 @@ Here is the caller graph for this function\-:
 \subsection{Field Documentation}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4acafe4eb14a0b7380bd0e9adacd2ef4}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!B\-L\-I\-N\-D\-S@{B\-L\-I\-N\-D\-S}}
 \index{B\-L\-I\-N\-D\-S@{B\-L\-I\-N\-D\-S}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
-\subsubsection[{B\-L\-I\-N\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf B\-L\-I\-N\-D\-S} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4acafe4eb14a0b7380bd0e9adacd2ef4}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1a0719954fa0ef942dfb44eb5d596fc4}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!blinds\-Seek@{blinds\-Seek}}
+\subsubsection[{B\-L\-I\-N\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf B\-L\-I\-N\-D\-S} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4acafe4eb14a0b7380bd0e9adacd2ef4}
+Mask for updating Brightness \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1a0719954fa0ef942dfb44eb5d596fc4}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!blinds\-Seek@{blinds\-Seek}}
 \index{blinds\-Seek@{blinds\-Seek}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{blinds\-Seek}]{\setlength{\rightskip}{0pt plus 5cm}Seek\-Bar {\bf blinds\-Seek}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1a0719954fa0ef942dfb44eb5d596fc4}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a092ffe5b32750a16468ca8889e5e5edd}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!B\-R\-I\-G\-H\-T\-N\-E\-S\-S@{B\-R\-I\-G\-H\-T\-N\-E\-S\-S}}
 \index{B\-R\-I\-G\-H\-T\-N\-E\-S\-S@{B\-R\-I\-G\-H\-T\-N\-E\-S\-S}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
-\subsubsection[{B\-R\-I\-G\-H\-T\-N\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf B\-R\-I\-G\-H\-T\-N\-E\-S\-S} = 3\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a092ffe5b32750a16468ca8889e5e5edd}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a80574276d2be6a6b39d7dc353685cf55}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!C\-L\-O\-C\-K@{C\-L\-O\-C\-K}}
+\subsubsection[{B\-R\-I\-G\-H\-T\-N\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf B\-R\-I\-G\-H\-T\-N\-E\-S\-S} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a092ffe5b32750a16468ca8889e5e5edd}
+Mask for updating Brightness \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a80574276d2be6a6b39d7dc353685cf55}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!C\-L\-O\-C\-K@{C\-L\-O\-C\-K}}
 \index{C\-L\-O\-C\-K@{C\-L\-O\-C\-K}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{C\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf C\-L\-O\-C\-K} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a80574276d2be6a6b39d7dc353685cf55}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a5d04bb9010fad999fbcad7c652d6c0ce}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!D@{D}}
+Mask for updating Brightness \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a5d04bb9010fad999fbcad7c652d6c0ce}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!D@{D}}
 \index{D@{D}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{D}]{\setlength{\rightskip}{0pt plus 5cm}final boolean {\bf D} = true\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a5d04bb9010fad999fbcad7c652d6c0ce}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aeb66e03c65cb4e4c8cecd9b5e9542612}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!D\-E\-V\-I\-C\-E\-\_\-\-N\-A\-M\-E@{D\-E\-V\-I\-C\-E\-\_\-\-N\-A\-M\-E}}
@@ -668,25 +651,22 @@ Here is the caller graph for this function\-:
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa63161ac282549cbd5e95597b0c2cbdc}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!dim\-Seek@{dim\-Seek}}
 \index{dim\-Seek@{dim\-Seek}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{dim\-Seek}]{\setlength{\rightskip}{0pt plus 5cm}Seek\-Bar {\bf dim\-Seek}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa63161ac282549cbd5e95597b0c2cbdc}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_adfb4e91cee59f339c15f8ae793db217a}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S@{E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S}}
-\index{E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S@{E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
-\subsubsection[{E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}String {\bf E\-X\-T\-R\-A\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-A\-D\-D\-R\-E\-S\-S} = \char`\"{}device\-\_\-address\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_adfb4e91cee59f339c15f8ae793db217a}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_af184001c124497a8668c657a12086ec6}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!G\-O\-N\-E@{G\-O\-N\-E}}
 \index{G\-O\-N\-E@{G\-O\-N\-E}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{G\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf G\-O\-N\-E} = 8\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_af184001c124497a8668c657a12086ec6}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ad12e510a017b89f0faad1251d695f8c2}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Bluetooth\-Adapter@{m\-Bluetooth\-Adapter}}
 \index{m\-Bluetooth\-Adapter@{m\-Bluetooth\-Adapter}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Bluetooth\-Adapter}]{\setlength{\rightskip}{0pt plus 5cm}Bluetooth\-Adapter {\bf m\-Bluetooth\-Adapter} = null\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ad12e510a017b89f0faad1251d695f8c2}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4665d67dfa98764ef38685021cd19a67}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Chat\-Service@{m\-Chat\-Service}}
+Local Bluetooth adapter \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4665d67dfa98764ef38685021cd19a67}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Chat\-Service@{m\-Chat\-Service}}
 \index{m\-Chat\-Service@{m\-Chat\-Service}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Chat\-Service}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bluetooth\-Chat\-Service} {\bf m\-Chat\-Service} = null\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a4665d67dfa98764ef38685021cd19a67}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_af79a70149253856147d95a048cb2e0e5}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Connected\-Device\-Name@{m\-Connected\-Device\-Name}}
+Member object for the chat services \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_af79a70149253856147d95a048cb2e0e5}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Connected\-Device\-Name@{m\-Connected\-Device\-Name}}
 \index{m\-Connected\-Device\-Name@{m\-Connected\-Device\-Name}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Connected\-Device\-Name}]{\setlength{\rightskip}{0pt plus 5cm}String {\bf m\-Connected\-Device\-Name} = null\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_af79a70149253856147d95a048cb2e0e5}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ab44fa0d676297c382a5a38d2ed699cda}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Conversation\-Array\-Adapter@{m\-Conversation\-Array\-Adapter}}
+Name of the connected device \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ab44fa0d676297c382a5a38d2ed699cda}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Conversation\-Array\-Adapter@{m\-Conversation\-Array\-Adapter}}
 \index{m\-Conversation\-Array\-Adapter@{m\-Conversation\-Array\-Adapter}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Conversation\-Array\-Adapter}]{\setlength{\rightskip}{0pt plus 5cm}Array\-Adapter$<$String$>$ {\bf m\-Conversation\-Array\-Adapter}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_ab44fa0d676297c382a5a38d2ed699cda}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa624078b7f8f3178e957eec48cc2a139}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Conversation\-View@{m\-Conversation\-View}}
+Array adapter for the conversation thread \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa624078b7f8f3178e957eec48cc2a139}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Conversation\-View@{m\-Conversation\-View}}
 \index{m\-Conversation\-View@{m\-Conversation\-View}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Conversation\-View}]{\setlength{\rightskip}{0pt plus 5cm}List\-View {\bf m\-Conversation\-View}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa624078b7f8f3178e957eec48cc2a139}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_add64add7196452d793891b8d0805cb8f}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!M\-E\-S\-S\-A\-G\-E\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-N\-A\-M\-E@{M\-E\-S\-S\-A\-G\-E\-\_\-\-D\-E\-V\-I\-C\-E\-\_\-\-N\-A\-M\-E}}
@@ -719,7 +699,7 @@ The Handler that gets information back from the \hyperlink{classcom_1_1example_1
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1e5b37d00e365d99f2679d9fcd2bc862}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Out\-String\-Buffer@{m\-Out\-String\-Buffer}}
 \index{m\-Out\-String\-Buffer@{m\-Out\-String\-Buffer}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Out\-String\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}String\-Buffer {\bf m\-Out\-String\-Buffer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a1e5b37d00e365d99f2679d9fcd2bc862}
-\hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a9a3455e229dafc109be04a05c8e4dc99}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Pick\-Time@{m\-Pick\-Time}}
+String buffer for outgoing messages \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a9a3455e229dafc109be04a05c8e4dc99}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Pick\-Time@{m\-Pick\-Time}}
 \index{m\-Pick\-Time@{m\-Pick\-Time}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Pick\-Time}]{\setlength{\rightskip}{0pt plus 5cm}Button {\bf m\-Pick\-Time}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a9a3455e229dafc109be04a05c8e4dc99}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a064aed0f8414a9f942724930eb009610}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Second@{m\-Second}}
@@ -746,7 +726,7 @@ The Handler that gets information back from the \hyperlink{classcom_1_1example_1
                 }
         }
 \end{DoxyCode}
-the callback received when the user \char`\"{}sets\char`\"{} the time in the dialog \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa22ebf7a5e5b4c7bf8cb4f2021889076}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Title@{m\-Title}}
+The callback received when the user \char`\"{}sets\char`\"{} the time in the dialog. \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa22ebf7a5e5b4c7bf8cb4f2021889076}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Title@{m\-Title}}
 \index{m\-Title@{m\-Title}!com::example::android::BluetoothChat::LASARControl@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}}
 \subsubsection[{m\-Title}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View {\bf m\-Title}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_aa22ebf7a5e5b4c7bf8cb4f2021889076}
 \hypertarget{classcom_1_1example_1_1android_1_1_bluetooth_chat_1_1_l_a_s_a_r_control_a15a773313ee00f93b799d57392f2bad3}{\index{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control@{com\-::example\-::android\-::\-Bluetooth\-Chat\-::\-L\-A\-S\-A\-R\-Control}!m\-Update\-Time@{m\-Update\-Time}}
@@ -800,4 +780,4 @@ the callback received when the user \char`\"{}sets\char`\"{} the time in the dia
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-Code/\-L\-A\-S\-A\-R/\-Android/\-L\-A\-S\-A\-R Control/src/com/example/android/\-Bluetooth\-Chat/\hyperlink{_lasar_control_8java}{Lasar\-Control.\-java}\end{DoxyCompactItemize}
+Code/\-L\-A\-S\-A\-R/\-Android/\-L\-A\-S\-A\-R Control/src/com/example/android/\-Bluetooth\-Chat/\hyperlink{_l_a_s_a_r_control_8java}{L\-A\-S\-A\-R\-Control.\-java}\end{DoxyCompactItemize}
